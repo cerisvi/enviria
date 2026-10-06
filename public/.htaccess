@@ -1,0 +1,9 @@
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /
+
+# Non riscrivere richieste di file/cartelle esistenti (assets, immagini, ecc.)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
