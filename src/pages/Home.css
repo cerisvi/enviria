@@ -1,13 +1,22 @@
 .hero {
   position: relative;
-  background: linear-gradient(170deg, #eef6f0 0%, var(--color-tint) 55%, #e4f1ea 100%);
+  background-color: var(--color-tint);
+  background-size: cover;
+  background-position: center;
   padding: 120px 0 100px;
   overflow: hidden;
 }
 
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(170deg, rgba(238, 246, 240, 0.93) 0%, rgba(226, 241, 234, 0.9) 55%, rgba(228, 241, 234, 0.95) 100%);
+}
+
 .hero__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 62ch;
 }
 

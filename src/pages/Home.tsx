@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Cpu, Leaf, Radar, Satellite, Server, Share2 } from 'lucide-react'
 import NetworkCanvas from '../components/NetworkCanvas'
+import VideoEmbed from '../components/VideoEmbed'
+import forestAerial from '../assets/photos/forest-aerial.webp'
 import './Home.css'
 
 const pillars = [
@@ -33,7 +35,8 @@ const network = [
 export default function Home() {
   return (
     <>
-      <section className="hero">
+      <section className="hero" style={{ backgroundImage: `url(${forestAerial})` }}>
+        <div className="hero__scrim" />
         <NetworkCanvas />
         <div className="container hero__inner">
           <span className="kicker">Progetto G.R.E.E.N – E.R.I. · PR FESR Sicilia 2021-2027</span>
@@ -88,6 +91,19 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section section--tint">
+        <div className="container">
+          <div className="section-head">
+            <span className="kicker">Guarda il progetto</span>
+            <h2>ENVIRIA in video</h2>
+            <p className="section-head__lead">
+              Un breve racconto per immagini dell'infrastruttura di ricerca Green ERI.
+            </p>
+          </div>
+          <VideoEmbed youtubeId="WYK8xGyu4HA" title="ENVIRIA - Progetto Green ERI" />
         </div>
       </section>
 

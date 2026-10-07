@@ -1,5 +1,6 @@
 import { type FormEvent, useState } from 'react'
 import { Building2, Mail, MapPin, Send, Target, Users } from 'lucide-react'
+import moonBranches from '../assets/photos/moon-branches.webp'
 import './InnerPage.css'
 import './ChiSiamo.css'
 
@@ -13,7 +14,7 @@ export default function ChiSiamo() {
 
   return (
     <div className="inner-page">
-      <section className="inner-hero">
+      <section className="inner-hero" style={{ backgroundImage: `url(${moonBranches})` }}>
         <div className="container inner-hero__inner">
           <span className="kicker">Chi Siamo &amp; Network</span>
           <h1>ENVIRIA S.C.A.R.L.</h1>

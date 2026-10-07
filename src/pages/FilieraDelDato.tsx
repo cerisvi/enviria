@@ -1,4 +1,5 @@
 import { BarChart3, Database, Plane, Radio, Satellite, Share2 } from 'lucide-react'
+import etnaAerial from '../assets/photos/etna-aerial.webp'
 import './InnerPage.css'
 
 const steps = [
@@ -46,7 +47,7 @@ const infrastructure = [
 export default function FilieraDelDato() {
   return (
     <div className="inner-page">
-      <section className="inner-hero">
+      <section className="inner-hero" style={{ backgroundImage: `url(${etnaAerial})` }}>
         <div className="container inner-hero__inner">
           <span className="kicker">Il Valore Scientifico</span>
           <h1>La Filiera del Dato Ambientale</h1>

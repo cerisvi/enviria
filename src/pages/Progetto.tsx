@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, BrainCircuit, Database, Map, SlidersHorizontal } from 'lucide-react'
+import riverCanyon from '../assets/photos/river-canyon.webp'
 import './InnerPage.css'
 import './Progetto.css'
 
@@ -61,7 +62,7 @@ const laboratori = [
 export default function Progetto() {
   return (
     <div className="inner-page">
-      <section className="inner-hero">
+      <section className="inner-hero" style={{ backgroundImage: `url(${riverCanyon})` }}>
         <div className="container inner-hero__inner">
           <span className="kicker">Il Progetto · G.R.E.E.N – E.R.I.</span>
           <h1>Un'infrastruttura di ricerca per rispondere al cambiamento climatico</h1>

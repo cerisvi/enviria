@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Cpu, Droplets, MonitorCog, SunMedium, TreePine } from 'lucide-react'
+import solarPanels from '../assets/photos/solar-panels.webp'
 import './InnerPage.css'
 import './AiDataCenter.css'
 
@@ -37,7 +38,7 @@ const green = [
 export default function AiDataCenter() {
   return (
     <div className="inner-page">
-      <section className="inner-hero">
+      <section className="inner-hero" style={{ backgroundImage: `url(${solarPanels})` }}>
         <div className="container inner-hero__inner">
           <span className="kicker">La Tecnologia</span>
           <h1>AI Data Center: supercalcolo al servizio della ricerca ecologica</h1>
