@@ -1,14 +1,14 @@
 .footer {
   margin-top: auto;
-  background: var(--color-forest-dark);
+  background: var(--color-forest-deep);
   color: rgba(255, 255, 255, 0.8);
 }
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
   gap: 32px;
-  padding: 56px 24px 32px;
+  padding: 64px 24px 36px;
 }
 
 .footer__brand {
@@ -16,28 +16,18 @@
   gap: 12px;
 }
 
-.footer__brand-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--color-accent);
-  flex-shrink: 0;
-}
-
 .footer__brand strong {
   color: #fff;
-  font-size: 1.05rem;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
 }
 
 .footer__tagline {
-  margin: 6px 0 0;
+  margin: 8px 0 0;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.65);
-  max-width: 30ch;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 36ch;
 }
 
 .footer__col {
@@ -48,32 +38,45 @@
 
 .footer__col h4 {
   color: #fff;
-  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   margin-bottom: 4px;
 }
 
-.footer__col a,
-.footer__address {
+.footer__col a {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .footer__col a:hover {
-  color: var(--color-accent);
+  color: #8fd6b4;
+}
+
+.footer__funding {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 18px 0;
+}
+
+.footer__funding p {
+  margin: 0;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
 }
 
 .footer__bottom {
   display: flex;
   justify-content: space-between;
-  padding: 18px 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.55);
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 @media (max-width: 720px) {

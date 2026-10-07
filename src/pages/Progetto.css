@@ -1,0 +1,8 @@
+.lab-card__subtitle {
+  color: var(--color-data-blue);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}

@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="inner-page">
       <section className="section" style={{ textAlign: 'center' }}>
         <div className="container">
-          <span className="eyebrow">404</span>
+          <span className="kicker" style={{ justifyContent: 'center' }}>404</span>
           <h1>Pagina non trovata</h1>
           <p style={{ color: 'var(--color-ink-soft)', marginBottom: 24 }}>
             La pagina che cerchi non esiste o è stata spostata.

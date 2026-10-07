@@ -4,9 +4,10 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
-import About from './pages/About'
-import Services from './pages/Services'
-import Contact from './pages/Contact'
+import Progetto from './pages/Progetto'
+import AiDataCenter from './pages/AiDataCenter'
+import FilieraDelDato from './pages/FilieraDelDato'
+import ChiSiamo from './pages/ChiSiamo'
 import HubLogin from './pages/HubLogin'
 import HubDashboard from './pages/HubDashboard'
 import NotFound from './pages/NotFound'
@@ -32,9 +33,10 @@ export default function App() {
       <main className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/chi-siamo" element={<About />} />
-          <Route path="/servizi" element={<Services />} />
-          <Route path="/contatti" element={<Contact />} />
+          <Route path="/progetto" element={<Progetto />} />
+          <Route path="/ai-data-center" element={<AiDataCenter />} />
+          <Route path="/filiera-del-dato" element={<FilieraDelDato />} />
+          <Route path="/chi-siamo" element={<ChiSiamo />} />
           <Route path="/hub" element={<HubLogin />} />
           <Route
             path="/hub/dashboard"

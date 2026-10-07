@@ -1,136 +1,132 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Gauge, Leaf, Microscope, Radar, ShieldCheck, Sprout } from 'lucide-react'
+import { ArrowRight, Cpu, Leaf, Radar, Satellite, Server, Share2 } from 'lucide-react'
+import NetworkCanvas from '../components/NetworkCanvas'
 import './Home.css'
 
 const pillars = [
   {
     icon: Radar,
-    title: 'Monitoraggio ambientale continuo',
-    text: 'Reti di sensori e piattaforme dati per osservare in tempo reale la qualità ambientale ed energetica degli spazi monitorati.',
+    title: 'Infrastruttura di Ricerca',
+    text: 'Una nuova infrastruttura ad alte prestazioni e basso impatto ambientale: Green Data Center, quattro laboratori tematici e una rete di sensori sul territorio.',
+    to: '/progetto',
   },
   {
-    icon: Microscope,
-    title: 'Ricerca applicata',
-    text: "Metodologie e strumenti sviluppati nell'ambito del progetto Green ERI, validati su casi reali con enti di ricerca e partner istituzionali.",
+    icon: Cpu,
+    title: 'AI Data Center',
+    text: 'Calcolo ad alte prestazioni (HPC) per la ricerca ecologica, alimentato da fonti rinnovabili e raffreddato con sistemi avanzati a basso impatto.',
+    to: '/ai-data-center',
   },
   {
-    icon: Sprout,
-    title: 'Sostenibilità misurabile',
-    text: 'Indicatori chiari per orientare decisioni su efficienza energetica, riduzione degli impatti e qualità degli ambienti costruiti.',
+    icon: Leaf,
+    title: 'Sostenibilità Ambientale',
+    text: 'Dal dato grezzo alla scienza aperta: una filiera che trasforma l\'osservazione del territorio in conoscenza condivisa su clima, biodiversità e rischi.',
+    to: '/filiera-del-dato',
   },
 ]
 
-const stats = [
-  { value: 'Green ERI', label: 'Progetto di ricerca di origine' },
-  { value: '100%', label: 'Dati ambientali ed energetici' },
-  { value: '24/7', label: 'Monitoraggio continuo via Hub' },
+const network = [
+  { icon: Satellite, label: 'Sensori e satelliti' },
+  { icon: Server, label: 'Supercalcolo & AI' },
+  { icon: Share2, label: 'Open Science' },
 ]
 
 export default function Home() {
   return (
     <>
       <section className="hero">
+        <NetworkCanvas />
         <div className="container hero__inner">
-          <div className="hero__copy">
-            <span className="eyebrow">Nato dal progetto di ricerca Green ERI</span>
-            <h1>
-              L'infrastruttura di ricerca green per ambienti più sani e sostenibili
-            </h1>
-            <p className="hero__lead">
-              Enviria Hub raccoglie e mette a sistema il lavoro dell'infrastruttura di ricerca
-              Green ERI: monitoraggio ambientale, dati energetici e strumenti di analisi per
-              chi progetta, gestisce e studia edifici e territori sostenibili.
-            </p>
-            <div className="hero__actions">
-              <Link to="/contatti" className="btn btn-primary">
-                Parla con noi <ArrowRight size={16} />
-              </Link>
-              <Link to="/chi-siamo" className="btn btn-outline">
-                Scopri il progetto Green ERI
-              </Link>
-            </div>
+          <span className="kicker">Progetto G.R.E.E.N – E.R.I. · PR FESR Sicilia 2021-2027</span>
+          <h1>L'infrastruttura di ricerca per il futuro del pianeta</h1>
+          <p className="hero__lead">
+            ENVIRIA costruisce un'infrastruttura di ricerca ad alte prestazioni e basso impatto
+            ambientale: supercalcolo, intelligenza artificiale, edge computing e sensoristica
+            distribuita al servizio della gestione intelligente dei dati ambientali.
+          </p>
+          <div className="hero__actions">
+            <Link to="/progetto" className="btn btn-primary">
+              Scopri il Progetto <ArrowRight size={16} />
+            </Link>
+            <Link to="/filiera-del-dato" className="btn btn-ghost">
+              Esplora la Filiera del Dato
+            </Link>
           </div>
 
-          <div className="hero__panel card">
-            <div className="hero__panel-header">
-              <Gauge size={18} />
-              <span>Enviria Hub · anteprima</span>
-            </div>
-            <ul className="hero__metrics">
-              <li>
-                <span>Qualità dell'aria</span>
-                <strong>Buona</strong>
-              </li>
-              <li>
-                <span>Consumo energetico</span>
-                <strong>-18% vs baseline</strong>
-              </li>
-              <li>
-                <span>Sensori attivi</span>
-                <strong>In espansione</strong>
-              </li>
-            </ul>
-            <p className="hero__panel-note">
-              Dati dimostrativi: l'integrazione con le reti di monitoraggio reali è in corso.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section pillars">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Cosa facciamo</span>
-            <h2>Dalla ricerca al monitoraggio quotidiano</h2>
-            <p className="section-head__lead">
-              Tre ambiti in cui l'esperienza maturata nel progetto Green ERI si traduce in
-              strumenti concreti per la sostenibilità ambientale.
-            </p>
-          </div>
-
-          <div className="grid grid-3">
-            {pillars.map(({ icon: Icon, title, text }) => (
-              <article className="card pillar-card" key={title}>
-                <span className="pillar-card__icon">
-                  <Icon size={22} />
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
+          <div className="hero__network">
+            {network.map(({ icon: Icon, label }) => (
+              <div className="hero__network-item" key={label}>
+                <Icon size={16} />
+                {label}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-tight stats">
-        <div className="container stats__inner">
-          {stats.map((stat) => (
-            <div className="stats__item" key={stat.label}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </div>
-          ))}
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <span className="kicker">I tre pilastri</span>
+            <h2>Un'unica infrastruttura, tre missioni</h2>
+            <p className="section-head__lead">
+              Ricerca, calcolo e sostenibilità convergono in un solo ecosistema: l'infrastruttura
+              Green ERI messa a disposizione del territorio attraverso ENVIRIA.
+            </p>
+          </div>
+
+          <div className="bento">
+            {pillars.map(({ icon: Icon, title, text, to }) => (
+              <Link to={to} className="bento-span-2 pillar-card card" key={title}>
+                <span className="pillar-card__icon">
+                  <Icon size={22} />
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <span className="pillar-card__link">
+                  Approfondisci <ArrowRight size={14} />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="section cta">
-        <div className="container cta__inner card">
-          <div className="cta__icon">
-            <ShieldCheck size={26} />
+      <section className="stat-strip">
+        <div className="container stat-strip__inner">
+          <div className="stat-strip__item">
+            <strong>4</strong>
+            <span>Laboratori tematici: GeoSense, GeoAI, GeoTwin, GeoDSS</span>
           </div>
-          <div className="cta__copy">
-            <h2>Vuoi collaborare con Green ERI o accedere all'Hub?</h2>
+          <div className="stat-strip__item">
+            <strong>HPC</strong>
+            <span>Green Data Center a basso impatto ambientale</span>
+          </div>
+          <div className="stat-strip__item">
+            <strong>IoT</strong>
+            <span>Flotta droni e box sensori per il monitoraggio territoriale</span>
+          </div>
+          <div className="stat-strip__item">
+            <strong>Open</strong>
+            <span>Dati condivisi con comunità scientifica e decisori</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container cta-banner card">
+          <div className="cta-banner__copy">
+            <h2>Costruiamo insieme l'infrastruttura di ricerca del territorio</h2>
             <p>
-              Enti di ricerca, gestori di edifici e partner istituzionali possono richiedere
-              l'accesso alla piattaforma dati Enviria o proporre una collaborazione.
+              Enti di ricerca, istituzioni e imprese possono proporre collaborazioni scientifiche
+              o richiedere l'accesso all'Hub dati di ENVIRIA.
             </p>
           </div>
-          <div className="cta__actions">
-            <Link to="/contatti" className="btn btn-primary">
-              Richiedi informazioni
+          <div className="cta-banner__actions">
+            <Link to="/chi-siamo" className="btn btn-primary">
+              Contatta ENVIRIA
             </Link>
             <Link to="/hub" className="btn btn-outline">
-              <Leaf size={16} /> Accedi al Hub
+              Accedi al Hub
             </Link>
           </div>
         </div>

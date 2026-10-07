@@ -1,6 +1,7 @@
 import { type FormEvent, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
-import { Leaf, LogIn } from 'lucide-react'
+import { LogIn } from 'lucide-react'
+import Mark from '../components/Mark'
 import { useHubAuth } from '../hub/useHubAuth'
 import './Hub.css'
 
@@ -21,10 +22,8 @@ export default function HubLogin() {
     <div className="hub-auth">
       <div className="hub-auth__card card">
         <Link to="/" className="hub-auth__brand">
-          <span className="hub-auth__brand-icon">
-            <Leaf size={18} />
-          </span>
-          Enviria <span>Hub</span>
+          <Mark size={24} />
+          ENVIRIA <span>Hub</span>
         </Link>
 
         <h1>Accedi al Hub</h1>

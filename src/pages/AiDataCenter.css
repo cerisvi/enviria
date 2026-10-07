@@ -1,0 +1,73 @@
+.architecture {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--color-tint);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.architecture__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-forest-deep);
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+}
+
+.architecture__arrow {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-data-blue) 0,
+    var(--color-data-blue) 6px,
+    transparent 6px,
+    transparent 11px
+  );
+}
+
+@media (max-width: 760px) {
+  .architecture {
+    flex-direction: column;
+  }
+
+  .architecture__arrow {
+    width: 2px;
+    height: 24px;
+    background: repeating-linear-gradient(
+      180deg,
+      var(--color-data-blue) 0,
+      var(--color-data-blue) 6px,
+      transparent 6px,
+      transparent 11px
+    );
+  }
+}
+
+.spec-card--on-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.spec-card--on-dark h3 {
+  color: #fff;
+}
+
+.spec-card--on-dark p {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.spec-card--on-dark .spec-card__icon {
+  background: rgba(255, 255, 255, 0.1);
+  color: #8fd6b4;
+}

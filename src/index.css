@@ -1,20 +1,37 @@
-:root {
-  --color-bg: #f6faf7;
-  --color-surface: #ffffff;
-  --color-ink: #0f1e17;
-  --color-ink-soft: #4b5f56;
-  --color-forest: #0f3d2e;
-  --color-forest-dark: #0a2b20;
-  --color-accent: #22c55e;
-  --color-accent-soft: #dcfce7;
-  --color-teal: #0f766e;
-  --color-border: #e1e9e4;
-  --radius-lg: 18px;
-  --radius-md: 12px;
-  --shadow-card: 0 8px 24px rgba(15, 61, 46, 0.08);
-  --max-width: 1160px;
+@import '@fontsource/ibm-plex-serif/500.css';
+@import '@fontsource/ibm-plex-serif/600.css';
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+@import '@fontsource/ibm-plex-sans/600.css';
+@import '@fontsource/ibm-plex-sans/700.css';
 
-  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+:root {
+  /* Palette ufficiale ENVIRIA S.C.A.R.L. */
+  --color-forest: #0f3b30; /* Verde Istituzionale */
+  --color-forest-deep: #081f19;
+  --color-nature: #3a9d5d; /* Verde Natura — solo accenti puntuali */
+  --color-data-blue: #1d4e89; /* Blu Dati */
+  --color-data-blue-deep: #143a67;
+  --color-tint: #e2efe5; /* Tinta */
+  --color-text-gray: #4a5553; /* Grigio Testo */
+
+  --color-bg: #f7faf8;
+  --color-surface: #ffffff;
+  --color-ink: #0c1f18;
+  --color-ink-soft: var(--color-text-gray);
+  --color-border: #dfe7e2;
+
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-card: 0 10px 30px rgba(8, 31, 25, 0.08);
+  --shadow-card-dark: 0 10px 34px rgba(0, 0, 0, 0.35);
+  --max-width: 1240px;
+
+  font-family: var(--font-sans);
   color-scheme: light;
 }
 
@@ -31,7 +48,7 @@ body {
 body {
   background: var(--color-bg);
   color: var(--color-ink);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 #root {
@@ -49,9 +66,12 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
   line-height: 1.15;
   margin: 0 0 0.6em;
-  color: var(--color-forest-dark);
+  color: var(--color-forest-deep);
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -69,38 +89,90 @@ button {
   padding: 0 24px;
 }
 
+.main {
+  flex: 1;
+}
+
 .section {
-  padding: 72px 0;
+  padding: 96px 0;
 }
 
 .section--tight {
-  padding: 48px 0;
+  padding: 56px 0;
 }
 
-.eyebrow {
-  display: inline-block;
-  font-size: 0.78rem;
+.section--dark {
+  background: var(--color-forest-deep);
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: #fff;
+}
+
+.section--tint {
+  background: var(--color-tint);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-teal);
-  background: var(--color-accent-soft);
-  padding: 6px 12px;
-  border-radius: 999px;
-  margin-bottom: 16px;
+  color: var(--color-data-blue);
+  margin-bottom: 18px;
+}
+
+.kicker::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  background: var(--color-nature);
+  display: inline-block;
+}
+
+.section--dark .kicker {
+  color: #8fd6b4;
+}
+
+.section--dark .kicker::before {
+  background: #8fd6b4;
+}
+
+.section-head {
+  max-width: 68ch;
+  margin-bottom: 48px;
+}
+
+.section-head__lead {
+  color: var(--color-ink-soft);
+  font-size: 1.05rem;
+}
+
+.section--dark .section-head__lead {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 13px 24px;
   border-radius: 999px;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  font-family: var(--font-sans);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
 }
 
 .btn:hover {
@@ -108,13 +180,13 @@ button {
 }
 
 .btn-primary {
-  background: var(--color-accent);
+  background: var(--color-nature);
   color: #06210f;
-  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.35);
+  box-shadow: 0 8px 18px rgba(58, 157, 93, 0.3);
 }
 
 .btn-primary:hover {
-  background: #16b054;
+  background: #2f8a50;
 }
 
 .btn-outline {
@@ -124,17 +196,18 @@ button {
 }
 
 .btn-outline:hover {
-  background: rgba(15, 61, 46, 0.06);
+  background: rgba(15, 59, 48, 0.06);
 }
 
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .card {
@@ -142,6 +215,20 @@ button {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-data-blue);
+  background: rgba(29, 78, 137, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
 }
 
 .grid {
@@ -161,6 +248,37 @@ button {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+/* Bento grid: mosaico istituzionale a blocchi di diversa dimensione */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.bento > * {
+  grid-column: span 6;
+}
+
+@media (min-width: 760px) {
+  .bento-span-2 {
+    grid-column: span 2;
+  }
+  .bento-span-3 {
+    grid-column: span 3;
+  }
+  .bento-span-4 {
+    grid-column: span 4;
+  }
+  .bento-span-6 {
+    grid-column: span 6;
+  }
+}
+
+.mono-figure {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
 @media (max-width: 900px) {
   .grid-3,
   .grid-4 {
@@ -176,6 +294,6 @@ button {
   }
 
   .section {
-    padding: 48px 0;
+    padding: 64px 0;
   }
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Database, Leaf, LogOut, Radar, Sprout } from 'lucide-react'
+import { Database, LogOut, Radar, Sprout } from 'lucide-react'
+import Mark from '../components/Mark'
 import { useHubAuth } from '../hub/useHubAuth'
 import './Hub.css'
 
@@ -28,10 +29,8 @@ export default function HubDashboard() {
     <div className="hub-dashboard">
       <header className="hub-dashboard__topbar">
         <Link to="/" className="hub-auth__brand hub-auth__brand--dark">
-          <span className="hub-auth__brand-icon">
-            <Leaf size={18} />
-          </span>
-          Enviria <span>Hub</span>
+          <Mark size={24} />
+          ENVIRIA <span>Hub</span>
         </Link>
         <button type="button" className="btn btn-outline" onClick={logout}>
           <LogOut size={16} /> Esci
@@ -40,7 +39,7 @@ export default function HubDashboard() {
 
       <main className="container hub-dashboard__content">
         <div className="hub-dashboard__intro">
-          <span className="eyebrow">Area riservata</span>
+          <span className="kicker">Area riservata</span>
           <h1>Benvenuto nell'anteprima del Hub</h1>
           <p>
             Questa è una versione dimostrativa dell'area dati Enviria. I moduli qui sotto

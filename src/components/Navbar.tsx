@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Leaf, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import Mark from './Mark'
 import './Navbar.css'
 
 const links = [
   { to: '/', label: 'Home' },
+  { to: '/progetto', label: 'Il Progetto' },
+  { to: '/ai-data-center', label: 'AI Data Center' },
+  { to: '/filiera-del-dato', label: 'Filiera del Dato' },
   { to: '/chi-siamo', label: 'Chi siamo' },
-  { to: '/servizi', label: 'Servizi' },
-  { to: '/contatti', label: 'Contatti' },
 ]
 
 export default function Navbar() {
@@ -17,10 +19,11 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar__inner">
         <Link to="/" className="navbar__brand" onClick={() => setOpen(false)}>
-          <span className="navbar__brand-icon">
-            <Leaf size={18} />
+          <Mark size={28} lineColor="#0f3b30" peakColor="#3a9d5d" />
+          <span className="navbar__brand-text">
+            ENVIRIA
+            <span className="navbar__brand-sub">Green ERI</span>
           </span>
-          Enviria <span className="navbar__brand-hub">Hub</span>
         </Link>
 
         <nav className={`navbar__links ${open ? 'is-open' : ''}`}>

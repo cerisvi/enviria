@@ -2,8 +2,8 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(246, 250, 247, 0.92);
-  backdrop-filter: blur(8px);
+  background: rgba(247, 250, 248, 0.92);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -11,54 +11,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 76px;
 }
 
 .navbar__brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: var(--color-forest-dark);
+  color: var(--color-forest-deep);
 }
 
-.navbar__brand-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: var(--color-forest);
-  color: var(--color-accent-soft);
+.navbar__brand-text {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
 }
 
-.navbar__brand-hub {
-  color: var(--color-accent);
+.navbar__brand-sub {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-data-blue);
 }
 
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
 }
 
 .navbar__link {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-ink-soft);
   padding: 8px 0;
   border-bottom: 2px solid transparent;
 }
 
 .navbar__link:hover {
-  color: var(--color-forest-dark);
+  color: var(--color-forest-deep);
 }
 
 .navbar__link.is-active {
-  color: var(--color-forest-dark);
-  border-bottom-color: var(--color-accent);
+  color: var(--color-forest-deep);
+  border-bottom-color: var(--color-nature);
 }
 
 .navbar__cta {
@@ -69,18 +71,18 @@
   display: none;
   background: none;
   border: none;
-  color: var(--color-forest-dark);
+  color: var(--color-forest-deep);
   cursor: pointer;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .navbar__toggle {
     display: inline-flex;
   }
 
   .navbar__links {
     position: absolute;
-    top: 72px;
+    top: 76px;
     left: 0;
     right: 0;
     background: var(--color-surface);
