@@ -29,7 +29,7 @@ export default function HubDashboard() {
     <div className="hub-dashboard">
       <header className="hub-dashboard__topbar">
         <Link to="/" className="hub-auth__brand hub-auth__brand--dark">
-          <Mark size={24} />
+          <Mark size={30} />
           ENVIRIA <span>Hub</span>
         </Link>
         <button type="button" className="btn btn-outline" onClick={logout}>

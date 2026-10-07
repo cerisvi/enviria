@@ -11,33 +11,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
+  height: 88px;
 }
 
 .navbar__brand {
   display: flex;
   align-items: center;
-  gap: 10px;
   color: var(--color-forest-deep);
 }
 
-.navbar__brand-text {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 0.02em;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.navbar__brand-sub {
-  font-family: var(--font-sans);
-  font-size: 0.64rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-data-blue);
+/* Dimensione minima da linee guida di marchio: 200px di base su schermo */
+.navbar__logo {
+  height: 54px;
+  width: auto;
+  display: block;
 }
 
 .navbar__links {
@@ -48,7 +35,7 @@
 
 .navbar__link {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.94rem;
   color: var(--color-ink-soft);
   padding: 8px 0;
   border-bottom: 2px solid transparent;
@@ -82,7 +69,7 @@
 
   .navbar__links {
     position: absolute;
-    top: 76px;
+    top: 88px;
     left: 0;
     right: 0;
     background: var(--color-surface);

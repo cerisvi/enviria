@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import Mark from './Mark'
+import logo from '../assets/brand/logo-orizzontale-colore.svg'
 import './Navbar.css'
 
 const links = [
@@ -19,11 +19,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar__inner">
         <Link to="/" className="navbar__brand" onClick={() => setOpen(false)}>
-          <Mark size={28} lineColor="#0f3b30" peakColor="#3a9d5d" />
-          <span className="navbar__brand-text">
-            ENVIRIA
-            <span className="navbar__brand-sub">Green ERI</span>
-          </span>
+          <img src={logo} alt="ENVIRIA — Infrastruttura di Ricerca Green ERI" className="navbar__logo" />
         </Link>
 
         <nav className={`navbar__links ${open ? 'is-open' : ''}`}>

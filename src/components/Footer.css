@@ -20,13 +20,13 @@
 .footer__brand strong {
   color: var(--color-forest-deep);
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.02em;
 }
 
 .footer__tagline {
   margin: 8px 0 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--color-ink-soft);
   max-width: 36ch;
 }
@@ -59,7 +59,7 @@
 }
 
 .footer__legal {
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   line-height: 1.6;
   color: var(--color-ink-soft);
   margin: 0;

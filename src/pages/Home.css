@@ -3,7 +3,7 @@
   background-color: var(--color-tint);
   background-size: cover;
   background-position: center;
-  padding: 120px 0 100px;
+  padding: 104px 0 88px;
   overflow: hidden;
 }
 
@@ -17,19 +17,19 @@
 .hero__inner {
   position: relative;
   z-index: 2;
-  max-width: 62ch;
+  max-width: 58ch;
 }
 
 .hero h1 {
   color: var(--color-forest-deep);
-  font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+  font-size: clamp(2.4rem, 4.4vw, 3.7rem);
   max-width: 18ch;
 }
 
 .hero__lead {
   color: var(--color-ink-soft);
-  font-size: 1.1rem;
-  max-width: 58ch;
+  font-size: 1.2rem;
+  max-width: 54ch;
 }
 
 .hero__actions {
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--color-data-blue);
   letter-spacing: 0.02em;
@@ -82,6 +82,7 @@
 
 .pillar-card p {
   color: var(--color-ink-soft);
+  font-size: 1rem;
   flex: 1;
 }
 
@@ -90,7 +91,7 @@
   align-items: center;
   gap: 6px;
   font-weight: 600;
-  font-size: 0.86rem;
+  font-size: 0.92rem;
   color: var(--color-data-blue);
 }
 

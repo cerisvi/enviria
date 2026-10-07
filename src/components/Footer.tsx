@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <div className="footer__brand">
-          <Mark size={28} />
+          <Mark size={34} />
           <div>
             <strong>ENVIRIA S.C.A.R.L.</strong>
             <p className="footer__tagline">

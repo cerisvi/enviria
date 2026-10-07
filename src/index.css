@@ -45,6 +45,10 @@ body {
   padding: 0;
 }
 
+html {
+  font-size: 17px;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-ink);
@@ -74,8 +78,23 @@ h4 {
   letter-spacing: -0.01em;
 }
 
+/* Scala tipografica dei titoli, coerente in tutto il sito.
+   Gli h1 restano a carico delle singole hero (dimensioni contestuali). */
+h2 {
+  font-size: clamp(1.75rem, 2.6vw, 2.3rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
 p {
   margin: 0 0 1em;
+  font-size: 1rem;
 }
 
 button {
@@ -94,11 +113,11 @@ button {
 }
 
 .section {
-  padding: 96px 0;
+  padding: 84px 0;
 }
 
 .section--tight {
-  padding: 56px 0;
+  padding: 52px 0;
 }
 
 .section--tint {
@@ -110,9 +129,9 @@ button {
   align-items: center;
   gap: 8px;
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-data-blue);
   margin-bottom: 18px;
@@ -127,13 +146,13 @@ button {
 }
 
 .section-head {
-  max-width: 68ch;
+  max-width: 60ch;
   margin-bottom: 48px;
 }
 
 .section-head__lead {
   color: var(--color-ink-soft);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
 }
 
 .btn {

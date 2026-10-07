@@ -22,7 +22,7 @@ export default function HubLogin() {
     <div className="hub-auth">
       <div className="hub-auth__card card">
         <Link to="/" className="hub-auth__brand">
-          <Mark size={24} />
+          <Mark size={30} />
           ENVIRIA <span>Hub</span>
         </Link>
 
