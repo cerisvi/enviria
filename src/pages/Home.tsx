@@ -3,6 +3,7 @@ import { ArrowRight, Cpu, Leaf, Radar, Satellite, Server, Share2 } from 'lucide-
 import NetworkCanvas from '../components/NetworkCanvas'
 import VideoEmbed from '../components/VideoEmbed'
 import forestAerial from '../assets/photos/forest-aerial.webp'
+import earthSpace from '../assets/photos/earth-space.webp'
 import './Home.css'
 
 const pillars = [
@@ -129,7 +130,10 @@ export default function Home() {
       </section>
 
       <section className="section">
-        <div className="container cta-banner card">
+        <div
+          className="container cta-banner cta-banner--planet"
+          style={{ backgroundImage: `url(${earthSpace})` }}
+        >
           <div className="cta-banner__copy">
             <h2>Costruiamo insieme l'infrastruttura di ricerca del territorio</h2>
             <p>

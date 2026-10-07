@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Cpu, Droplets, MonitorCog, SunMedium, TreePine } from 'lucide-react'
 import solarPanels from '../assets/photos/solar-panels.webp'
+import serverRoom from '../assets/photos/server-room.webp'
+import PhotoBand from '../components/PhotoBand'
 import './InnerPage.css'
 import './AiDataCenter.css'
 
@@ -90,6 +92,8 @@ export default function AiDataCenter() {
               <span>Sala controllo</span>
             </div>
           </div>
+
+          <PhotoBand src={serverRoom} alt="Fila di rack server in un data center" />
         </div>
       </section>
 

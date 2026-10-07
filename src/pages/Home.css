@@ -99,3 +99,40 @@
     padding: 96px 0 72px;
   }
 }
+
+.cta-banner--planet {
+  position: relative;
+  background-color: var(--color-forest-deep);
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card-dark);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cta-banner--planet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, rgba(8, 31, 25, 0.9) 10%, rgba(8, 31, 25, 0.55) 70%);
+}
+
+.cta-banner--planet h2,
+.cta-banner--planet .cta-banner__copy p {
+  color: #fff;
+}
+
+.cta-banner--planet .cta-banner__copy p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.cta-banner--planet .btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.cta-banner--planet .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}

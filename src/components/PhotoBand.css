@@ -1,0 +1,13 @@
+.photo-band {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin-top: 40px;
+}
+
+.photo-band img {
+  display: block;
+  width: 100%;
+  height: clamp(220px, 32vw, 420px);
+  object-fit: cover;
+}

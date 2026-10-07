@@ -1,6 +1,8 @@
 import { type FormEvent, useState } from 'react'
 import { Building2, Mail, MapPin, Send, Target, Users } from 'lucide-react'
 import moonBranches from '../assets/photos/moon-branches.webp'
+import coastlineAerial from '../assets/photos/coastline-aerial.webp'
+import PhotoBand from '../components/PhotoBand'
 import './InnerPage.css'
 import './ChiSiamo.css'
 
@@ -74,6 +76,8 @@ export default function ChiSiamo() {
               Nuovi partner in fase di consolidamento
             </span>
           </div>
+
+          <PhotoBand src={coastlineAerial} alt="Vista aerea della costa siciliana" />
         </div>
       </section>
 

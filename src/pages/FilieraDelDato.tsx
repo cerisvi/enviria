@@ -1,5 +1,7 @@
 import { BarChart3, Database, Plane, Radio, Satellite, Share2 } from 'lucide-react'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
+import networkCables from '../assets/photos/network-cables.webp'
+import PhotoBand from '../components/PhotoBand'
 import './InnerPage.css'
 
 const steps = [
@@ -95,6 +97,8 @@ export default function FilieraDelDato() {
               </article>
             ))}
           </div>
+
+          <PhotoBand src={networkCables} alt="Dettaglio di un pannello di permutazione con cavi di rete" />
         </div>
       </section>
 
