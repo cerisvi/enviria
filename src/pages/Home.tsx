@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Cpu, Leaf, Radar, Satellite, Server, Share2 } from 'lucide-react'
 import NetworkCanvas from '../components/NetworkCanvas'
 import VideoEmbed from '../components/VideoEmbed'
+import FundingNotice from '../components/FundingNotice'
 import forestAerial from '../assets/photos/forest-aerial.webp'
 import earthSpace from '../assets/photos/earth-space.webp'
 import './Home.css'
@@ -151,6 +152,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <FundingNotice />
     </>
   )
 }
