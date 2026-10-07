@@ -41,8 +41,10 @@ export default function Home() {
         <div className="hero__scrim" />
         <NetworkCanvas />
         <div className="container hero__inner">
-          <span className="kicker">Progetto G.R.E.E.N – E.R.I. · PR FESR Sicilia 2021-2027</span>
-          <h1>L'infrastruttura di ricerca per il futuro del pianeta</h1>
+          <h1>
+            L'infrastruttura di ricerca GREEN ERI: un Green AI Data Center per la valorizzazione
+            della filiera del dato ambientale
+          </h1>
           <p className="hero__lead">
             ENVIRIA costruisce un'infrastruttura di ricerca ad alte prestazioni e basso impatto
             ambientale: supercalcolo, intelligenza artificiale, edge computing e sensoristica
@@ -75,7 +77,7 @@ export default function Home() {
             <h2>Un'unica infrastruttura, tre missioni</h2>
             <p className="section-head__lead">
               Ricerca, calcolo e sostenibilità convergono in un solo ecosistema: l'infrastruttura
-              Green ERI messa a disposizione del territorio attraverso ENVIRIA.
+              Green ERI come hub del mediterraneo per i cambiamenti climatici.
             </p>
           </div>
 
@@ -83,7 +85,7 @@ export default function Home() {
             {pillars.map(({ icon: Icon, title, text, to }) => (
               <Link to={to} className="bento-span-2 pillar-card card" key={title}>
                 <span className="pillar-card__icon">
-                  <Icon size={22} />
+                  <Icon size={24} />
                 </span>
                 <h3>{title}</h3>
                 <p>{text}</p>
@@ -100,12 +102,12 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <span className="kicker">Guarda il progetto</span>
-            <h2>ENVIRIA in video</h2>
+            <h2>La biodiversità in un video</h2>
             <p className="section-head__lead">
-              Un breve racconto per immagini dell'infrastruttura di ricerca Green ERI.
+              Riferimento: Assessorato Territorio e Ambiente – Regione Siciliana.
             </p>
           </div>
-          <VideoEmbed youtubeId="WYK8xGyu4HA" title="ENVIRIA - Progetto Green ERI" />
+          <VideoEmbed youtubeId="WYK8xGyu4HA" title="La biodiversità in Sicilia" />
         </div>
       </section>
 
@@ -136,10 +138,10 @@ export default function Home() {
           style={{ backgroundImage: `url(${earthSpace})` }}
         >
           <div className="cta-banner__copy">
-            <h2>Costruiamo insieme l'infrastruttura di ricerca del territorio</h2>
+            <h2>Costruiamo insieme l'infrastruttura di ricerca dedicata all'ambiente in Sicilia</h2>
             <p>
               Enti di ricerca, istituzioni e imprese possono proporre collaborazioni scientifiche
-              o richiedere l'accesso all'Hub dati di ENVIRIA.
+              o richiedere l'accesso all'Hub dati e open innovation di ENVIRIA.
             </p>
           </div>
           <div className="cta-banner__actions">

@@ -150,6 +150,16 @@ button {
   margin-bottom: 48px;
 }
 
+.section-head--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-head--center .kicker {
+  justify-content: center;
+}
+
 .section-head__lead {
   color: var(--color-ink-soft);
   font-size: 1.15rem;

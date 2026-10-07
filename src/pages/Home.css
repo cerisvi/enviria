@@ -17,19 +17,19 @@
 .hero__inner {
   position: relative;
   z-index: 2;
-  max-width: 58ch;
+  max-width: 68ch;
 }
 
 .hero h1 {
   color: var(--color-forest-deep);
-  font-size: clamp(2.4rem, 4.4vw, 3.7rem);
-  max-width: 18ch;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  max-width: 40ch;
 }
 
 .hero__lead {
   color: var(--color-ink-soft);
   font-size: 1.2rem;
-  max-width: 54ch;
+  max-width: 58ch;
 }
 
 .hero__actions {
@@ -72,11 +72,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
   background: var(--color-tint);
   color: var(--color-forest);
+  box-shadow: 0 4px 10px rgba(15, 59, 48, 0.08);
   margin-bottom: 18px;
 }
 

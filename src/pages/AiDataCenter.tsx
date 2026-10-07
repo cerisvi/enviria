@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Cpu, Droplets, MonitorCog, SunMedium, TreePine } from 'lucide-react'
+import { ArrowRight, Boxes, Cpu, Droplets, MonitorCog, SunMedium } from 'lucide-react'
 import solarPanels from '../assets/photos/solar-panels.webp'
 import serverRoom from '../assets/photos/server-room.webp'
 import PhotoBand from '../components/PhotoBand'
@@ -21,9 +21,9 @@ const hpc = [
 
 const green = [
   {
-    icon: TreePine,
-    title: 'Prefabbricato in legno',
-    text: 'L\'infrastruttura HPC è ospitata in una struttura prefabbricata in legno, scelta per ridurre l\'impronta ambientale della costruzione.',
+    icon: Boxes,
+    title: 'Sistema Modulare',
+    text: 'L\'infrastruttura HPC è ospitata in una struttura modulare e scalabile, distribuita su due nodi: Catania – Palermo.',
   },
   {
     icon: SunMedium,
@@ -73,22 +73,30 @@ export default function AiDataCenter() {
 
           <div className="architecture">
             <div className="architecture__step">
-              <SunMedium size={20} />
+              <span className="architecture__icon">
+                <SunMedium size={24} />
+              </span>
               <span>Energia rinnovabile</span>
             </div>
             <div className="architecture__arrow" aria-hidden="true" />
             <div className="architecture__step">
-              <Cpu size={20} />
+              <span className="architecture__icon">
+                <Cpu size={24} />
+              </span>
               <span>Server GPU / CPU</span>
             </div>
             <div className="architecture__arrow" aria-hidden="true" />
             <div className="architecture__step">
-              <Droplets size={20} />
+              <span className="architecture__icon">
+                <Droplets size={24} />
+              </span>
               <span>Raffreddamento a liquido</span>
             </div>
             <div className="architecture__arrow" aria-hidden="true" />
             <div className="architecture__step">
-              <MonitorCog size={20} />
+              <span className="architecture__icon">
+                <MonitorCog size={24} />
+              </span>
               <span>Sala controllo</span>
             </div>
           </div>
@@ -99,7 +107,7 @@ export default function AiDataCenter() {
 
       <section className="section section--tint">
         <div className="container">
-          <div className="section-head">
+          <div className="section-head section-head--center">
             <span className="kicker">Sostenibilità Digitale</span>
             <h2>Green Computing: calcolare senza pesare sul pianeta</h2>
             <p className="section-head__lead">
@@ -111,9 +119,9 @@ export default function AiDataCenter() {
 
           <div className="grid grid-3">
             {green.map(({ icon: Icon, title, text }) => (
-              <article className="card spec-card" key={title}>
-                <span className="spec-card__icon">
-                  <Icon size={22} />
+              <article className="card spec-card spec-card--feature" key={title}>
+                <span className="spec-card__icon spec-card__icon--lg">
+                  <Icon size={28} />
                 </span>
                 <h3>{title}</h3>
                 <p>{text}</p>

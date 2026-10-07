@@ -1,8 +1,7 @@
-.partner-pill--muted {
+.partner-list__categories {
+  margin: 16px 0 0;
+  font-size: 0.92rem;
   color: var(--color-ink-soft);
-  border-style: dashed;
-  background: transparent;
-  font-weight: 500;
 }
 
 .contact-grid {

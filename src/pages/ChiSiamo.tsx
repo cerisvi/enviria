@@ -72,10 +72,17 @@ export default function ChiSiamo() {
             <span className="partner-pill">
               <Users size={16} /> CERISVI — Ente di Ricerca
             </span>
-            <span className="partner-pill partner-pill--muted">
-              Nuovi partner in fase di consolidamento
-            </span>
+            <span className="partner-pill">Smart Hub Srl</span>
+            <span className="partner-pill">Europrosvi Srl</span>
+            <span className="partner-pill">Area Sistemi di Innovazione</span>
+            <span className="partner-pill">ARPA Sicilia</span>
+            <span className="partner-pill">ISPRA</span>
+            <span className="partner-pill">Università Kore di Enna</span>
           </div>
+
+          <p className="partner-list__categories">
+            Lavoriamo inoltre con PMI, start up innovative e grandi imprese del territorio.
+          </p>
 
           <PhotoBand src={coastlineAerial} alt="Vista aerea della costa siciliana" />
         </div>
