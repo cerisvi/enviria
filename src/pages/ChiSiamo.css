@@ -32,6 +32,15 @@
   color: var(--color-forest);
 }
 
+.contact-info__legal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.86rem;
+  color: var(--color-ink-soft);
+  padding-left: 24px;
+}
+
 .contact-info__note {
   margin-top: 8px;
   font-size: 0.85rem;

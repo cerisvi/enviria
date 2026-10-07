@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   padding: 32px 24px;
-  background: radial-gradient(circle at top, rgba(58, 157, 93, 0.18), var(--color-forest-deep) 65%);
+  background: radial-gradient(circle at top, #ffffff, var(--color-tint) 70%);
   min-height: 100vh;
 }
 

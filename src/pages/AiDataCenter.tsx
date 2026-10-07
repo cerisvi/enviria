@@ -92,7 +92,7 @@ export default function AiDataCenter() {
         </div>
       </section>
 
-      <section className="section section--dark">
+      <section className="section section--tint">
         <div className="container">
           <div className="section-head">
             <span className="kicker">Sostenibilità Digitale</span>
@@ -106,7 +106,7 @@ export default function AiDataCenter() {
 
           <div className="grid grid-3">
             {green.map(({ icon: Icon, title, text }) => (
-              <article className="card spec-card spec-card--on-dark" key={title}>
+              <article className="card spec-card" key={title}>
                 <span className="spec-card__icon">
                   <Icon size={22} />
                 </span>

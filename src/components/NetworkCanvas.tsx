@@ -84,11 +84,11 @@ export default function NetworkCanvas() {
     >
       <defs>
         <pattern id="nc-grid" width="36" height="36" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.08)" />
+          <circle cx="1" cy="1" r="1" fill="rgba(15,59,48,0.08)" />
         </pattern>
         <linearGradient id="nc-fade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="rgba(15,59,48,0)" />
-          <stop offset="100%" stopColor="rgba(8,31,25,0.9)" />
+          <stop offset="0%" stopColor="rgba(238,246,240,0)" />
+          <stop offset="100%" stopColor="rgba(228,241,234,0.85)" />
         </linearGradient>
       </defs>
 

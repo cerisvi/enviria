@@ -42,10 +42,15 @@ Palette, font e loghi provengono dal kit di marchio ufficiale ENVIRIA (Verde Ist
 ## Contenuti
 
 I testi di progetto (obiettivi, laboratori, infrastruttura) sono una sintesi ricavata dai
-documenti di progetto forniti (OR-WP Green ERI), **senza importi di budget**. Dati di
-contatto: `direzione@enviriahub.it`. Mancano ancora: indirizzo sede legale, P.IVA/C.F. e
-l'elenco completo dei partner di rete — da integrare con i materiali ufficiali definitivi
-prima della pubblicazione.
+documenti di progetto forniti (OR-WP Green ERI), **senza importi di budget**.
+
+Dati legali e di contatto (footer e pagina Chi Siamo): direzione@enviriahub.it,
+Corso Italia 172, 95128 Catania (CT), PEC enviria@legalmail.it, C.F./P.IVA 06297800879.
+
+Manca ancora l'elenco completo dei partner di rete oltre a CERISVI, e non sono state
+inserite fotografie reali (nessuna fonte royalty-free è raggiungibile dalla rete di questa
+sessione): le sezioni usano grafica vettoriale astratta coerente col marchio al posto delle
+immagini richieste — da sostituire con foto reali se fornite.
 
 ## Sviluppo
 

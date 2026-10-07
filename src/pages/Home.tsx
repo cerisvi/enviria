@@ -47,7 +47,7 @@ export default function Home() {
             <Link to="/progetto" className="btn btn-primary">
               Scopri il Progetto <ArrowRight size={16} />
             </Link>
-            <Link to="/filiera-del-dato" className="btn btn-ghost">
+            <Link to="/filiera-del-dato" className="btn btn-outline">
               Esplora la Filiera del Dato
             </Link>
           </div>

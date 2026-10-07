@@ -83,9 +83,18 @@ export default function ChiSiamo() {
             <a href="mailto:direzione@enviriahub.it">
               <Mail size={16} /> direzione@enviriahub.it
             </a>
-            <span className="contact-info__location">
-              <MapPin size={16} /> Sicilia, Italia — Progetto PR FESR Sicilia 2021-2027
-            </span>
+            <a
+              href="https://www.openstreetmap.org/search?query=Corso%20Italia%20172%2C%2095128%20Catania"
+              target="_blank"
+              rel="noreferrer"
+              className="contact-info__location"
+            >
+              <MapPin size={16} /> Corso Italia 172, 95128 Catania (CT)
+            </a>
+            <div className="contact-info__legal">
+              <span>PEC: enviria@legalmail.it</span>
+              <span>C.F. / P.IVA: 06297800879</span>
+            </div>
             <p className="contact-info__note">
               Per collaborazioni scientifiche, richieste di accesso ai dati o informazioni sul
               progetto Green ERI, scrivici alla direzione.

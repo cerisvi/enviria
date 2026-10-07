@@ -7,17 +7,17 @@
 
 :root {
   /* Palette ufficiale ENVIRIA S.C.A.R.L. */
-  --color-forest: #0f3b30; /* Verde Istituzionale */
-  --color-forest-deep: #081f19;
-  --color-nature: #3a9d5d; /* Verde Natura — solo accenti puntuali */
-  --color-data-blue: #1d4e89; /* Blu Dati */
+  --color-forest: #0f3b30; /* Verde Istituzionale — testi, bottoni, piccoli accenti */
+  --color-forest-deep: #0a2b22; /* variante testo/hover, non usata come sfondo esteso */
+  --color-nature: #3a9d5d; /* Verde Natura — accenti, CTA */
+  --color-data-blue: #1d4e89; /* Blu Dati — accenti secondari */
   --color-data-blue-deep: #143a67;
-  --color-tint: #e2efe5; /* Tinta */
+  --color-tint: #e2efe5; /* Tinta — sfondo chiaro principale delle sezioni in evidenza */
   --color-text-gray: #4a5553; /* Grigio Testo */
 
-  --color-bg: #f7faf8;
+  --color-bg: #fbfdfb;
   --color-surface: #ffffff;
-  --color-ink: #0c1f18;
+  --color-ink: #122821;
   --color-ink-soft: var(--color-text-gray);
   --color-border: #dfe7e2;
 
@@ -101,18 +101,6 @@ button {
   padding: 56px 0;
 }
 
-.section--dark {
-  background: var(--color-forest-deep);
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.section--dark h1,
-.section--dark h2,
-.section--dark h3,
-.section--dark h4 {
-  color: #fff;
-}
-
 .section--tint {
   background: var(--color-tint);
 }
@@ -138,14 +126,6 @@ button {
   display: inline-block;
 }
 
-.section--dark .kicker {
-  color: #8fd6b4;
-}
-
-.section--dark .kicker::before {
-  background: #8fd6b4;
-}
-
 .section-head {
   max-width: 68ch;
   margin-bottom: 48px;
@@ -154,10 +134,6 @@ button {
 .section-head__lead {
   color: var(--color-ink-soft);
   font-size: 1.05rem;
-}
-
-.section--dark .section-head__lead {
-  color: rgba(255, 255, 255, 0.7);
 }
 
 .btn {
@@ -197,17 +173,6 @@ button {
 
 .btn-outline:hover {
   background: rgba(15, 59, 48, 0.06);
-}
-
-.btn-ghost {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
-.btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .card {

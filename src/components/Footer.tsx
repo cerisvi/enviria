@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 import Mark from './Mark'
 import './Footer.css'
 
@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <div className="footer__brand">
-          <Mark size={28} lineColor="#e2efe5" peakColor="#3a9d5d" />
+          <Mark size={28} />
           <div>
             <strong>ENVIRIA S.C.A.R.L.</strong>
             <p className="footer__tagline">
@@ -32,6 +32,20 @@ export default function Footer() {
             <Mail size={14} /> direzione@enviriahub.it
           </a>
           <Link to="/hub">Accedi al Hub</Link>
+        </div>
+
+        <div className="footer__col">
+          <h4>Sede legale</h4>
+          <p className="footer__legal">
+            <MapPin size={14} style={{ verticalAlign: '-2px', marginRight: 6 }} />
+            Corso Italia 172
+            <br />
+            95128 Catania (CT)
+            <br />
+            PEC: enviria@legalmail.it
+            <br />
+            C.F. / P.IVA: 06297800879
+          </p>
         </div>
       </div>
 
