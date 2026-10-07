@@ -3,16 +3,23 @@
   background: var(--color-surface);
 }
 
+.funding-notice__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 .funding-notice .kicker {
   margin-bottom: 20px;
 }
 
+/* Larga quanto il banner/container sopra, stessi bordi sinistro/destro */
 .funding-notice__logos {
   display: block;
-  height: 56px;
-  width: auto;
-  max-width: 100%;
-  margin-bottom: 22px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 24px;
 }
 
 .funding-notice__title {
@@ -23,6 +30,7 @@
 .funding-notice__details {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
   margin: 0;
 }
@@ -30,6 +38,7 @@
 .funding-notice__details > div {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4px;
 }
 

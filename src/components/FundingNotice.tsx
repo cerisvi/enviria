@@ -4,7 +4,7 @@ import './FundingNotice.css'
 export default function FundingNotice() {
   return (
     <section className="section section--tight funding-notice">
-      <div className="container">
+      <div className="container funding-notice__inner">
         <span className="kicker">Progetto cofinanziato</span>
 
         <img
