@@ -4,16 +4,18 @@ import './FundingNotice.css'
 export default function FundingNotice() {
   return (
     <section className="section section--tight funding-notice">
-      <div className="container funding-notice__inner">
+      <div className="container">
+        <span className="kicker">Progetto cofinanziato</span>
+
         <img
           src={logoBar}
           alt="Coesione Italia 21-27 Sicilia · Cofinanziato dall'Unione Europea · Repubblica Italiana · Regione Siciliana"
           className="funding-notice__logos"
         />
 
-        <h2 className="funding-notice__title">
+        <h3 className="funding-notice__title">
           Green&amp;Geo, Renewable, Efficiency and Innovation (GREEN-ERI)
-        </h2>
+        </h3>
 
         <dl className="funding-notice__details">
           <div>

@@ -3,43 +3,38 @@
   background: var(--color-surface);
 }
 
-.funding-notice__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 18px;
+.funding-notice .kicker {
+  margin-bottom: 20px;
 }
 
 .funding-notice__logos {
-  height: 46px;
+  display: block;
+  height: 56px;
   width: auto;
   max-width: 100%;
+  margin-bottom: 22px;
 }
 
 .funding-notice__title {
-  font-size: 1.05rem;
   max-width: 56ch;
-  color: var(--color-forest-deep);
-  margin: 0;
+  margin-bottom: 18px;
 }
 
 .funding-notice__details {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 28px;
-  margin: 4px 0 0;
+  gap: 40px;
+  margin: 0;
 }
 
 .funding-notice__details > div {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
 }
 
 .funding-notice__details dt {
-  font-size: 0.74rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -48,14 +43,13 @@
 
 .funding-notice__details dd {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.96rem;
   color: var(--color-ink-soft);
 }
 
 @media (max-width: 640px) {
   .funding-notice__details {
     flex-direction: column;
-    align-items: center;
-    gap: 14px;
+    gap: 16px;
   }
 }
