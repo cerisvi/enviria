@@ -1,0 +1,27 @@
+name: Deploy su Shellrent (enviriahub.it)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Carica via FTP su Shellrent
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SHELLRENT_FTP_SERVER }}
+          username: ${{ secrets.SHELLRENT_FTP_USERNAME }}
+          password: ${{ secrets.SHELLRENT_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.SHELLRENT_FTP_DIR }}
+          exclude: |
+            **/.git*
+            **/.git*/**
