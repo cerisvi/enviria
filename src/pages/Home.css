@@ -104,17 +104,52 @@
 }
 
 .video-caption {
-  font-family: var(--font-serif);
-  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
-  line-height: 1.5;
-  color: var(--color-ink-soft);
-  max-width: 62ch;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  margin: 0 0 32px;
 }
 
-.video-caption strong {
-  color: var(--color-forest-deep);
-  font-weight: 600;
+.video-caption > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.video-caption dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-data-blue);
+}
+
+.video-caption dd {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-ink-soft);
+  max-width: 36ch;
+  text-align: center;
+}
+
+.video-caption__divider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-border);
+}
+
+@media (max-width: 640px) {
+  .video-caption {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .video-caption__divider {
+    display: none;
+  }
 }
 
 .cta-banner--planet {

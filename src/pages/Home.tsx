@@ -138,12 +138,23 @@ export default function Home() {
           <Reveal className="section-head section-head--center">
             <span className="kicker">Guarda il progetto</span>
             <h2>La biodiversità in Sicilia in un video</h2>
-            <p className="video-caption">
-              <strong>Video:</strong> «Sicilia: un universo in un'isola» — <strong>Fonte istituzionale:</strong>{' '}
-              Regione Siciliana – Assessorato del Territorio e dell'Ambiente
-            </p>
           </Reveal>
-          <Reveal delay={0.1}>
+
+          <Reveal delay={0.08}>
+            <dl className="video-caption">
+              <div>
+                <dt>Video</dt>
+                <dd>«Sicilia: un universo in un'isola»</dd>
+              </div>
+              <div className="video-caption__divider" aria-hidden="true" />
+              <div>
+                <dt>Fonte istituzionale</dt>
+                <dd>Regione Siciliana – Assessorato del Territorio e dell'Ambiente</dd>
+              </div>
+            </dl>
+          </Reveal>
+
+          <Reveal delay={0.16}>
             <VideoEmbed youtubeId="WYK8xGyu4HA" title="La biodiversità in Sicilia" />
           </Reveal>
         </div>
