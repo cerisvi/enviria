@@ -3,6 +3,7 @@ import { ArrowRight, BarChart3, Database, Plane, Radio, Satellite, Share2 } from
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import networkCables from '../assets/photos/network-cables.webp'
 import droneFlight from '../assets/photos/drone-flight.webp'
+import dataDashboard from '../assets/photos/data-dashboard.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import './InnerPage.css'
@@ -145,6 +146,11 @@ export default function FilieraDelDato() {
               </div>
             </Reveal>
           </div>
+
+          <PhotoBand
+            src={dataDashboard}
+            alt="Interfaccia di visualizzazione dati con punti colorati, simbolo della rete di interoperabilità"
+          />
         </div>
       </section>
 

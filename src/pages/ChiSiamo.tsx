@@ -1,8 +1,8 @@
 import { type FormEvent, useState } from 'react'
 import { Building2, Mail, MapPin, Send, Target, Users } from 'lucide-react'
-import moonBranches from '../assets/photos/moon-branches.webp'
 import coastlineAerial from '../assets/photos/coastline-aerial.webp'
-import vineyard from '../assets/photos/vineyard.webp'
+import networkSphere from '../assets/photos/network-sphere.webp'
+import laptopRender from '../assets/photos/laptop-3d-render.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import './InnerPage.css'
@@ -48,7 +48,7 @@ export default function ChiSiamo() {
 
   return (
     <div className="inner-page">
-      <section className="inner-hero" style={{ backgroundImage: `url(${moonBranches})` }}>
+      <section className="inner-hero" style={{ backgroundImage: `url(${networkSphere})` }}>
         <Reveal className="container inner-hero__inner">
           <span className="kicker">Chi Siamo &amp; Network</span>
           <h1>ENVIRIA S.C.A.R.L.</h1>
@@ -93,7 +93,7 @@ export default function ChiSiamo() {
             </div>
             <Reveal delay={0.15} className="split-layout__media">
               <div className="split-layout__sticky">
-                <PhotoBand src={vineyard} alt="Vigneto sul territorio siciliano" />
+                <PhotoBand src={laptopRender} alt="Elaborazione di un modello dati 3D su schermo" />
               </div>
             </Reveal>
           </div>
