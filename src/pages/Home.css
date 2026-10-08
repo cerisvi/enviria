@@ -103,6 +103,20 @@
   }
 }
 
+.video-caption {
+  font-family: var(--font-serif);
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+.video-caption strong {
+  color: var(--color-forest-deep);
+  font-weight: 600;
+}
+
 .cta-banner--planet {
   position: relative;
   background-color: var(--color-forest-deep);

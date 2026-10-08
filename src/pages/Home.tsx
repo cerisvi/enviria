@@ -135,11 +135,12 @@ export default function Home() {
 
       <section className="section section--tint">
         <div className="container">
-          <Reveal className="section-head">
+          <Reveal className="section-head section-head--center">
             <span className="kicker">Guarda il progetto</span>
-            <h2>La biodiversità in un video</h2>
-            <p className="section-head__lead">
-              Riferimento: Assessorato Territorio e Ambiente – Regione Siciliana.
+            <h2>La biodiversità in Sicilia in un video</h2>
+            <p className="video-caption">
+              <strong>Video:</strong> «Sicilia: un universo in un'isola» — <strong>Fonte istituzionale:</strong>{' '}
+              Regione Siciliana – Assessorato del Territorio e dell'Ambiente
             </p>
           </Reveal>
           <Reveal delay={0.1}>
