@@ -43,6 +43,12 @@
   padding: 28px;
   position: relative;
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spec-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(8, 31, 25, 0.1);
 }
 
 .spec-card::before {
@@ -53,6 +59,13 @@
   right: 0;
   height: 3px;
   background: var(--color-nature);
+  transform: scaleX(0.3);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.spec-card:hover::before {
+  transform: scaleX(1);
 }
 
 .spec-card--blue::before {
@@ -70,6 +83,11 @@
   color: var(--color-forest);
   box-shadow: 0 4px 10px rgba(15, 59, 48, 0.08);
   margin-bottom: 16px;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.spec-card:hover .spec-card__icon {
+  transform: scale(1.08) rotate(-4deg);
 }
 
 .spec-card p {

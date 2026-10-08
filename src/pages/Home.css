@@ -1,16 +1,27 @@
 .hero {
   position: relative;
   background-color: var(--color-tint);
-  background-size: cover;
-  background-position: center;
   padding: 104px 0 88px;
   overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
 }
 
 .hero__scrim {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   background: linear-gradient(170deg, rgba(238, 246, 240, 0.93) 0%, rgba(226, 241, 234, 0.9) 55%, rgba(228, 241, 234, 0.95) 100%);
 }
 
@@ -61,12 +72,6 @@
   flex-direction: column;
   height: 100%;
   padding: 30px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.pillar-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(8, 31, 25, 0.14);
 }
 
 .pillar-card__icon {
@@ -80,6 +85,13 @@
   color: var(--color-forest);
   box-shadow: 0 4px 10px rgba(15, 59, 48, 0.08);
   margin-bottom: 18px;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, color 0.3s ease;
+}
+
+.pillar-card:hover .pillar-card__icon {
+  transform: scale(1.08) rotate(-4deg);
+  background: var(--color-forest);
+  color: #fff;
 }
 
 .pillar-card p {
@@ -95,6 +107,14 @@
   font-weight: 600;
   font-size: 0.92rem;
   color: var(--color-data-blue);
+}
+
+.pillar-card__link svg {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pillar-card:hover .pillar-card__link svg {
+  transform: translateX(4px);
 }
 
 @media (max-width: 900px) {

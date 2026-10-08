@@ -34,11 +34,12 @@
 }
 
 .navbar__link {
+  position: relative;
   font-weight: 600;
   font-size: 0.94rem;
   color: var(--color-ink-soft);
   padding: 8px 0;
-  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease;
 }
 
 .navbar__link:hover {
@@ -47,7 +48,16 @@
 
 .navbar__link.is-active {
   color: var(--color-forest-deep);
-  border-bottom-color: var(--color-nature);
+}
+
+.navbar__indicator {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-nature);
+  border-radius: 2px;
 }
 
 .navbar__cta {

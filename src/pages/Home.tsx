@@ -1,13 +1,18 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'motion/react'
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, Cpu, Leaf, Radar, Satellite, Server, Share2 } from 'lucide-react'
 import NetworkCanvas from '../components/NetworkCanvas'
 import VideoEmbed from '../components/VideoEmbed'
 import FundingNotice from '../components/FundingNotice'
 import Reveal from '../components/Reveal'
 import forestAerial from '../assets/photos/forest-aerial.webp'
+import etnaAerial from '../assets/photos/etna-aerial.webp'
+import coastlineAerial from '../assets/photos/coastline-aerial.webp'
 import earthSpace from '../assets/photos/earth-space.webp'
 import './Home.css'
+
+const heroImages = [forestAerial, etnaAerial, coastlineAerial]
 
 const pillars = [
   {
@@ -46,9 +51,33 @@ const heroText = {
 }
 
 export default function Home() {
+  const reduceMotion = useReducedMotion()
+  const [heroIndex, setHeroIndex] = useState(0)
+
+  useEffect(() => {
+    if (reduceMotion) return
+    const id = setInterval(() => {
+      setHeroIndex((i) => (i + 1) % heroImages.length)
+    }, 7000)
+    return () => clearInterval(id)
+  }, [reduceMotion])
+
   return (
     <>
-      <section className="hero" style={{ backgroundImage: `url(${forestAerial})` }}>
+      <section className="hero">
+        <div className="hero__bg">
+          <AnimatePresence mode="sync">
+            <motion.div
+              key={heroIndex}
+              className="hero__bg-image"
+              style={{ backgroundImage: `url(${heroImages[heroIndex]})` }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.8, ease: 'easeInOut' }}
+            />
+          </AnimatePresence>
+        </div>
         <div className="hero__scrim" />
         <NetworkCanvas />
         <div className="container hero__inner">

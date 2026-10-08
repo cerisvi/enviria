@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { motion, useReducedMotion } from 'motion/react'
 import logo from '../assets/brand/logo-orizzontale-colore.svg'
 import './Navbar.css'
 
@@ -14,6 +15,7 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const reduceMotion = useReducedMotion()
 
   return (
     <header className="navbar">
@@ -31,7 +33,20 @@ export default function Navbar() {
               className={({ isActive }) => `navbar__link ${isActive ? 'is-active' : ''}`}
               onClick={() => setOpen(false)}
             >
-              {link.label}
+              {({ isActive }) => (
+                <>
+                  {link.label}
+                  {isActive && (
+                    <motion.span
+                      className="navbar__indicator"
+                      layoutId="navbar-indicator"
+                      transition={
+                        reduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 380, damping: 32 }
+                      }
+                    />
+                  )}
+                </>
+              )}
             </NavLink>
           ))}
           <Link to="/hub" className="btn btn-primary navbar__cta" onClick={() => setOpen(false)}>

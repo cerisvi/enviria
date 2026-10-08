@@ -176,12 +176,25 @@ button {
   font-family: var(--font-sans);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
   white-space: nowrap;
 }
 
+.btn svg {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
+}
+
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  transition-duration: 0.05s;
 }
 
 .btn-primary {
@@ -192,6 +205,7 @@ button {
 
 .btn-primary:hover {
   background: #2f8a50;
+  box-shadow: 0 12px 26px rgba(58, 157, 93, 0.4);
 }
 
 .btn-outline {
@@ -202,6 +216,7 @@ button {
 
 .btn-outline:hover {
   background: rgba(15, 59, 48, 0.06);
+  box-shadow: 0 8px 18px rgba(15, 59, 48, 0.1);
 }
 
 .card {
@@ -209,6 +224,14 @@ button {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+a.card:hover,
+.card--interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(8, 31, 25, 0.12);
+  border-color: rgba(15, 59, 48, 0.16);
 }
 
 .tag {
