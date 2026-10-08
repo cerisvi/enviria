@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, BarChart3, Database, Plane, Radio, Satellite, Share2 } from 'lucide-react'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import networkCables from '../assets/photos/network-cables.webp'
+import droneFlight from '../assets/photos/drone-flight.webp'
+import globalDataMap from '../assets/photos/global-data-map.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import './InnerPage.css'
@@ -65,16 +67,21 @@ export default function FilieraDelDato() {
 
       <section className="section">
         <div className="container">
-          <div className="step-flow">
-            {steps.map((step, index) => (
-              <Reveal key={step.title} delay={index * 0.08}>
-                <div className="step-flow__item">
-                  <div className="step-flow__index">{index + 1}</div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="split-layout split-layout--reverse">
+            <Reveal className="split-layout__media">
+              <PhotoBand src={droneFlight} alt="Drone in volo per il rilievo aereo del territorio" />
+            </Reveal>
+            <div className="step-flow">
+              {steps.map((step, index) => (
+                <Reveal key={step.title} delay={index * 0.08}>
+                  <div className="step-flow__item">
+                    <div className="step-flow__index">{index + 1}</div>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -137,6 +144,11 @@ export default function FilieraDelDato() {
               </div>
             </Reveal>
           </div>
+
+          <PhotoBand
+            src={globalDataMap}
+            alt="Visualizzazione di una rete globale di dati e punti di monitoraggio"
+          />
         </div>
       </section>
 

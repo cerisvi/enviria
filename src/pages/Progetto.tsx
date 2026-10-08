@@ -4,6 +4,7 @@ import Reveal from '../components/Reveal'
 import PhotoBand from '../components/PhotoBand'
 import riverCanyon from '../assets/photos/river-canyon.webp'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
+import digitalTwin from '../assets/photos/digital-twin.webp'
 import './InnerPage.css'
 import './Progetto.css'
 
@@ -86,7 +87,7 @@ export default function Progetto() {
             <h2>Dalla costruzione dell’infrastruttura alla disseminazione dei risultati</h2>
           </Reveal>
 
-          <div className="timeline-split">
+          <div className="split-layout">
             <div className="timeline">
               {obiettivi.map((o, index) => (
                 <Reveal key={o.code} delay={index * 0.06}>
@@ -100,7 +101,7 @@ export default function Progetto() {
                 </Reveal>
               ))}
             </div>
-            <Reveal delay={0.15} className="timeline-split__image">
+            <Reveal delay={0.15} className="split-layout__media">
               <PhotoBand src={etnaAerial} alt="Vista aerea dell’Etna e del territorio siciliano" />
             </Reveal>
           </div>
@@ -118,19 +119,27 @@ export default function Progetto() {
             </p>
           </Reveal>
 
-          <div className="grid grid-2">
-            {laboratori.map(({ icon: Icon, name, subtitle, text }, index) => (
-              <Reveal key={name} delay={index * 0.08}>
-                <article className="card spec-card">
-                  <span className="spec-card__icon">
-                    <Icon size={22} />
-                  </span>
-                  <h3>{name}</h3>
-                  <p className="lab-card__subtitle">{subtitle}</p>
-                  <p>{text}</p>
-                </article>
-              </Reveal>
-            ))}
+          <div className="split-layout split-layout--reverse">
+            <Reveal delay={0.1} className="split-layout__media">
+              <PhotoBand
+                src={digitalTwin}
+                alt="Visualizzazione astratta di un modello digitale del territorio (digital twin)"
+              />
+            </Reveal>
+            <div className="grid grid-2">
+              {laboratori.map(({ icon: Icon, name, subtitle, text }, index) => (
+                <Reveal key={name} delay={index * 0.08}>
+                  <article className="card spec-card">
+                    <span className="spec-card__icon">
+                      <Icon size={22} />
+                    </span>
+                    <h3>{name}</h3>
+                    <p className="lab-card__subtitle">{subtitle}</p>
+                    <p>{text}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

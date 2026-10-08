@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Boxes, Cpu, Droplets, MonitorCog, SunMedium } from 'lucide-react'
 import solarPanels from '../assets/photos/solar-panels.webp'
 import serverRoom from '../assets/photos/server-room.webp'
+import dataTerminal from '../assets/photos/data-terminal.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import './InnerPage.css'
@@ -60,18 +61,23 @@ export default function AiDataCenter() {
             <h2>La potenza computazionale della ricerca</h2>
           </Reveal>
 
-          <div className="grid grid-2">
-            {hpc.map(({ icon: Icon, title, text }, index) => (
-              <Reveal key={title} delay={index * 0.08}>
-                <article className="card spec-card spec-card--blue">
-                  <span className="spec-card__icon">
-                    <Icon size={22} />
-                  </span>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
-              </Reveal>
-            ))}
+          <div className="split-layout">
+            <div className="grid grid-2">
+              {hpc.map(({ icon: Icon, title, text }, index) => (
+                <Reveal key={title} delay={index * 0.08}>
+                  <article className="card spec-card spec-card--blue">
+                    <span className="spec-card__icon">
+                      <Icon size={22} />
+                    </span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={0.15} className="split-layout__media">
+              <PhotoBand src={dataTerminal} alt="Flusso di dati elaborati su un terminale di calcolo" />
+            </Reveal>
           </div>
 
           <div className="architecture">

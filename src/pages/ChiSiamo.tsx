@@ -2,6 +2,7 @@ import { type FormEvent, useState } from 'react'
 import { Building2, Mail, MapPin, Send, Target, Users } from 'lucide-react'
 import moonBranches from '../assets/photos/moon-branches.webp'
 import coastlineAerial from '../assets/photos/coastline-aerial.webp'
+import vineyard from '../assets/photos/vineyard.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import './InnerPage.css'
@@ -61,32 +62,37 @@ export default function ChiSiamo() {
 
       <section className="section">
         <div className="container">
-          <div className="grid grid-2">
-            <Reveal>
-              <article className="card spec-card">
-                <span className="spec-card__icon">
-                  <Building2 size={22} />
-                </span>
-                <h3>Il consorzio</h3>
-                <p>
-                  ENVIRIA è una Società Consortile a Responsabilità Limitata nata per dare continuità
-                  operativa e gestionale all’infrastruttura di ricerca realizzata nell’ambito del
-                  progetto G.R.E.E.N – E.R.I., finanziato dal PR FESR Sicilia 2021-2027.
-                </p>
-              </article>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <article className="card spec-card spec-card--blue">
-                <span className="spec-card__icon">
-                  <Target size={22} />
-                </span>
-                <h3>La missione</h3>
-                <p>
-                  Mettere l’infrastruttura di ricerca — Green Data Center, laboratori tematici e
-                  rete di monitoraggio territoriale — al servizio della comunità scientifica, delle
-                  istituzioni e del tessuto produttivo locale.
-                </p>
-              </article>
+          <div className="split-layout">
+            <div className="grid grid-2">
+              <Reveal>
+                <article className="card spec-card">
+                  <span className="spec-card__icon">
+                    <Building2 size={22} />
+                  </span>
+                  <h3>Il consorzio</h3>
+                  <p>
+                    ENVIRIA è una Società Consortile a Responsabilità Limitata nata per dare continuità
+                    operativa e gestionale all’infrastruttura di ricerca realizzata nell’ambito del
+                    progetto G.R.E.E.N – E.R.I., finanziato dal PR FESR Sicilia 2021-2027.
+                  </p>
+                </article>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <article className="card spec-card spec-card--blue">
+                  <span className="spec-card__icon">
+                    <Target size={22} />
+                  </span>
+                  <h3>La missione</h3>
+                  <p>
+                    Mettere l’infrastruttura di ricerca — Green Data Center, laboratori tematici e
+                    rete di monitoraggio territoriale — al servizio della comunità scientifica, delle
+                    istituzioni e del tessuto produttivo locale.
+                  </p>
+                </article>
+              </Reveal>
+            </div>
+            <Reveal delay={0.15} className="split-layout__media">
+              <PhotoBand src={vineyard} alt="Vigneto sul territorio siciliano" />
             </Reveal>
           </div>
         </div>
