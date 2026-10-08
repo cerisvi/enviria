@@ -7,6 +7,7 @@ import VideoEmbed from '../components/VideoEmbed'
 import FundingNotice from '../components/FundingNotice'
 import Reveal from '../components/Reveal'
 import PhotoBand from '../components/PhotoBand'
+import Seo from '../components/Seo'
 import forestAerial from '../assets/photos/forest-aerial.webp'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import coastlineAerial from '../assets/photos/coastline-aerial.webp'
@@ -66,6 +67,11 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title="ENVIRIA — Infrastruttura di Ricerca Green ERI"
+        description="ENVIRIA costruisce l'infrastruttura di ricerca Green ERI: Green AI Data Center, quattro laboratori tematici e una rete di sensori per la gestione intelligente dei dati ambientali in Sicilia."
+        path="/"
+      />
       <section className="hero">
         <div className="hero__bg">
           <AnimatePresence mode="sync">

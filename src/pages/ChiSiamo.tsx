@@ -5,6 +5,7 @@ import networkSphere from '../assets/photos/network-sphere.webp'
 import laptopRender from '../assets/photos/laptop-3d-render.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
+import Seo from '../components/Seo'
 import './InnerPage.css'
 import './ChiSiamo.css'
 
@@ -48,6 +49,11 @@ export default function ChiSiamo() {
 
   return (
     <div className="inner-page">
+      <Seo
+        title="Chi Siamo & Network"
+        description="ENVIRIA S.C.A.R.L.: la società consortile che gestisce l'infrastruttura di ricerca Green ERI, in rete con enti di ricerca, istituzioni e imprese del territorio siciliano."
+        path="/chi-siamo"
+      />
       <section className="inner-hero" style={{ backgroundImage: `url(${networkSphere})` }}>
         <Reveal className="container inner-hero__inner">
           <span className="kicker">Chi Siamo &amp; Network</span>

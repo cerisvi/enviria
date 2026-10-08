@@ -6,6 +6,7 @@ import droneFlight from '../assets/photos/drone-flight.webp'
 import dataDashboard from '../assets/photos/data-dashboard.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
+import Seo from '../components/Seo'
 import './InnerPage.css'
 
 const steps = [
@@ -53,6 +54,11 @@ const infrastructure = [
 export default function FilieraDelDato() {
   return (
     <div className="inner-page">
+      <Seo
+        title="Filiera del Dato Ambientale"
+        description="Dal rilievo sul campo alla scienza aperta: flotta droni, rete IoT, geo-database territoriale e piattaforma di interoperabilità per trasformare l'osservazione ambientale in conoscenza condivisa."
+        path="/filiera-del-dato"
+      />
       <section className="inner-hero" style={{ backgroundImage: `url(${etnaAerial})` }}>
         <Reveal className="container inner-hero__inner">
           <span className="kicker">Il Valore Scientifico</span>

@@ -7,6 +7,7 @@ import dataCorridor from '../assets/photos/data-corridor.webp'
 import solarAerial from '../assets/photos/solar-aerial.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
+import Seo from '../components/Seo'
 import './InnerPage.css'
 import './AiDataCenter.css'
 
@@ -44,6 +45,11 @@ const green = [
 export default function AiDataCenter() {
   return (
     <div className="inner-page">
+      <Seo
+        title="AI Data Center"
+        description="Il Green Data Center di ENVIRIA: supercalcolo ad alte prestazioni (HPC) per la ricerca ecologica, alimentato da fonti rinnovabili e raffreddato con tecnologie a basso impatto ambientale."
+        path="/ai-data-center"
+      />
       <section className="inner-hero" style={{ backgroundImage: `url(${solarPanels})` }}>
         <Reveal className="container inner-hero__inner">
           <span className="kicker">La Tecnologia</span>

@@ -1,0 +1,16 @@
+# ENVIRIA
+
+> ENVIRIA S.C.A.R.L. è la società consortile che realizza e gestisce l'infrastruttura di ricerca Green ERI (progetto G.R.E.E.N – E.R.I.), finanziata dal PR FESR Sicilia 2021-2027 (CUP G61E25000170007, Azione 1.1.4). L'infrastruttura comprende un Green AI Data Center a basso impatto ambientale, quattro laboratori tematici (GeoSense, GeoAI, GeoTwin, GeoDSS) e una rete di monitoraggio territoriale (droni, sensori IoT) per la gestione intelligente dei dati ambientali in Sicilia.
+
+## Pagine principali
+
+- [Home](https://enviriahub.it/): presentazione dell'infrastruttura e dei suoi tre pilastri (ricerca, AI Data Center, sostenibilità ambientale)
+- [Il Progetto](https://enviriahub.it/progetto): obiettivi realizzativi del progetto G.R.E.E.N – E.R.I. e i quattro laboratori tematici
+- [AI Data Center](https://enviriahub.it/ai-data-center): il Green Data Center, supercalcolo HPC alimentato da fonti rinnovabili
+- [Filiera del Dato](https://enviriahub.it/filiera-del-dato): il percorso del dato ambientale dalla raccolta sul campo alla scienza aperta
+- [Chi Siamo](https://enviriahub.it/chi-siamo): il consorzio ENVIRIA S.C.A.R.L., la rete di partner ed enti di ricerca, i contatti
+
+## Contatti
+
+- Email: direzione@enviriahub.it
+- Sede legale: Corso Italia 172, 95128 Catania (CT), Italia

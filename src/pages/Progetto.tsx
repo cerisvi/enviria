@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, BrainCircuit, Database, Map, SlidersHorizontal } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import PhotoBand from '../components/PhotoBand'
+import Seo from '../components/Seo'
 import riverCanyon from '../assets/photos/river-canyon.webp'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import digitalTwin from '../assets/photos/digital-twin.webp'
@@ -68,6 +69,11 @@ const laboratori = [
 export default function Progetto() {
   return (
     <div className="inner-page">
+      <Seo
+        title="Il Progetto"
+        description="Il progetto G.R.E.E.N – E.R.I. risponde al cambiamento climatico con supercalcolo, intelligenza artificiale, edge computing e sensoristica distribuita, finanziato dal PR FESR Sicilia 2021-2027."
+        path="/progetto"
+      />
       <section className="inner-hero" style={{ backgroundImage: `url(${riverCanyon})` }}>
         <Reveal className="container inner-hero__inner">
           <span className="kicker">Il Progetto · G.R.E.E.N – E.R.I.</span>
