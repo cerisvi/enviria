@@ -50,8 +50,8 @@ export default function ChiSiamo() {
   return (
     <div className="inner-page">
       <Seo
-        title="Chi Siamo & Network"
-        description="ENVIRIA S.C.A.R.L.: la società consortile che gestisce l'infrastruttura di ricerca Green ERI, in rete con enti di ricerca, istituzioni e imprese del territorio siciliano."
+        title="Chi Siamo — Organismo di Ricerca ENVIRIA"
+        description="ENVIRIA è l'Organismo di Ricerca, società consortile siciliana che gestisce la prima e unica infrastruttura di ricerca sull'ambiente nel Mediterraneo, in rete con enti di ricerca, istituzioni e imprese del territorio."
         path="/chi-siamo"
       />
       <section className="inner-hero" style={{ backgroundImage: `url(${networkSphere})` }}>
@@ -77,9 +77,10 @@ export default function ChiSiamo() {
                   </span>
                   <h3>Il consorzio</h3>
                   <p>
-                    ENVIRIA è una Società Consortile a Responsabilità Limitata nata per dare continuità
-                    operativa e gestionale all’infrastruttura di ricerca realizzata nell’ambito del
-                    progetto G.R.E.E.N – E.R.I., finanziato dal PR FESR Sicilia 2021-2027.
+                    ENVIRIA è una Società Consortile a Responsabilità Limitata, Organismo di Ricerca
+                    nato per dare continuità operativa e gestionale alla prima e unica infrastruttura
+                    di ricerca sull’ambiente nel Mediterraneo, realizzata nell’ambito del progetto
+                    G.R.E.E.N – E.R.I., finanziato dal PR FESR Sicilia 2021-2027.
                   </p>
                 </article>
               </Reveal>

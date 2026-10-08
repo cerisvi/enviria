@@ -1,14 +1,14 @@
 # ENVIRIA
 
-> ENVIRIA S.C.A.R.L. è la società consortile che realizza e gestisce l'infrastruttura di ricerca Green ERI (progetto G.R.E.E.N – E.R.I.), finanziata dal PR FESR Sicilia 2021-2027 (CUP G61E25000170007, Azione 1.1.4). L'infrastruttura comprende un Green AI Data Center a basso impatto ambientale, quattro laboratori tematici (GeoSense, GeoAI, GeoTwin, GeoDSS) e una rete di monitoraggio territoriale (droni, sensori IoT) per la gestione intelligente dei dati ambientali in Sicilia.
+> ENVIRIA è l'Organismo di Ricerca, società consortile (ENVIRIA S.C.A.R.L.) che realizza e gestisce la prima e unica infrastruttura di ricerca sull'ambiente nel Mediterraneo: il progetto G.R.E.E.N – E.R.I., finanziato dal PR FESR Sicilia 2021-2027 (CUP G61E25000170007, Azione 1.1.4). L'infrastruttura di ricerca comprende un AI Data Center / Green Data Center a basso impatto ambientale distribuito su due nodi datacenter (Catania e Palermo), quattro laboratori tematici (GeoSense, GeoAI, GeoTwin, GeoDSS) e una rete di monitoraggio territoriale (droni, sensori IoT) per un progetto di ricerca su ambiente e sostenibilità ambientale in Sicilia.
 
 ## Pagine principali
 
-- [Home](https://enviriahub.it/): presentazione dell'infrastruttura e dei suoi tre pilastri (ricerca, AI Data Center, sostenibilità ambientale)
-- [Il Progetto](https://enviriahub.it/progetto): obiettivi realizzativi del progetto G.R.E.E.N – E.R.I. e i quattro laboratori tematici
-- [AI Data Center](https://enviriahub.it/ai-data-center): il Green Data Center, supercalcolo HPC alimentato da fonti rinnovabili
+- [Home](https://enviriahub.it/): presentazione dell'infrastruttura di ricerca e dei suoi tre pilastri (ricerca, AI Data Center, sostenibilità ambientale)
+- [Il Progetto](https://enviriahub.it/progetto): obiettivi realizzativi del progetto di ricerca G.R.E.E.N – E.R.I. e i quattro laboratori tematici
+- [AI Data Center](https://enviriahub.it/ai-data-center): il Green Data Center sui nodi datacenter di Catania e Palermo, supercalcolo HPC alimentato da fonti rinnovabili
 - [Filiera del Dato](https://enviriahub.it/filiera-del-dato): il percorso del dato ambientale dalla raccolta sul campo alla scienza aperta
-- [Chi Siamo](https://enviriahub.it/chi-siamo): il consorzio ENVIRIA S.C.A.R.L., la rete di partner ed enti di ricerca, i contatti
+- [Chi Siamo](https://enviriahub.it/chi-siamo): ENVIRIA, Organismo di Ricerca e società consortile, la rete di partner ed enti di ricerca, i contatti
 
 ## Contatti
 

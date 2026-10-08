@@ -68,8 +68,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="ENVIRIA — Infrastruttura di Ricerca Green ERI"
-        description="ENVIRIA costruisce l'infrastruttura di ricerca Green ERI: Green AI Data Center, quattro laboratori tematici e una rete di sensori per la gestione intelligente dei dati ambientali in Sicilia."
+        title="ENVIRIA — Infrastruttura di Ricerca e AI Data Center in Sicilia"
+        description="ENVIRIA è l'Organismo di Ricerca che gestisce la prima e unica infrastruttura di ricerca sull'ambiente nel Mediterraneo: Green AI Data Center, nodi datacenter a Catania e Palermo, laboratori tematici per la sostenibilità ambientale in Sicilia."
         path="/"
       />
       <section className="hero">
@@ -143,7 +143,8 @@ export default function Home() {
             <h2>Un’unica infrastruttura, tre missioni</h2>
             <p className="section-head__lead">
               Ricerca, calcolo e sostenibilità convergono in un solo ecosistema: l’infrastruttura
-              Green ERI come hub del mediterraneo per i cambiamenti climatici.
+              Green ERI, la prima e unica infrastruttura di ricerca sull’ambiente nel Mediterraneo,
+              come hub per i cambiamenti climatici.
             </p>
           </Reveal>
 

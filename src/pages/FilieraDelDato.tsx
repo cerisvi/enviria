@@ -55,8 +55,8 @@ export default function FilieraDelDato() {
   return (
     <div className="inner-page">
       <Seo
-        title="Filiera del Dato Ambientale"
-        description="Dal rilievo sul campo alla scienza aperta: flotta droni, rete IoT, geo-database territoriale e piattaforma di interoperabilità per trasformare l'osservazione ambientale in conoscenza condivisa."
+        title="Filiera del Dato Ambientale — ENVIRIA Sicilia"
+        description="Dal rilievo sul campo alla scienza aperta: flotta droni, rete IoT, geo-database territoriale e piattaforma di interoperabilità dell'infrastruttura di ricerca ambientale ENVIRIA in Sicilia."
         path="/filiera-del-dato"
       />
       <section className="inner-hero" style={{ backgroundImage: `url(${etnaAerial})` }}>

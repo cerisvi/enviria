@@ -70,8 +70,8 @@ export default function Progetto() {
   return (
     <div className="inner-page">
       <Seo
-        title="Il Progetto"
-        description="Il progetto G.R.E.E.N – E.R.I. risponde al cambiamento climatico con supercalcolo, intelligenza artificiale, edge computing e sensoristica distribuita, finanziato dal PR FESR Sicilia 2021-2027."
+        title="Il Progetto — Infrastruttura di Ricerca Ambientale"
+        description="Il progetto G.R.E.E.N – E.R.I.: la prima infrastruttura di ricerca sull'ambiente nel Mediterraneo. Un progetto di ricerca su ambiente e sostenibilità ambientale con AI Data Center, supercalcolo ed edge computing, finanziato dal PR FESR Sicilia 2021-2027."
         path="/progetto"
       />
       <section className="inner-hero" style={{ backgroundImage: `url(${riverCanyon})` }}>

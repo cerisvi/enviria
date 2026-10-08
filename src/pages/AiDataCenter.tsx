@@ -46,8 +46,8 @@ export default function AiDataCenter() {
   return (
     <div className="inner-page">
       <Seo
-        title="AI Data Center"
-        description="Il Green Data Center di ENVIRIA: supercalcolo ad alte prestazioni (HPC) per la ricerca ecologica, alimentato da fonti rinnovabili e raffreddato con tecnologie a basso impatto ambientale."
+        title="AI Data Center — Green Data Center in Sicilia"
+        description="L'AI Data Center di ENVIRIA: un Green Data Center distribuito su due nodi datacenter (Catania e Palermo), alimentato da fonti rinnovabili, per il supercalcolo (HPC) al servizio della ricerca ambientale in Sicilia."
         path="/ai-data-center"
       />
       <section className="inner-hero" style={{ backgroundImage: `url(${solarPanels})` }}>
