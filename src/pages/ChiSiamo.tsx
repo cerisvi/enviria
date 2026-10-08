@@ -7,12 +7,42 @@ import Reveal from '../components/Reveal'
 import './InnerPage.css'
 import './ChiSiamo.css'
 
-export default function ChiSiamo() {
-  const [submitted, setSubmitted] = useState(false)
+type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+export default function ChiSiamo() {
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    setSubmitted(true)
+    setStatus('sending')
+    setErrorMessage('')
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+        setErrorMessage(
+          data.message || 'Invio non riuscito. Riprova più tardi o scrivici direttamente.',
+        )
+      }
+    } catch {
+      setStatus('error')
+      setErrorMessage(
+        'Impossibile contattare il server. Riprova più tardi o scrivici direttamente a direzione@enviriahub.it.',
+      )
+    }
   }
 
   return (
@@ -122,13 +152,22 @@ export default function ChiSiamo() {
 
           <Reveal delay={0.08}>
             <div className="card contact-form">
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="contact-form__success">
                   <h3>Grazie per averci scritto!</h3>
                   <p>Abbiamo ricevuto la tua richiesta. Ti risponderemo al più presto.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit}>
+                  {/* Honeypot anti-spam: campo nascosto, invisibile e ignorato dagli utenti reali */}
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="contact-form__honeypot"
+                    aria-hidden="true"
+                  />
                   <div className="contact-form__row">
                     <label>
                       Nome e cognome
@@ -147,12 +186,18 @@ export default function ChiSiamo() {
                     Messaggio
                     <textarea name="message" required rows={5} placeholder="Descrivi la tua richiesta..." />
                   </label>
-                  <button type="submit" className="btn btn-primary">
-                    Invia richiesta <Send size={16} />
+                  <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Invio in corso…' : 'Invia richiesta'}
+                    {status !== 'sending' && <Send size={16} />}
                   </button>
+                  {status === 'error' && (
+                    <p className="contact-form__error" role="alert">
+                      {errorMessage}
+                    </p>
+                  )}
                   <p className="contact-form__disclaimer">
-                    Modulo dimostrativo: al momento non è collegato a un servizio di invio email.
-                    Per richieste reali scrivi direttamente a{' '}
+                    Scrivendoci acconsenti al trattamento dei dati per questa richiesta. Per
+                    informazioni dirette:{' '}
                     <a href="mailto:direzione@enviriahub.it">direzione@enviriahub.it</a>.
                   </p>
                 </form>

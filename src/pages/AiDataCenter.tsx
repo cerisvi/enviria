@@ -147,6 +147,9 @@ export default function AiDataCenter() {
               <Link to="/filiera-del-dato" className="btn btn-primary">
                 La Filiera del Dato <ArrowRight size={16} />
               </Link>
+              <Link to="/chi-siamo" className="btn btn-outline">
+                Contattaci
+              </Link>
             </div>
           </div>
         </Reveal>

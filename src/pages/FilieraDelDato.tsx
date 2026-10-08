@@ -1,4 +1,5 @@
-import { BarChart3, Database, Plane, Radio, Satellite, Share2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, BarChart3, Database, Plane, Radio, Satellite, Share2 } from 'lucide-react'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import networkCables from '../assets/photos/network-cables.webp'
 import PhotoBand from '../components/PhotoBand'
@@ -137,6 +138,25 @@ export default function FilieraDelDato() {
             </Reveal>
           </div>
         </div>
+      </section>
+
+      <section className="section">
+        <Reveal>
+          <div className="container cta-banner card">
+            <div className="cta-banner__copy">
+              <h2>Vuoi accedere ai dati o proporre una collaborazione?</h2>
+              <p>
+                Enti di ricerca, istituzioni e imprese possono richiedere l'accesso alla filiera
+                del dato ambientale e proporre progetti congiunti.
+              </p>
+            </div>
+            <div className="cta-banner__actions">
+              <Link to="/chi-siamo" className="btn btn-primary">
+                Contattaci <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </Reveal>
       </section>
     </div>
   )

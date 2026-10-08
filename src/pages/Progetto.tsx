@@ -145,6 +145,9 @@ export default function Progetto() {
               <Link to="/filiera-del-dato" className="btn btn-outline">
                 Filiera del Dato
               </Link>
+              <Link to="/chi-siamo" className="btn btn-outline">
+                Contattaci
+              </Link>
             </div>
           </div>
         </Reveal>
