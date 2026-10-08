@@ -3,7 +3,6 @@ import { ArrowRight, BarChart3, Database, Plane, Radio, Satellite, Share2 } from
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import networkCables from '../assets/photos/network-cables.webp'
 import droneFlight from '../assets/photos/drone-flight.webp'
-import globalDataMap from '../assets/photos/global-data-map.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import './InnerPage.css'
@@ -69,7 +68,9 @@ export default function FilieraDelDato() {
         <div className="container">
           <div className="split-layout split-layout--reverse">
             <Reveal className="split-layout__media">
-              <PhotoBand src={droneFlight} alt="Drone in volo per il rilievo aereo del territorio" />
+              <div className="split-layout__sticky">
+                <PhotoBand src={droneFlight} alt="Drone in volo per il rilievo aereo del territorio" />
+              </div>
             </Reveal>
             <div className="step-flow">
               {steps.map((step, index) => (
@@ -144,11 +145,6 @@ export default function FilieraDelDato() {
               </div>
             </Reveal>
           </div>
-
-          <PhotoBand
-            src={globalDataMap}
-            alt="Visualizzazione di una rete globale di dati e punti di monitoraggio"
-          />
         </div>
       </section>
 

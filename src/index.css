@@ -234,12 +234,16 @@ a.card:hover,
   border-color: rgba(15, 59, 48, 0.16);
 }
 
-/* Layout testo + immagine affiancata, riusabile in qualunque pagina */
+/* Layout testo + immagine affiancata, riusabile in qualunque pagina.
+   La colonna immagine (.split-layout__media) si estende quanto la colonna
+   di testo (align-items: stretch, il default griglia): dentro, un wrapper
+   sticky separato (.split-layout__sticky) mantiene la foto "agganciata"
+   durante lo scroll, senza lasciare spazio vuoto sotto quando il testo è
+   più lungo della foto. */
 .split-layout {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
   gap: 48px;
-  align-items: start;
 }
 
 .split-layout--reverse {
@@ -250,7 +254,7 @@ a.card:hover,
   order: -1;
 }
 
-.split-layout__media {
+.split-layout__sticky {
   position: sticky;
   top: 110px;
 }
@@ -271,11 +275,11 @@ a.card:hover,
   display: none;
 }
 
-.split-layout__media .photo-band {
+.split-layout__sticky .photo-band {
   margin-top: 0;
 }
 
-.split-layout__media .photo-band img {
+.split-layout__sticky .photo-band img {
   height: 420px;
 }
 
@@ -287,11 +291,14 @@ a.card:hover,
   }
 
   .split-layout__media {
-    position: static;
     order: -1;
   }
 
-  .split-layout__media .photo-band img {
+  .split-layout__sticky {
+    position: static;
+  }
+
+  .split-layout__sticky .photo-band img {
     height: clamp(200px, 60vw, 320px);
   }
 }

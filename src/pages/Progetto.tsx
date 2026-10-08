@@ -104,7 +104,9 @@ export default function Progetto() {
               ))}
             </div>
             <Reveal delay={0.15} className="split-layout__media">
-              <PhotoBand src={etnaAerial} alt="Vista aerea dell’Etna e del territorio siciliano" />
+              <div className="split-layout__sticky">
+                <PhotoBand src={etnaAerial} alt="Vista aerea dell’Etna e del territorio siciliano" />
+              </div>
             </Reveal>
           </div>
         </div>
@@ -123,10 +125,12 @@ export default function Progetto() {
 
           <div className="split-layout split-layout--reverse">
             <Reveal delay={0.1} className="split-layout__media">
-              <PhotoBand
-                src={digitalTwin}
-                alt="Visualizzazione astratta di un modello digitale del territorio (digital twin)"
-              />
+              <div className="split-layout__sticky">
+                <PhotoBand
+                  src={digitalTwin}
+                  alt="Visualizzazione astratta di un modello digitale del territorio (digital twin)"
+                />
+              </div>
             </Reveal>
             <div className="grid grid-2">
               {laboratori.map(({ icon: Icon, name, subtitle, text }, index) => (

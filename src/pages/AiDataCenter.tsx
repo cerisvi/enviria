@@ -78,7 +78,9 @@ export default function AiDataCenter() {
               ))}
             </div>
             <Reveal delay={0.15} className="split-layout__media">
-              <PhotoBand src={dataTerminal} alt="Flusso di dati elaborati su un terminale di calcolo" />
+              <div className="split-layout__sticky">
+                <PhotoBand src={dataTerminal} alt="Flusso di dati elaborati su un terminale di calcolo" />
+              </div>
             </Reveal>
           </div>
 
@@ -135,7 +137,9 @@ export default function AiDataCenter() {
 
           <div className="split-layout split-layout--reverse">
             <Reveal delay={0.1} className="split-layout__media">
-              <PhotoBand src={solarAerial} alt="Vista aerea di un campo fotovoltaico" />
+              <div className="split-layout__sticky">
+                <PhotoBand src={solarAerial} alt="Vista aerea di un campo fotovoltaico" />
+              </div>
             </Reveal>
             <div className="grid grid-3">
               {green.map(({ icon: Icon, title, text }, index) => (

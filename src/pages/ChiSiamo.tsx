@@ -92,7 +92,9 @@ export default function ChiSiamo() {
               </Reveal>
             </div>
             <Reveal delay={0.15} className="split-layout__media">
-              <PhotoBand src={vineyard} alt="Vigneto sul territorio siciliano" />
+              <div className="split-layout__sticky">
+                <PhotoBand src={vineyard} alt="Vigneto sul territorio siciliano" />
+              </div>
             </Reveal>
           </div>
         </div>

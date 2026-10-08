@@ -176,7 +176,9 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal delay={0.1} className="split-layout__media">
-            <PhotoBand src={aiNetworkHand} alt="Mano robotica che interagisce con una rete di dati" />
+            <div className="split-layout__sticky">
+              <PhotoBand src={aiNetworkHand} alt="Mano robotica che interagisce con una rete di dati" />
+            </div>
           </Reveal>
         </div>
       </section>
