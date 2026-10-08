@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, BrainCircuit, Database, Map, SlidersHorizontal } from 'lucide-react'
+import Reveal from '../components/Reveal'
 import riverCanyon from '../assets/photos/river-canyon.webp'
 import './InnerPage.css'
 import './Progetto.css'
@@ -63,7 +64,7 @@ export default function Progetto() {
   return (
     <div className="inner-page">
       <section className="inner-hero" style={{ backgroundImage: `url(${riverCanyon})` }}>
-        <div className="container inner-hero__inner">
+        <Reveal className="container inner-hero__inner">
           <span className="kicker">Il Progetto · G.R.E.E.N – E.R.I.</span>
           <h1>Un'infrastruttura di ricerca per rispondere al cambiamento climatico</h1>
           <p className="inner-hero__lead">
@@ -73,25 +74,27 @@ export default function Progetto() {
             intelligente dei dati ambientali, realizzata nell'ambito del PR FESR Sicilia
             2021-2027.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <span className="kicker">Obiettivi realizzativi</span>
             <h2>Dalla costruzione dell'infrastruttura alla disseminazione dei risultati</h2>
-          </div>
+          </Reveal>
 
           <div className="timeline">
-            {obiettivi.map((o) => (
-              <div className="timeline__item" key={o.code}>
-                <div className="timeline__index">{o.code}</div>
-                <div>
-                  <h3>{o.title}</h3>
-                  <p>{o.text}</p>
+            {obiettivi.map((o, index) => (
+              <Reveal key={o.code} delay={index * 0.06}>
+                <div className="timeline__item">
+                  <div className="timeline__index">{o.code}</div>
+                  <div>
+                    <h3>{o.title}</h3>
+                    <p>{o.text}</p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -99,48 +102,52 @@ export default function Progetto() {
 
       <section className="section section--tint">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <span className="kicker">L'infrastruttura</span>
             <h2>Quattro laboratori tematici</h2>
             <p className="section-head__lead">
               Il cuore scientifico dell'infrastruttura: quattro laboratori dedicati all'intero
               ciclo del dato ambientale, dalla raccolta sul campo al supporto alle decisioni.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-2">
-            {laboratori.map(({ icon: Icon, name, subtitle, text }) => (
-              <article className="card spec-card" key={name}>
-                <span className="spec-card__icon">
-                  <Icon size={22} />
-                </span>
-                <h3>{name}</h3>
-                <p className="lab-card__subtitle">{subtitle}</p>
-                <p>{text}</p>
-              </article>
+            {laboratori.map(({ icon: Icon, name, subtitle, text }, index) => (
+              <Reveal key={name} delay={index * 0.08}>
+                <article className="card spec-card">
+                  <span className="spec-card__icon">
+                    <Icon size={22} />
+                  </span>
+                  <h3>{name}</h3>
+                  <p className="lab-card__subtitle">{subtitle}</p>
+                  <p>{text}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container cta-banner card">
-          <div className="cta-banner__copy">
-            <h2>Scopri l'AI Data Center e la Filiera del Dato</h2>
-            <p>
-              Approfondisci la tecnologia di calcolo sostenibile e il percorso che trasforma il
-              dato ambientale in conoscenza condivisa.
-            </p>
+        <Reveal>
+          <div className="container cta-banner card">
+            <div className="cta-banner__copy">
+              <h2>Scopri l'AI Data Center e la Filiera del Dato</h2>
+              <p>
+                Approfondisci la tecnologia di calcolo sostenibile e il percorso che trasforma il
+                dato ambientale in conoscenza condivisa.
+              </p>
+            </div>
+            <div className="cta-banner__actions">
+              <Link to="/ai-data-center" className="btn btn-primary">
+                AI Data Center <ArrowRight size={16} />
+              </Link>
+              <Link to="/filiera-del-dato" className="btn btn-outline">
+                Filiera del Dato
+              </Link>
+            </div>
           </div>
-          <div className="cta-banner__actions">
-            <Link to="/ai-data-center" className="btn btn-primary">
-              AI Data Center <ArrowRight size={16} />
-            </Link>
-            <Link to="/filiera-del-dato" className="btn btn-outline">
-              Filiera del Dato
-            </Link>
-          </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   )

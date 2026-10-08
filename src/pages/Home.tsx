@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'motion/react'
 import { ArrowRight, Cpu, Leaf, Radar, Satellite, Server, Share2 } from 'lucide-react'
 import NetworkCanvas from '../components/NetworkCanvas'
 import VideoEmbed from '../components/VideoEmbed'
 import FundingNotice from '../components/FundingNotice'
+import Reveal from '../components/Reveal'
 import forestAerial from '../assets/photos/forest-aerial.webp'
 import earthSpace from '../assets/photos/earth-space.webp'
 import './Home.css'
@@ -34,6 +36,15 @@ const network = [
   { icon: Share2, label: 'Open Science' },
 ]
 
+const heroText = {
+  hidden: { opacity: 0, y: 16 },
+  show: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+  }),
+}
+
 export default function Home() {
   return (
     <>
@@ -41,58 +52,82 @@ export default function Home() {
         <div className="hero__scrim" />
         <NetworkCanvas />
         <div className="container hero__inner">
-          <h1>
+          <motion.h1 initial="hidden" animate="show" custom={0} variants={heroText}>
             L'infrastruttura di ricerca GREEN ERI: un Green AI Data Center per la valorizzazione
             della filiera del dato ambientale
-          </h1>
-          <p className="hero__lead">
+          </motion.h1>
+          <motion.p
+            className="hero__lead"
+            initial="hidden"
+            animate="show"
+            custom={0.1}
+            variants={heroText}
+          >
             ENVIRIA costruisce un'infrastruttura di ricerca ad alte prestazioni e basso impatto
             ambientale: supercalcolo, intelligenza artificiale, edge computing e sensoristica
             distribuita al servizio della gestione intelligente dei dati ambientali.
-          </p>
-          <div className="hero__actions">
+          </motion.p>
+          <motion.div
+            className="hero__actions"
+            initial="hidden"
+            animate="show"
+            custom={0.2}
+            variants={heroText}
+          >
             <Link to="/progetto" className="btn btn-primary">
               Scopri il Progetto <ArrowRight size={16} />
             </Link>
             <Link to="/filiera-del-dato" className="btn btn-outline">
               Esplora la Filiera del Dato
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="hero__network">
+          <motion.div
+            className="hero__network"
+            initial="hidden"
+            animate="show"
+            custom={0.3}
+            variants={heroText}
+          >
             {network.map(({ icon: Icon, label }) => (
               <div className="hero__network-item" key={label}>
                 <Icon size={16} />
                 {label}
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <span className="kicker">I tre pilastri</span>
             <h2>Un'unica infrastruttura, tre missioni</h2>
             <p className="section-head__lead">
               Ricerca, calcolo e sostenibilità convergono in un solo ecosistema: l'infrastruttura
               Green ERI come hub del mediterraneo per i cambiamenti climatici.
             </p>
-          </div>
+          </Reveal>
 
           <div className="bento">
-            {pillars.map(({ icon: Icon, title, text, to }) => (
-              <Link to={to} className="bento-span-2 pillar-card card" key={title}>
-                <span className="pillar-card__icon">
-                  <Icon size={24} />
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <span className="pillar-card__link">
-                  Approfondisci <ArrowRight size={14} />
-                </span>
-              </Link>
+            {pillars.map(({ icon: Icon, title, text, to }, index) => (
+              <Reveal
+                key={title}
+                className="bento-span-2"
+                delay={index * 0.1}
+              >
+                <Link to={to} className="pillar-card card">
+                  <span className="pillar-card__icon">
+                    <Icon size={24} />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <span className="pillar-card__link">
+                    Approfondisci <ArrowRight size={14} />
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -100,14 +135,16 @@ export default function Home() {
 
       <section className="section section--tint">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <span className="kicker">Guarda il progetto</span>
             <h2>La biodiversità in un video</h2>
             <p className="section-head__lead">
               Riferimento: Assessorato Territorio e Ambiente – Regione Siciliana.
             </p>
-          </div>
-          <VideoEmbed youtubeId="WYK8xGyu4HA" title="La biodiversità in Sicilia" />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <VideoEmbed youtubeId="WYK8xGyu4HA" title="La biodiversità in Sicilia" />
+          </Reveal>
         </div>
       </section>
 
@@ -133,26 +170,28 @@ export default function Home() {
       </section>
 
       <section className="section">
-        <div
-          className="container cta-banner cta-banner--planet"
-          style={{ backgroundImage: `url(${earthSpace})` }}
-        >
-          <div className="cta-banner__copy">
-            <h2>Costruiamo insieme l'infrastruttura di ricerca dedicata all'ambiente in Sicilia</h2>
-            <p>
-              Enti di ricerca, istituzioni e imprese possono proporre collaborazioni scientifiche
-              o richiedere l'accesso all'Hub dati e open innovation di ENVIRIA.
-            </p>
+        <Reveal>
+          <div
+            className="container cta-banner cta-banner--planet"
+            style={{ backgroundImage: `url(${earthSpace})` }}
+          >
+            <div className="cta-banner__copy">
+              <h2>Costruiamo insieme l'infrastruttura di ricerca dedicata all'ambiente in Sicilia</h2>
+              <p>
+                Enti di ricerca, istituzioni e imprese possono proporre collaborazioni scientifiche
+                o richiedere l'accesso all'Hub dati e open innovation di ENVIRIA.
+              </p>
+            </div>
+            <div className="cta-banner__actions">
+              <Link to="/chi-siamo" className="btn btn-primary">
+                Contatta ENVIRIA
+              </Link>
+              <Link to="/hub" className="btn btn-outline">
+                Accedi al Hub
+              </Link>
+            </div>
           </div>
-          <div className="cta-banner__actions">
-            <Link to="/chi-siamo" className="btn btn-primary">
-              Contatta ENVIRIA
-            </Link>
-            <Link to="/hub" className="btn btn-outline">
-              Accedi al Hub
-            </Link>
-          </div>
-        </div>
+        </Reveal>
       </section>
 
       <FundingNotice />

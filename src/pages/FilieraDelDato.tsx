@@ -2,6 +2,7 @@ import { BarChart3, Database, Plane, Radio, Satellite, Share2 } from 'lucide-rea
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import networkCables from '../assets/photos/network-cables.webp'
 import PhotoBand from '../components/PhotoBand'
+import Reveal from '../components/Reveal'
 import './InnerPage.css'
 
 const steps = [
@@ -50,7 +51,7 @@ export default function FilieraDelDato() {
   return (
     <div className="inner-page">
       <section className="inner-hero" style={{ backgroundImage: `url(${etnaAerial})` }}>
-        <div className="container inner-hero__inner">
+        <Reveal className="container inner-hero__inner">
           <span className="kicker">Il Valore Scientifico</span>
           <h1>La Filiera del Dato Ambientale</h1>
           <p className="inner-hero__lead">
@@ -58,18 +59,20 @@ export default function FilieraDelDato() {
             del territorio in conoscenza condivisa, a supporto della ricerca e delle decisioni
             pubbliche.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="section">
         <div className="container">
           <div className="step-flow">
             {steps.map((step, index) => (
-              <div className="step-flow__item" key={step.title}>
-                <div className="step-flow__index">{index + 1}</div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </div>
+              <Reveal key={step.title} delay={index * 0.08}>
+                <div className="step-flow__item">
+                  <div className="step-flow__index">{index + 1}</div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -77,24 +80,26 @@ export default function FilieraDelDato() {
 
       <section className="section section--tint">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <span className="kicker">Il Ciclo del Dato</span>
             <h2>L'infrastruttura di monitoraggio territoriale</h2>
             <p className="section-head__lead">
               Gli strumenti alla base della filiera: una rete fisica e digitale che osserva,
               raccoglie e interconnette i dati ambientali del territorio.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-4">
-            {infrastructure.map(({ icon: Icon, title, text }) => (
-              <article className="card spec-card" key={title}>
-                <span className="spec-card__icon">
-                  <Icon size={20} />
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
+            {infrastructure.map(({ icon: Icon, title, text }, index) => (
+              <Reveal key={title} delay={index * 0.06}>
+                <article className="card spec-card">
+                  <span className="spec-card__icon">
+                    <Icon size={20} />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
 
@@ -105,27 +110,31 @@ export default function FilieraDelDato() {
       <section className="section">
         <div className="container">
           <div className="grid grid-2">
-            <div className="card spec-card spec-card--blue">
-              <span className="spec-card__icon">
-                <BarChart3 size={22} />
-              </span>
-              <h3>Modelli predittivi</h3>
-              <p>
-                L'analisi incrociata dei dati raccolti alimenta modelli predittivi su clima,
-                biodiversità e sicurezza del territorio, sviluppati nei laboratori GeoAI, GeoTwin
-                e GeoDSS.
-              </p>
-            </div>
-            <div className="card spec-card spec-card--blue">
-              <span className="spec-card__icon">
-                <Satellite size={22} />
-              </span>
-              <h3>Interoperabilità europea</h3>
-              <p>
-                L'infrastruttura dialoga con piattaforme di ricerca di livello regionale,
-                nazionale ed europeo, in un'ottica di collaborazione scientifica aperta.
-              </p>
-            </div>
+            <Reveal>
+              <div className="card spec-card spec-card--blue">
+                <span className="spec-card__icon">
+                  <BarChart3 size={22} />
+                </span>
+                <h3>Modelli predittivi</h3>
+                <p>
+                  L'analisi incrociata dei dati raccolti alimenta modelli predittivi su clima,
+                  biodiversità e sicurezza del territorio, sviluppati nei laboratori GeoAI, GeoTwin
+                  e GeoDSS.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="card spec-card spec-card--blue">
+                <span className="spec-card__icon">
+                  <Satellite size={22} />
+                </span>
+                <h3>Interoperabilità europea</h3>
+                <p>
+                  L'infrastruttura dialoga con piattaforme di ricerca di livello regionale,
+                  nazionale ed europeo, in un'ottica di collaborazione scientifica aperta.
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

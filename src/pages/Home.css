@@ -59,6 +59,7 @@
 .pillar-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
   padding: 30px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }

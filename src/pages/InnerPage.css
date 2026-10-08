@@ -39,6 +39,7 @@
 
 /* Card con bordo colorato in testa, stile "scheda tecnica" */
 .spec-card {
+  height: 100%;
   padding: 28px;
   position: relative;
   overflow: hidden;

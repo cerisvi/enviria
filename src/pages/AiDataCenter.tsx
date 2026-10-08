@@ -3,6 +3,7 @@ import { ArrowRight, Boxes, Cpu, Droplets, MonitorCog, SunMedium } from 'lucide-
 import solarPanels from '../assets/photos/solar-panels.webp'
 import serverRoom from '../assets/photos/server-room.webp'
 import PhotoBand from '../components/PhotoBand'
+import Reveal from '../components/Reveal'
 import './InnerPage.css'
 import './AiDataCenter.css'
 
@@ -41,7 +42,7 @@ export default function AiDataCenter() {
   return (
     <div className="inner-page">
       <section className="inner-hero" style={{ backgroundImage: `url(${solarPanels})` }}>
-        <div className="container inner-hero__inner">
+        <Reveal className="container inner-hero__inner">
           <span className="kicker">La Tecnologia</span>
           <h1>AI Data Center: supercalcolo al servizio della ricerca ecologica</h1>
           <p className="inner-hero__lead">
@@ -49,25 +50,27 @@ export default function AiDataCenter() {
             di calcolo ad alte prestazioni (HPC), progettata fin dall'origine per minimizzare
             l'impatto energetico e ambientale dell'infrastruttura stessa.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="section">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <span className="kicker">Calcolo ad Alte Prestazioni</span>
             <h2>La potenza computazionale della ricerca</h2>
-          </div>
+          </Reveal>
 
           <div className="grid grid-2">
-            {hpc.map(({ icon: Icon, title, text }) => (
-              <article className="card spec-card spec-card--blue" key={title}>
-                <span className="spec-card__icon">
-                  <Icon size={22} />
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
+            {hpc.map(({ icon: Icon, title, text }, index) => (
+              <Reveal key={title} delay={index * 0.08}>
+                <article className="card spec-card spec-card--blue">
+                  <span className="spec-card__icon">
+                    <Icon size={22} />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
 
@@ -107,7 +110,7 @@ export default function AiDataCenter() {
 
       <section className="section section--tint">
         <div className="container">
-          <div className="section-head section-head--center">
+          <Reveal className="section-head section-head--center">
             <span className="kicker">Sostenibilità Digitale</span>
             <h2>Green Computing: calcolare senza pesare sul pianeta</h2>
             <p className="section-head__lead">
@@ -115,34 +118,38 @@ export default function AiDataCenter() {
               impatto, perché la ricerca sull'ambiente non può prescindere dalla sostenibilità
               dei propri strumenti.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-3">
-            {green.map(({ icon: Icon, title, text }) => (
-              <article className="card spec-card spec-card--feature" key={title}>
-                <span className="spec-card__icon spec-card__icon--lg">
-                  <Icon size={28} />
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
+            {green.map(({ icon: Icon, title, text }, index) => (
+              <Reveal key={title} delay={index * 0.08}>
+                <article className="card spec-card spec-card--feature">
+                  <span className="spec-card__icon spec-card__icon--lg">
+                    <Icon size={28} />
+                  </span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="container cta-banner card">
-          <div className="cta-banner__copy">
-            <h2>Dal calcolo alla conoscenza condivisa</h2>
-            <p>Scopri come i dati elaborati dal Data Center diventano scienza aperta.</p>
+        <Reveal>
+          <div className="container cta-banner card">
+            <div className="cta-banner__copy">
+              <h2>Dal calcolo alla conoscenza condivisa</h2>
+              <p>Scopri come i dati elaborati dal Data Center diventano scienza aperta.</p>
+            </div>
+            <div className="cta-banner__actions">
+              <Link to="/filiera-del-dato" className="btn btn-primary">
+                La Filiera del Dato <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
-          <div className="cta-banner__actions">
-            <Link to="/filiera-del-dato" className="btn btn-primary">
-              La Filiera del Dato <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   )
