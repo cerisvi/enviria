@@ -5,6 +5,8 @@ import PhotoBand from '../components/PhotoBand'
 import riverCanyon from '../assets/photos/river-canyon.webp'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import digitalTwin from '../assets/photos/digital-twin.webp'
+import lightTrails from '../assets/photos/light-trails.webp'
+import leafDroplets from '../assets/photos/leaf-droplets.webp'
 import './InnerPage.css'
 import './Progetto.css'
 
@@ -140,6 +142,23 @@ export default function Progetto() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <Reveal className="section-head section-head--center">
+            <span className="kicker">Il territorio al centro</span>
+            <h2>Dove innovazione e ambiente si incontrano</h2>
+          </Reveal>
+          <div className="grid grid-2">
+            <Reveal>
+              <PhotoBand src={lightTrails} alt="Flussi di luce astratti su un edificio, metafora della rete di dati" />
+            </Reveal>
+            <Reveal delay={0.08}>
+              <PhotoBand src={leafDroplets} alt="Dettaglio macro di una foglia con gocce d’acqua" />
+            </Reveal>
           </div>
         </div>
       </section>

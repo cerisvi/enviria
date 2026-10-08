@@ -22,7 +22,27 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(170deg, rgba(238, 246, 240, 0.93) 0%, rgba(226, 241, 234, 0.9) 55%, rgba(228, 241, 234, 0.95) 100%);
+  background: linear-gradient(
+    100deg,
+    rgba(230, 243, 236, 0.97) 0%,
+    rgba(230, 243, 236, 0.94) 32%,
+    rgba(230, 243, 236, 0.75) 48%,
+    rgba(230, 243, 236, 0.3) 64%,
+    rgba(230, 243, 236, 0) 80%
+  );
+}
+
+@media (max-width: 900px) {
+  .hero__scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(230, 243, 236, 0.97) 0%,
+      rgba(230, 243, 236, 0.94) 42%,
+      rgba(230, 243, 236, 0.8) 58%,
+      rgba(230, 243, 236, 0.45) 74%,
+      rgba(230, 243, 236, 0.2) 100%
+    );
+  }
 }
 
 .hero__inner {

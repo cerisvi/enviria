@@ -234,6 +234,68 @@ a.card:hover,
   border-color: rgba(15, 59, 48, 0.16);
 }
 
+/* Layout testo + immagine affiancata, riusabile in qualunque pagina */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.split-layout--reverse {
+  grid-template-columns: 1fr 1.3fr;
+}
+
+.split-layout--reverse .split-layout__media {
+  order: -1;
+}
+
+.split-layout__media {
+  position: sticky;
+  top: 110px;
+}
+
+/* Una griglia a 2+ colonne nella colonna di testo (più stretta) diventa
+   troppo angusta: la impiliamo in un'unica colonna. */
+.split-layout .grid-2,
+.split-layout .grid-3 {
+  grid-template-columns: 1fr;
+}
+
+.split-layout .step-flow {
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.split-layout .step-flow__item:not(:last-child)::after {
+  display: none;
+}
+
+.split-layout__media .photo-band {
+  margin-top: 0;
+}
+
+.split-layout__media .photo-band img {
+  height: 420px;
+}
+
+@media (max-width: 900px) {
+  .split-layout,
+  .split-layout--reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .split-layout__media {
+    position: static;
+    order: -1;
+  }
+
+  .split-layout__media .photo-band img {
+    height: clamp(200px, 60vw, 320px);
+  }
+}
+
 .tag {
   display: inline-flex;
   align-items: center;

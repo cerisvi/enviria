@@ -3,6 +3,8 @@ import { ArrowRight, Boxes, Cpu, Droplets, MonitorCog, SunMedium } from 'lucide-
 import solarPanels from '../assets/photos/solar-panels.webp'
 import serverRoom from '../assets/photos/server-room.webp'
 import dataTerminal from '../assets/photos/data-terminal.webp'
+import dataCorridor from '../assets/photos/data-corridor.webp'
+import solarAerial from '../assets/photos/solar-aerial.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import './InnerPage.css'
@@ -110,7 +112,12 @@ export default function AiDataCenter() {
             </div>
           </div>
 
-          <PhotoBand src={serverRoom} alt="Fila di rack server in un data center" />
+          <Reveal>
+            <PhotoBand src={dataCorridor} alt="Corridoio di un data center con flusso di dati proiettato sulle pareti" />
+          </Reveal>
+          <Reveal delay={0.1}>
+            <PhotoBand src={serverRoom} alt="Fila di rack server in un data center" />
+          </Reveal>
         </div>
       </section>
 
@@ -126,18 +133,23 @@ export default function AiDataCenter() {
             </p>
           </Reveal>
 
-          <div className="grid grid-3">
-            {green.map(({ icon: Icon, title, text }, index) => (
-              <Reveal key={title} delay={index * 0.08}>
-                <article className="card spec-card spec-card--feature">
-                  <span className="spec-card__icon spec-card__icon--lg">
-                    <Icon size={28} />
-                  </span>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                </article>
-              </Reveal>
-            ))}
+          <div className="split-layout split-layout--reverse">
+            <Reveal delay={0.1} className="split-layout__media">
+              <PhotoBand src={solarAerial} alt="Vista aerea di un campo fotovoltaico" />
+            </Reveal>
+            <div className="grid grid-3">
+              {green.map(({ icon: Icon, title, text }, index) => (
+                <Reveal key={title} delay={index * 0.08}>
+                  <article className="card spec-card spec-card--feature">
+                    <span className="spec-card__icon spec-card__icon--lg">
+                      <Icon size={28} />
+                    </span>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

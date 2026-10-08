@@ -6,10 +6,12 @@ import NetworkCanvas from '../components/NetworkCanvas'
 import VideoEmbed from '../components/VideoEmbed'
 import FundingNotice from '../components/FundingNotice'
 import Reveal from '../components/Reveal'
+import PhotoBand from '../components/PhotoBand'
 import forestAerial from '../assets/photos/forest-aerial.webp'
 import etnaAerial from '../assets/photos/etna-aerial.webp'
 import coastlineAerial from '../assets/photos/coastline-aerial.webp'
 import earthSpace from '../assets/photos/earth-space.webp'
+import aiNetworkHand from '../assets/photos/ai-network-hand.webp'
 import './Home.css'
 
 const heroImages = [forestAerial, etnaAerial, coastlineAerial]
@@ -159,6 +161,23 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container split-layout">
+          <Reveal>
+            <span className="kicker">Intelligenza artificiale</span>
+            <h2>L’AI al servizio della ricerca ambientale</h2>
+            <p className="section-head__lead">
+              Modelli di intelligenza artificiale analizzano i dati raccolti sul territorio per
+              riconoscere pattern climatici, ambientali e di rischio, trasformando l’osservazione
+              in conoscenza utile a istituzioni e comunità scientifica.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1} className="split-layout__media">
+            <PhotoBand src={aiNetworkHand} alt="Mano robotica che interagisce con una rete di dati" />
+          </Reveal>
         </div>
       </section>
 
