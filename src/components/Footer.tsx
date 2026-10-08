@@ -52,9 +52,10 @@ export default function Footer() {
       <div className="footer__funding">
         <div className="container">
           <p>
-            Green&amp;Geo, Renewable, Efficiency and Innovation (GREEN-ERI) · CUP
-            G61E25000170007 · PR FESR Sicilia 2021-2027 · Azione 1.1.4 "Sostegno alle
-            infrastrutture di ricerca" · Unione Europea · Repubblica Italiana · Regione Siciliana
+            G.R.E.E.N – E.R.I. (Green&amp;Geo, Renewable, Efficiency, Environmental, Node –
+            Environmental Research Infrastructure) · CUP G61E25000170007 · PR FESR Sicilia
+            2021-2027 · Azione 1.1.4 "Sostegno alle infrastrutture di ricerca" · Unione Europea ·
+            Repubblica Italiana · Regione Siciliana
           </p>
         </div>
       </div>

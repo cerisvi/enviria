@@ -14,7 +14,8 @@ export default function FundingNotice() {
         />
 
         <h3 className="funding-notice__title">
-          Green&amp;Geo, Renewable, Efficiency and Innovation (GREEN-ERI)
+          G.R.E.E.N – E.R.I. (Green&amp;Geo, Renewable, Efficiency, Environmental, Node –
+          Environmental Research Infrastructure)
         </h3>
 
         <dl className="funding-notice__details">
