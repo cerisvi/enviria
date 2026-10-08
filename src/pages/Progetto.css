@@ -6,3 +6,39 @@
   letter-spacing: 0.04em;
   margin-bottom: 10px;
 }
+
+.timeline-split {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.timeline-split__image {
+  position: sticky;
+  top: 110px;
+}
+
+.timeline-split__image .photo-band {
+  margin-top: 0;
+}
+
+.timeline-split__image .photo-band img {
+  height: 420px;
+}
+
+@media (max-width: 900px) {
+  .timeline-split {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .timeline-split__image {
+    position: static;
+    order: -1;
+  }
+
+  .timeline-split__image .photo-band img {
+    height: clamp(200px, 60vw, 320px);
+  }
+}

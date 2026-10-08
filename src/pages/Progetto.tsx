@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, BrainCircuit, Database, Map, SlidersHorizontal } from 'lucide-react'
 import Reveal from '../components/Reveal'
+import PhotoBand from '../components/PhotoBand'
 import riverCanyon from '../assets/photos/river-canyon.webp'
+import etnaAerial from '../assets/photos/etna-aerial.webp'
 import './InnerPage.css'
 import './Progetto.css'
 
@@ -84,18 +86,23 @@ export default function Progetto() {
             <h2>Dalla costruzione dell’infrastruttura alla disseminazione dei risultati</h2>
           </Reveal>
 
-          <div className="timeline">
-            {obiettivi.map((o, index) => (
-              <Reveal key={o.code} delay={index * 0.06}>
-                <div className="timeline__item">
-                  <div className="timeline__index">{o.code}</div>
-                  <div>
-                    <h3>{o.title}</h3>
-                    <p>{o.text}</p>
+          <div className="timeline-split">
+            <div className="timeline">
+              {obiettivi.map((o, index) => (
+                <Reveal key={o.code} delay={index * 0.06}>
+                  <div className="timeline__item">
+                    <div className="timeline__index">{o.code}</div>
+                    <div>
+                      <h3>{o.title}</h3>
+                      <p>{o.text}</p>
+                    </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
+            <Reveal delay={0.15} className="timeline-split__image">
+              <PhotoBand src={etnaAerial} alt="Vista aerea dell’Etna e del territorio siciliano" />
+            </Reveal>
           </div>
         </div>
       </section>
