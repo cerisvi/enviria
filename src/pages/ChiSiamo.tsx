@@ -52,7 +52,7 @@ export default function ChiSiamo() {
           <span className="kicker">Chi Siamo &amp; Network</span>
           <h1>ENVIRIA S.C.A.R.L.</h1>
           <p className="inner-hero__lead">
-            Una società consortile costituita per realizzare e gestire l'infrastruttura di
+            Una società consortile costituita per realizzare e gestire l’infrastruttura di
             ricerca Green ERI, mettendo in rete enti di ricerca, competenze tecniche e territorio
             attorno alla gestione intelligente dei dati ambientali.
           </p>
@@ -70,7 +70,7 @@ export default function ChiSiamo() {
                 <h3>Il consorzio</h3>
                 <p>
                   ENVIRIA è una Società Consortile a Responsabilità Limitata nata per dare continuità
-                  operativa e gestionale all'infrastruttura di ricerca realizzata nell'ambito del
+                  operativa e gestionale all’infrastruttura di ricerca realizzata nell’ambito del
                   progetto G.R.E.E.N – E.R.I., finanziato dal PR FESR Sicilia 2021-2027.
                 </p>
               </article>
@@ -82,7 +82,7 @@ export default function ChiSiamo() {
                 </span>
                 <h3>La missione</h3>
                 <p>
-                  Mettere l'infrastruttura di ricerca — Green Data Center, laboratori tematici e
+                  Mettere l’infrastruttura di ricerca — Green Data Center, laboratori tematici e
                   rete di monitoraggio territoriale — al servizio della comunità scientifica, delle
                   istituzioni e del tessuto produttivo locale.
                 </p>
@@ -98,7 +98,7 @@ export default function ChiSiamo() {
             <span className="kicker">Network</span>
             <h2>Enti di ricerca e partner di progetto</h2>
             <p className="section-head__lead">
-              L'infrastruttura nasce dalla collaborazione tra enti di ricerca e soggetti tecnici
+              L’infrastruttura nasce dalla collaborazione tra enti di ricerca e soggetti tecnici
               del territorio.
             </p>
           </Reveal>

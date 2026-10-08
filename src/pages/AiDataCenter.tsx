@@ -16,7 +16,7 @@ const hpc = [
   {
     icon: MonitorCog,
     title: 'Sala controllo',
-    text: 'Monitoraggio e gestione operativa dell\'infrastruttura di calcolo, a presidio di continuità, sicurezza e affidabilità del sistema.',
+    text: 'Monitoraggio e gestione operativa dell’infrastruttura di calcolo, a presidio di continuità, sicurezza e affidabilità del sistema.',
   },
 ]
 
@@ -24,12 +24,12 @@ const green = [
   {
     icon: Boxes,
     title: 'Sistema Modulare',
-    text: 'L\'infrastruttura HPC è ospitata in una struttura modulare e scalabile, distribuita su due nodi: Catania – Palermo.',
+    text: 'L’infrastruttura HPC è ospitata in una struttura modulare e scalabile, distribuita su due nodi: Catania – Palermo.',
   },
   {
     icon: SunMedium,
     title: 'Alimentazione fotovoltaica',
-    text: 'Un sistema fotovoltaico dedicato contribuisce all\'alimentazione energetica del data center, in coerenza con i principi del Green Computing.',
+    text: 'Un sistema fotovoltaico dedicato contribuisce all’alimentazione energetica del data center, in coerenza con i principi del Green Computing.',
   },
   {
     icon: Droplets,
@@ -47,8 +47,8 @@ export default function AiDataCenter() {
           <h1>AI Data Center: supercalcolo al servizio della ricerca ecologica</h1>
           <p className="inner-hero__lead">
             Il Green Data Center di ENVIRIA mette a disposizione della ricerca ambientale potenza
-            di calcolo ad alte prestazioni (HPC), progettata fin dall'origine per minimizzare
-            l'impatto energetico e ambientale dell'infrastruttura stessa.
+            di calcolo ad alte prestazioni (HPC), progettata fin dall’origine per minimizzare
+            l’impatto energetico e ambientale dell’infrastruttura stessa.
           </p>
         </Reveal>
       </section>
@@ -115,7 +115,7 @@ export default function AiDataCenter() {
             <h2>Green Computing: calcolare senza pesare sul pianeta</h2>
             <p className="section-head__lead">
               Un data center alimentato da fonti rinnovabili e raffreddato con tecnologie a basso
-              impatto, perché la ricerca sull'ambiente non può prescindere dalla sostenibilità
+              impatto, perché la ricerca sull’ambiente non può prescindere dalla sostenibilità
               dei propri strumenti.
             </p>
           </Reveal>

@@ -8,7 +8,7 @@ const modules = [
   {
     icon: Radar,
     title: 'Rete di monitoraggio',
-    text: "Visualizzazione in tempo reale dei sensori ambientali collegati all'infrastruttura Green ERI.",
+    text: "Visualizzazione in tempo reale dei sensori ambientali collegati all’infrastruttura Green ERI.",
   },
   {
     icon: Database,
@@ -18,7 +18,7 @@ const modules = [
   {
     icon: Sprout,
     title: 'Indicatori di sostenibilità',
-    text: 'Report periodici su qualità dell\'aria, energia e impatto ambientale.',
+    text: 'Report periodici su qualità dell’aria, energia e impatto ambientale.',
   },
 ]
 
@@ -40,10 +40,10 @@ export default function HubDashboard() {
       <main className="container hub-dashboard__content">
         <div className="hub-dashboard__intro">
           <span className="kicker">Area riservata</span>
-          <h1>Benvenuto nell'anteprima del Hub</h1>
+          <h1>Benvenuto nell’anteprima del Hub</h1>
           <p>
-            Questa è una versione dimostrativa dell'area dati Enviria. I moduli qui sotto
-            mostrano come sarà organizzato l'accesso ai dati dell'infrastruttura di ricerca
+            Questa è una versione dimostrativa dell’area dati Enviria. I moduli qui sotto
+            mostrano come sarà organizzato l’accesso ai dati dell’infrastruttura di ricerca
             Green ERI una volta collegate le fonti dati reali.
           </p>
         </div>

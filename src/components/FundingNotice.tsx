@@ -9,7 +9,7 @@ export default function FundingNotice() {
 
         <img
           src={logoBar}
-          alt="Coesione Italia 21-27 Sicilia · Cofinanziato dall'Unione Europea · Repubblica Italiana · Regione Siciliana"
+          alt="Coesione Italia 21-27 Sicilia · Cofinanziato dall’Unione Europea · Repubblica Italiana · Regione Siciliana"
           className="funding-notice__logos"
         />
 

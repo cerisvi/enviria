@@ -13,7 +13,7 @@ const steps = [
   },
   {
     title: 'Elaborazione',
-    text: 'I dati grezzi confluiscono in un sistema integrato che li organizza in un geo-database territoriale, pronto per l\'analisi su larga scala.',
+    text: 'I dati grezzi confluiscono in un sistema integrato che li organizza in un geo-database territoriale, pronto per l’analisi su larga scala.',
   },
   {
     title: 'Analisi & AI',
@@ -56,7 +56,7 @@ export default function FilieraDelDato() {
           <span className="kicker">Il Valore Scientifico</span>
           <h1>La Filiera del Dato Ambientale</h1>
           <p className="inner-hero__lead">
-            Dal rilievo sul campo alla scienza aperta: il percorso che trasforma l'osservazione
+            Dal rilievo sul campo alla scienza aperta: il percorso che trasforma l’osservazione
             del territorio in conoscenza condivisa, a supporto della ricerca e delle decisioni
             pubbliche.
           </p>
@@ -83,7 +83,7 @@ export default function FilieraDelDato() {
         <div className="container">
           <Reveal className="section-head">
             <span className="kicker">Il Ciclo del Dato</span>
-            <h2>L'infrastruttura di monitoraggio territoriale</h2>
+            <h2>L’infrastruttura di monitoraggio territoriale</h2>
             <p className="section-head__lead">
               Gli strumenti alla base della filiera: una rete fisica e digitale che osserva,
               raccoglie e interconnette i dati ambientali del territorio.
@@ -118,7 +118,7 @@ export default function FilieraDelDato() {
                 </span>
                 <h3>Modelli predittivi</h3>
                 <p>
-                  L'analisi incrociata dei dati raccolti alimenta modelli predittivi su clima,
+                  L’analisi incrociata dei dati raccolti alimenta modelli predittivi su clima,
                   biodiversità e sicurezza del territorio, sviluppati nei laboratori GeoAI, GeoTwin
                   e GeoDSS.
                 </p>
@@ -131,8 +131,8 @@ export default function FilieraDelDato() {
                 </span>
                 <h3>Interoperabilità europea</h3>
                 <p>
-                  L'infrastruttura dialoga con piattaforme di ricerca di livello regionale,
-                  nazionale ed europeo, in un'ottica di collaborazione scientifica aperta.
+                  L’infrastruttura dialoga con piattaforme di ricerca di livello regionale,
+                  nazionale ed europeo, in un’ottica di collaborazione scientifica aperta.
                 </p>
               </div>
             </Reveal>
@@ -146,7 +146,7 @@ export default function FilieraDelDato() {
             <div className="cta-banner__copy">
               <h2>Vuoi accedere ai dati o proporre una collaborazione?</h2>
               <p>
-                Enti di ricerca, istituzioni e imprese possono richiedere l'accesso alla filiera
+                Enti di ricerca, istituzioni e imprese possono richiedere l’accesso alla filiera
                 del dato ambientale e proporre progetti congiunti.
               </p>
             </div>

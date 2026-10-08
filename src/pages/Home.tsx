@@ -30,7 +30,7 @@ const pillars = [
   {
     icon: Leaf,
     title: 'Sostenibilità Ambientale',
-    text: 'Dal dato grezzo alla scienza aperta: una filiera che trasforma l\'osservazione del territorio in conoscenza condivisa su clima, biodiversità e rischi.',
+    text: 'Dal dato grezzo alla scienza aperta: una filiera che trasforma l’osservazione del territorio in conoscenza condivisa su clima, biodiversità e rischi.',
     to: '/filiera-del-dato',
   },
 ]
@@ -82,7 +82,7 @@ export default function Home() {
         <NetworkCanvas />
         <div className="container hero__inner">
           <motion.h1 initial="hidden" animate="show" custom={0} variants={heroText}>
-            L'infrastruttura di ricerca GREEN ERI: un Green AI Data Center per la valorizzazione
+            L’infrastruttura di ricerca GREEN ERI: un Green AI Data Center per la valorizzazione
             della filiera del dato ambientale
           </motion.h1>
           <motion.p
@@ -92,7 +92,7 @@ export default function Home() {
             custom={0.1}
             variants={heroText}
           >
-            ENVIRIA costruisce un'infrastruttura di ricerca ad alte prestazioni e basso impatto
+            ENVIRIA costruisce un’infrastruttura di ricerca ad alte prestazioni e basso impatto
             ambientale: supercalcolo, intelligenza artificiale, edge computing e sensoristica
             distribuita al servizio della gestione intelligente dei dati ambientali.
           </motion.p>
@@ -132,9 +132,9 @@ export default function Home() {
         <div className="container">
           <Reveal className="section-head">
             <span className="kicker">I tre pilastri</span>
-            <h2>Un'unica infrastruttura, tre missioni</h2>
+            <h2>Un’unica infrastruttura, tre missioni</h2>
             <p className="section-head__lead">
-              Ricerca, calcolo e sostenibilità convergono in un solo ecosistema: l'infrastruttura
+              Ricerca, calcolo e sostenibilità convergono in un solo ecosistema: l’infrastruttura
               Green ERI come hub del mediterraneo per i cambiamenti climatici.
             </p>
           </Reveal>
@@ -173,12 +173,12 @@ export default function Home() {
             <dl className="video-caption">
               <div>
                 <dt>Video</dt>
-                <dd>«Sicilia: un universo in un'isola»</dd>
+                <dd>«Sicilia: un universo in un’isola»</dd>
               </div>
               <div className="video-caption__divider" aria-hidden="true" />
               <div>
                 <dt>Fonte istituzionale</dt>
-                <dd>Regione Siciliana – Assessorato del Territorio e dell'Ambiente</dd>
+                <dd>Regione Siciliana – Assessorato del Territorio e dell’Ambiente</dd>
               </div>
             </dl>
           </Reveal>
@@ -217,10 +217,10 @@ export default function Home() {
             style={{ backgroundImage: `url(${earthSpace})` }}
           >
             <div className="cta-banner__copy">
-              <h2>Costruiamo insieme l'infrastruttura di ricerca dedicata all'ambiente in Sicilia</h2>
+              <h2>Costruiamo insieme l’infrastruttura di ricerca dedicata all’ambiente in Sicilia</h2>
               <p>
                 Enti di ricerca, istituzioni e imprese possono proporre collaborazioni scientifiche
-                o richiedere l'accesso all'Hub dati e open innovation di ENVIRIA.
+                o richiedere l’accesso all’Hub dati e open innovation di ENVIRIA.
               </p>
             </div>
             <div className="cta-banner__actions">

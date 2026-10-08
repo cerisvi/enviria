@@ -53,7 +53,7 @@ export default function HubLogin() {
 
         <p className="hub-auth__disclaimer">
           Accesso dimostrativo: qualsiasi credenziale valida come formato ti fa entrare
-          nell'anteprima del Hub. L'autenticazione reale sarà collegata in un secondo momento.
+          nell’anteprima del Hub. L’autenticazione reale sarà collegata in un secondo momento.
         </p>
 
         <Link to="/" className="hub-auth__back">
