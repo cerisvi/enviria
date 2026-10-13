@@ -11,4 +11,8 @@ export interface SocialLink {
  * l'icona corrispondente comparirà automaticamente nel footer del sito.
  * Piattaforme supportate: 'linkedin' | 'facebook' | 'instagram' | 'youtube' | 'x'
  */
-export const socialLinks: SocialLink[] = []
+export const socialLinks: SocialLink[] = [
+  { platform: 'linkedin', url: 'https://www.linkedin.com/company/enviriahub' },
+  { platform: 'instagram', url: 'https://www.instagram.com/enviria_hub' },
+  { platform: 'x', url: 'https://x.com/enviriahub' },
+]
