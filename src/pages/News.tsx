@@ -100,6 +100,18 @@ export default function News() {
                       {isOpen && (
                         <div className="news-card__full">
                           <NewsBody body={item.body} />
+                          {item.gallery && item.gallery.length > 0 && (
+                            <div className="news-card__gallery">
+                              {item.gallery.map((photo) => (
+                                <img
+                                  key={photo.src}
+                                  src={photo.src}
+                                  alt={photo.alt}
+                                  loading="lazy"
+                                />
+                              ))}
+                            </div>
+                          )}
                           {item.links && item.links.length > 0 && (
                             <div className="news-card__links">
                               {item.links.map((link) => (

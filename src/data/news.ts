@@ -1,5 +1,12 @@
 import soriGreenEri from '../assets/news/sori-green-eri.webp'
 import heysun2026 from '../assets/news/heysun-2026.webp'
+import heysun202602 from '../assets/news/heysun-2026-02.webp'
+import heysun202603 from '../assets/news/heysun-2026-03.webp'
+
+export interface NewsGalleryImage {
+  src: string
+  alt: string
+}
 
 export interface NewsLink {
   label: string
@@ -22,6 +29,8 @@ export interface NewsItem {
   body: string[]
   image: string
   imageAlt: string
+  /** foto aggiuntive, mostrate in una piccola galleria quando la notizia è espansa */
+  gallery?: NewsGalleryImage[]
   links?: NewsLink[]
 }
 
@@ -45,6 +54,16 @@ export const newsItems: NewsItem[] = [
     ],
     image: heysun2026,
     imageAlt: 'Relatori ENVIRIA sul palco di HEYSUN 2026, Expo della Transizione Energetica',
+    gallery: [
+      {
+        src: heysun202602,
+        alt: 'Intervento sul palco HEYSUN 2026 davanti all’allestimento dell’Assessorato regionale delle Attività Produttive',
+      },
+      {
+        src: heysun202603,
+        alt: 'Tavola rotonda HEYSUN 2026 con due relatori seduti sul palco',
+      },
+    ],
     links: [
       { label: 'Programma convegni HEYSUN 2026', url: 'https://www.heysun.it/programma-convegni-2026/' },
       { label: 'Sito ufficiale HEYSUN', url: 'https://www.heysun.it/' },
