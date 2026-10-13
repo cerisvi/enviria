@@ -8,6 +8,8 @@ import Home from './pages/Home'
 import Progetto from './pages/Progetto'
 import AiDataCenter from './pages/AiDataCenter'
 import FilieraDelDato from './pages/FilieraDelDato'
+import Partner from './pages/Partner'
+import News from './pages/News'
 import ChiSiamo from './pages/ChiSiamo'
 import HubLogin from './pages/HubLogin'
 import HubDashboard from './pages/HubDashboard'
@@ -47,6 +49,8 @@ export default function App() {
               <Route path="/progetto" element={<Progetto />} />
               <Route path="/ai-data-center" element={<AiDataCenter />} />
               <Route path="/filiera-del-dato" element={<FilieraDelDato />} />
+              <Route path="/partner" element={<Partner />} />
+              <Route path="/news" element={<News />} />
               <Route path="/chi-siamo" element={<ChiSiamo />} />
               <Route path="/hub" element={<HubLogin />} />
               <Route

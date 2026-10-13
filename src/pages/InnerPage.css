@@ -309,3 +309,15 @@
   font-weight: 600;
   color: var(--color-forest-deep);
 }
+
+.partner-list__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+.partner-list__cta:hover {
+  text-decoration: underline;
+}

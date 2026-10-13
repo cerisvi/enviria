@@ -1,5 +1,6 @@
 import { type FormEvent, useState } from 'react'
-import { Building2, Mail, MapPin, Send, Target, Users } from 'lucide-react'
+import { ArrowRight, Building2, Mail, MapPin, Send, Target, Users } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import coastlineAerial from '../assets/photos/coastline-aerial.webp'
 import networkSphere from '../assets/photos/network-sphere.webp'
 import laptopRender from '../assets/photos/laptop-3d-render.webp'
@@ -131,7 +132,11 @@ export default function ChiSiamo() {
           </Reveal>
 
           <p className="partner-list__categories">
-            Lavoriamo inoltre con PMI, start up innovative e grandi imprese del territorio.
+            Lavoriamo inoltre con enti istituzionali, centri di ricerca e imprese del territorio
+            siciliano e nazionale.{' '}
+            <Link to="/partner" className="partner-list__cta">
+              Vedi tutti i partner <ArrowRight size={14} />
+            </Link>
           </p>
 
           <PhotoBand src={coastlineAerial} alt="Vista aerea della costa siciliana" />

@@ -8,6 +8,8 @@
 - [Il Progetto](https://enviriahub.it/progetto): obiettivi realizzativi del progetto di ricerca G.R.E.E.N – E.R.I. e i quattro laboratori tematici
 - [AI Data Center](https://enviriahub.it/ai-data-center): il Green Data Center sui nodi datacenter di Catania e Palermo, supercalcolo HPC alimentato da fonti rinnovabili
 - [Filiera del Dato](https://enviriahub.it/filiera-del-dato): il percorso del dato ambientale dalla raccolta sul campo alla scienza aperta
+- [Partner](https://enviriahub.it/partner): la rete di partner interni, istituzionali, di ricerca e imprese che collaborano al progetto G.R.E.E.N – E.R.I.
+- [News & Eventi](https://enviriahub.it/news): novità, eventi e aggiornamenti sul progetto G.R.E.E.N – E.R.I. e sull'infrastruttura di ricerca ENVIRIA
 - [Chi Siamo](https://enviriahub.it/chi-siamo): ENVIRIA, Organismo di Ricerca e società consortile, la rete di partner ed enti di ricerca, i contatti
 
 ## Contatti

@@ -1,7 +1,25 @@
 import { Link } from 'react-router-dom'
 import { Mail, MapPin } from 'lucide-react'
 import Mark from './Mark'
+import { socialLinks } from '../data/social'
+import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, YoutubeIcon } from './icons/SocialIcons'
 import './Footer.css'
+
+const socialIcons = {
+  linkedin: LinkedinIcon,
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
+  youtube: YoutubeIcon,
+  x: XIcon,
+}
+
+const socialLabels = {
+  linkedin: 'LinkedIn',
+  facebook: 'Facebook',
+  instagram: 'Instagram',
+  youtube: 'YouTube',
+  x: 'X (Twitter)',
+}
 
 export default function Footer() {
   return (
@@ -27,11 +45,36 @@ export default function Footer() {
         </div>
 
         <div className="footer__col">
+          <h4>Risorse</h4>
+          <Link to="/partner">Partner</Link>
+          <Link to="/news">News &amp; Eventi</Link>
+          <Link to="/hub">Accedi al Hub</Link>
+        </div>
+
+        <div className="footer__col">
           <h4>Contatti</h4>
           <a href="mailto:direzione@enviriahub.it">
             <Mail size={14} /> direzione@enviriahub.it
           </a>
-          <Link to="/hub">Accedi al Hub</Link>
+          {socialLinks.length > 0 && (
+            <div className="footer__social">
+              {socialLinks.map(({ platform, url }) => {
+                const Icon = socialIcons[platform]
+                return (
+                  <a
+                    key={platform}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={socialLabels[platform]}
+                    className="footer__social-icon"
+                  >
+                    <Icon size={18} />
+                  </a>
+                )
+              })}
+            </div>
+          )}
         </div>
 
         <div className="footer__col">

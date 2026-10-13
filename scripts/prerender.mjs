@@ -12,7 +12,15 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distDir = path.join(__dirname, '..', 'dist')
 
-const routes = ['/', '/progetto', '/ai-data-center', '/filiera-del-dato', '/chi-siamo']
+const routes = [
+  '/',
+  '/progetto',
+  '/ai-data-center',
+  '/filiera-del-dato',
+  '/partner',
+  '/news',
+  '/chi-siamo',
+]
 
 const mimeTypes = {
   '.html': 'text/html',

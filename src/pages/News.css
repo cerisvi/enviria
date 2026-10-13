@@ -1,0 +1,140 @@
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.news-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  align-items: start;
+  overflow: hidden;
+}
+
+.news-card__media {
+  position: sticky;
+  top: 110px;
+}
+
+.news-card__media img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card__body {
+  padding: 32px;
+}
+
+.news-card__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-data-blue);
+  margin-bottom: 10px;
+}
+
+.news-card__body h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.news-card__subtitle {
+  font-style: italic;
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+}
+
+.news-card__excerpt {
+  color: var(--color-ink-soft);
+}
+
+.news-card__full {
+  margin: 8px 0 16px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border);
+}
+
+.news-card__full p,
+.news-card__full ul {
+  color: var(--color-ink-soft);
+  font-size: 0.98rem;
+}
+
+.news-card__full h4 {
+  margin-top: 20px;
+  font-size: 1.05rem;
+}
+
+.news-card__full ul {
+  padding-left: 20px;
+}
+
+.news-card__full li {
+  margin-bottom: 4px;
+}
+
+.news-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 16px;
+}
+
+.news-card__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-data-blue);
+}
+
+.news-card__links a:hover {
+  text-decoration: underline;
+}
+
+.news-card__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-forest);
+  cursor: pointer;
+}
+
+.news-card__toggle svg {
+  transition: transform 0.25s ease;
+}
+
+.news-card__toggle svg.is-open {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 760px) {
+  .news-card {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card__media {
+    position: static;
+  }
+
+  .news-card__media img {
+    height: 200px;
+  }
+
+  .news-card__body {
+    padding: 24px;
+  }
+}

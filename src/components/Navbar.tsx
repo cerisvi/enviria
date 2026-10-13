@@ -10,6 +10,8 @@ const links = [
   { to: '/progetto', label: 'Il Progetto' },
   { to: '/ai-data-center', label: 'AI Data Center' },
   { to: '/filiera-del-dato', label: 'Filiera del Dato' },
+  { to: '/partner', label: 'Partner' },
+  { to: '/news', label: 'News' },
   { to: '/chi-siamo', label: 'Chi siamo' },
 ]
 

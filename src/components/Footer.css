@@ -7,7 +7,7 @@
 
 .footer__inner {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr 1.1fr;
   gap: 32px;
   padding: 64px 24px 36px;
 }
@@ -56,6 +56,32 @@
 
 .footer__col a:hover {
   color: var(--color-forest);
+}
+
+.footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.footer__social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-forest);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.footer__social-icon:hover {
+  transform: translateY(-2px);
+  background: var(--color-nature);
+  color: #06210f;
+  box-shadow: 0 8px 16px rgba(58, 157, 93, 0.3);
 }
 
 .footer__legal {
