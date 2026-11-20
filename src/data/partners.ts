@@ -41,15 +41,6 @@ export interface PartnerCategory {
  */
 export const partnerCategories: PartnerCategory[] = [
   {
-    title: 'Partner interni',
-    partners: [
-      { name: 'Europrosvi', logo: europrosvi, url: 'https://www.europrosvi.it/' },
-      { name: 'CERISVI', logo: cerisvi, url: 'https://cerisvi.it/' },
-      { name: 'AREA — Sistemi di Innovazione', logo: area, url: 'https://areainnovazione.it/' },
-      { name: 'Smart Hub', logo: smartHub, url: 'https://www.smarthubitalia.it/' },
-    ],
-  },
-  {
     title: 'Partner istituzionali',
     partners: [
       {
@@ -84,6 +75,7 @@ export const partnerCategories: PartnerCategory[] = [
   {
     title: 'Partner di ricerca',
     partners: [
+      { name: 'CERISVI', logo: cerisvi, url: 'https://cerisvi.it/' },
       { name: 'Università degli Studi di Enna “Kore”', logo: unikore, url: 'https://uke.it/homepage-it' },
       {
         name: 'CSEI Catania — Centro Studi di Economia applicata all’ingegneria',
@@ -102,6 +94,9 @@ export const partnerCategories: PartnerCategory[] = [
   {
     title: 'Partner imprese',
     partners: [
+      { name: 'Europrosvi', logo: europrosvi, url: 'https://www.europrosvi.it/' },
+      { name: 'AREA — Sistemi di Innovazione', logo: area, url: 'https://areainnovazione.it/' },
+      { name: 'Smart Hub', logo: smartHub, url: 'https://www.smarthubitalia.it/' },
       { name: 'Softec S.p.A.', logo: softec, url: 'https://www.softecspa.com/' },
       { name: 'Business Integration Partners S.p.A.', logo: bip, url: 'https://www.bip-group.com/' },
       { name: 'Deepsensing S.r.l.', logo: deepsensing, url: 'https://deepsensing.it/' },
