@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from 'react'
-import { ClipboardList, Send } from 'lucide-react'
+import { ClipboardList, Paperclip, Send } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
@@ -80,7 +80,7 @@ export default function LongListProfessionisti() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input
                   type="text"
                   name="website"
@@ -118,8 +118,8 @@ export default function LongListProfessionisti() {
                 </fieldset>
 
                 <label>
-                  PEC <span className="optional">(facoltativa)</span>
-                  <input type="email" name="pec" placeholder="mario.rossi@pec.it" />
+                  PEC
+                  <input type="email" name="pec" required placeholder="mario.rossi@pec.it" />
                 </label>
 
                 <label>
@@ -153,8 +153,20 @@ export default function LongListProfessionisti() {
                 </div>
 
                 <label>
-                  Link a CV / profilo LinkedIn <span className="optional">(facoltativo)</span>
+                  Link a profilo LinkedIn / portfolio <span className="optional">(facoltativo)</span>
                   <input type="url" name="cvLink" placeholder="https://..." />
+                </label>
+
+                <label>
+                  <Paperclip size={14} style={{ verticalAlign: '-2px', marginRight: 6 }} />
+                  Curriculum Vitae
+                  <input
+                    type="file"
+                    name="cv"
+                    required
+                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  />
+                  <span className="contact-form__file-hint">Formati accettati: PDF, DOC, DOCX — max 8 MB</span>
                 </label>
 
                 <label>

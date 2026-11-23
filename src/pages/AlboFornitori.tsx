@@ -1,5 +1,5 @@
 import { type FormEvent, useState } from 'react'
-import { Briefcase, Send } from 'lucide-react'
+import { Briefcase, Paperclip, Send } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
@@ -91,7 +91,7 @@ export default function AlboFornitori() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input
                   type="text"
                   name="website"
@@ -156,8 +156,8 @@ export default function AlboFornitori() {
                   </div>
                   <div className="contact-form__row">
                     <label>
-                      PEC <span className="optional">(facoltativa)</span>
-                      <input type="email" name="pec" placeholder="impresa@pec.it" />
+                      PEC
+                      <input type="email" name="pec" required placeholder="impresa@pec.it" />
                     </label>
                     <label>
                       Telefono <span className="optional">(facoltativo)</span>
@@ -187,6 +187,18 @@ export default function AlboFornitori() {
                     rows={4}
                     placeholder="Esperienze rilevanti, referenze, certificazioni possedute..."
                   />
+                </label>
+
+                <label>
+                  <Paperclip size={14} style={{ verticalAlign: '-2px', marginRight: 6 }} />
+                  Visura camerale (o documento equivalente)
+                  <input
+                    type="file"
+                    name="documento"
+                    required
+                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  />
+                  <span className="contact-form__file-hint">Formati accettati: PDF, DOC, DOCX — max 8 MB</span>
                 </label>
 
                 <div className="contact-form__checkbox-group">

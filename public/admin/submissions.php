@@ -57,9 +57,9 @@ adminHeader('Richieste ricevute', 'submissions');
       <tr>
         <th>Data</th>
         <?php if ($activeTab === 'albo'): ?>
-          <th>Ragione sociale</th><th>Categoria</th><th>Contatti</th>
+          <th>Ragione sociale</th><th>Categoria</th><th>Contatti</th><th>Documento</th>
         <?php elseif ($activeTab === 'long_list'): ?>
-          <th>Nome</th><th>Area</th><th>Contatti</th>
+          <th>Nome</th><th>Area</th><th>Contatti</th><th>CV</th>
         <?php else: ?>
           <th>Nome</th><th>Tipo richiesta</th><th>Contatti</th>
         <?php endif; ?>
@@ -74,11 +74,25 @@ adminHeader('Richieste ricevute', 'submissions');
           <?php if ($activeTab === 'albo'): ?>
             <td><?= htmlspecialchars($r['ragione_sociale']) ?><br><small><?= htmlspecialchars($r['partita_iva']) ?></small></td>
             <td><?= htmlspecialchars($r['categoria']) ?></td>
-            <td><?= htmlspecialchars($r['email']) ?><br><small><?= htmlspecialchars($r['telefono'] ?? '') ?></small></td>
+            <td><?= htmlspecialchars($r['email']) ?><br><small>PEC: <?= htmlspecialchars($r['pec']) ?></small></td>
+            <td>
+              <?php if (!empty($r['documento_path'])): ?>
+                <a href="<?= htmlspecialchars($r['documento_path']) ?>" target="_blank" class="admin-btn admin-btn--outline">Apri</a>
+              <?php else: ?>
+                <em>—</em>
+              <?php endif; ?>
+            </td>
           <?php elseif ($activeTab === 'long_list'): ?>
             <td><?= htmlspecialchars($r['nome']) ?><br><small><?= htmlspecialchars($r['codice_fiscale']) ?></small></td>
             <td><?= htmlspecialchars($r['area_competenza']) ?></td>
-            <td><?= htmlspecialchars($r['email']) ?><br><small><?= htmlspecialchars($r['telefono'] ?? '') ?></small></td>
+            <td><?= htmlspecialchars($r['email']) ?><br><small>PEC: <?= htmlspecialchars($r['pec']) ?></small></td>
+            <td>
+              <?php if (!empty($r['cv_path'])): ?>
+                <a href="<?= htmlspecialchars($r['cv_path']) ?>" target="_blank" class="admin-btn admin-btn--outline">Apri</a>
+              <?php else: ?>
+                <em>—</em>
+              <?php endif; ?>
+            </td>
           <?php else: ?>
             <td><?= htmlspecialchars($r['name']) ?><br><small><?= htmlspecialchars($r['organization'] ?? '') ?></small></td>
             <td><?= htmlspecialchars($r['request_type']) ?></td>
@@ -110,7 +124,7 @@ adminHeader('Richieste ricevute', 'submissions');
         </tr>
       <?php endforeach; ?>
       <?php if (empty($rows)): ?>
-        <tr><td colspan="5"><em>Nessuna richiesta ricevuta in questa categoria.</em></td></tr>
+        <tr><td colspan="6"><em>Nessuna richiesta ricevuta in questa categoria.</em></td></tr>
       <?php endif; ?>
     </tbody>
   </table>

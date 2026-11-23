@@ -21,17 +21,26 @@ $privacy = !empty($_POST['privacy'] ?? '');
 
 if (
     $ragioneSociale === '' || $formaGiuridica === '' || $partitaIva === '' ||
-    $sedeLegale === '' || $email === '' || $referente === '' || $categoria === ''
+    $sedeLegale === '' || $pec === '' || $email === '' || $referente === '' || $categoria === ''
 ) {
-    respond(false, 'Compila tutti i campi obbligatori.', 422);
+    respond(false, 'Compila tutti i campi obbligatori (inclusa la PEC).', 422);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     respond(false, 'Indirizzo email non valido.', 422);
 }
 
+if (!filter_var($pec, FILTER_VALIDATE_EMAIL)) {
+    respond(false, 'Indirizzo PEC non valido.', 422);
+}
+
 if (!$dichiarazione || !$privacy) {
     respond(false, 'Devi confermare le dichiarazioni richieste per procedere.', 422);
+}
+
+$upload = handleDocumentUpload('documento', 'albo-fornitori');
+if ($upload['error'] !== null) {
+    respond(false, $upload['error'], 422);
 }
 
 tryInsertSubmission('albo_fornitori_submissions', [
@@ -39,12 +48,13 @@ tryInsertSubmission('albo_fornitori_submissions', [
     'forma_giuridica' => $formaGiuridica,
     'partita_iva' => $partitaIva,
     'sede_legale' => $sedeLegale,
-    'pec' => $pec !== '' ? $pec : null,
+    'pec' => $pec,
     'email' => $email,
     'telefono' => $telefono !== '' ? $telefono : null,
     'referente' => $referente,
     'categoria' => $categoria,
     'descrizione' => $descrizione !== '' ? $descrizione : null,
+    'documento_path' => $upload['path'],
 ]);
 
 $sent = sendNotificationMail(
@@ -54,11 +64,12 @@ $sent = sendNotificationMail(
         'Forma giuridica' => $formaGiuridica,
         'Partita IVA / Codice Fiscale' => $partitaIva,
         'Sede legale' => $sedeLegale,
-        'PEC' => $pec !== '' ? $pec : '(non indicata)',
+        'PEC' => $pec,
         'Email' => $email,
         'Telefono' => $telefono !== '' ? $telefono : '(non indicato)',
         'Referente / Legale rappresentante' => $referente,
         'Categoria merceologica' => $categoria,
+        'Visura camerale' => 'https://enviriahub.it' . $upload['path'],
         "\nDescrizione attività" => "\n" . ($descrizione !== '' ? $descrizione : '(non indicata)'),
     ],
     $ragioneSociale,

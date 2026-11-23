@@ -60,6 +60,50 @@ function sendNotificationMail(string $subject, array $fields, string $replyToNam
 }
 
 /**
+ * Gestisce il caricamento di un documento (visura camerale, CV, ecc.)
+ * allegato a un modulo pubblico. Salva il file in una sottocartella di
+ * public/admin/uploads/ e restituisce il percorso pubblico da memorizzare,
+ * oppure un messaggio d'errore se qualcosa non va.
+ *
+ * @return array{path: ?string, error: ?string}
+ */
+function handleDocumentUpload(string $fieldName, string $subfolder): array
+{
+    $file = $_FILES[$fieldName] ?? null;
+
+    if (!$file || ($file['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
+        return ['path' => null, 'error' => 'Carica il documento richiesto.'];
+    }
+
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return ['path' => null, 'error' => 'Caricamento del file non riuscito. Riprova.'];
+    }
+
+    $maxBytes = 8 * 1024 * 1024; // 8 MB
+    if ($file['size'] > $maxBytes) {
+        return ['path' => null, 'error' => 'Il file supera la dimensione massima consentita (8 MB).'];
+    }
+
+    $allowedExt = ['pdf', 'doc', 'docx'];
+    $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    if (!in_array($ext, $allowedExt, true)) {
+        return ['path' => null, 'error' => 'Formato file non supportato (usa PDF, DOC o DOCX).'];
+    }
+
+    $uploadDir = __DIR__ . '/admin/uploads/' . $subfolder;
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
+    $filename = $subfolder . '-' . time() . '-' . bin2hex(random_bytes(4)) . '.' . $ext;
+    if (!move_uploaded_file($file['tmp_name'], $uploadDir . '/' . $filename)) {
+        return ['path' => null, 'error' => 'Impossibile salvare il file. Riprova.'];
+    }
+
+    return ['path' => '/admin/uploads/' . $subfolder . '/' . $filename, 'error' => null];
+}
+
+/**
  * Salva la richiesta anche nel database del pannello di gestione, se il
  * database è stato configurato (public/admin/config.php compilato e
  * schema.sql importato). Se il database non è ancora pronto, la richiesta
