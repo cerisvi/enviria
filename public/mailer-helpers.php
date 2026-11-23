@@ -65,7 +65,13 @@ function smtpSend(string $to, string $subject, string $body, string $fromName, s
     $user = $config['smtp_user'] ?? '';
     $pass = $config['smtp_pass'] ?? '';
 
+    $logFile = __DIR__ . '/admin/smtp-debug.log';
+    $log = function (string $line) use ($logFile): void {
+        @file_put_contents($logFile, date('c') . ' - ' . $line . "\n", FILE_APPEND);
+    };
+
     if ($host === '' || $user === '' || $pass === '') {
+        $log('Configurazione SMTP incompleta (host/user/pass mancanti in config.php).');
         return false;
     }
 
@@ -77,41 +83,48 @@ function smtpSend(string $to, string $subject, string $body, string $fromName, s
         STREAM_CLIENT_CONNECT,
     );
     if ($socket === false) {
+        $log("Connessione a ssl://{$host}:{$port} fallita — errno={$errno} errstr={$errstr}");
         return false;
     }
     stream_set_timeout($socket, 10);
 
-    $expect = function (string $expectedCode) use ($socket): bool {
+    $expect = function (string $expectedCode) use ($socket, $log, $to): bool {
         $line = '';
         do {
             $line = fgets($socket, 515);
             if ($line === false) {
+                $log('Nessuna risposta dal server (timeout o connessione chiusa).');
                 return false;
             }
         } while (isset($line[3]) && $line[3] === '-');
-        return str_starts_with($line, $expectedCode);
+        $ok = str_starts_with($line, $expectedCode);
+        if (!$ok) {
+            $log("Risposta inattesa: atteso {$expectedCode}, ricevuto \"" . trim($line) . '"');
+        }
+        return $ok;
     };
     $send = function (string $line) use ($socket): void {
         fwrite($socket, $line . "\r\n");
     };
 
     $steps = [
-        [null, '220'],
-        ['EHLO ' . (parse_url('http://' . $host, PHP_URL_HOST) ?: $host), '250'],
-        ['AUTH LOGIN', '334'],
-        [base64_encode($user), '334'],
-        [base64_encode($pass), '235'],
-        ['MAIL FROM:<' . $user . '>', '250'],
-        ['RCPT TO:<' . $to . '>', '250'],
-        ['DATA', '354'],
+        [null, '220', 'greeting'],
+        ['EHLO ' . (parse_url('http://' . $host, PHP_URL_HOST) ?: $host), '250', 'EHLO'],
+        ['AUTH LOGIN', '334', 'AUTH LOGIN'],
+        [base64_encode($user), '334', 'invio username'],
+        [base64_encode($pass), '235', 'invio password'],
+        ['MAIL FROM:<' . $user . '>', '250', 'MAIL FROM'],
+        ['RCPT TO:<' . $to . '>', '250', 'RCPT TO'],
+        ['DATA', '354', 'DATA'],
     ];
 
     $ok = true;
-    foreach ($steps as [$line, $expectedCode]) {
+    foreach ($steps as [$line, $expectedCode, $stepName]) {
         if ($line !== null) {
             $send($line);
         }
         if (!$expect($expectedCode)) {
+            $log("Fallito allo step: {$stepName}");
             $ok = false;
             break;
         }
