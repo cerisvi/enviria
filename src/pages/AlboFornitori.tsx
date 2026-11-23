@@ -194,14 +194,10 @@ export default function AlboFornitori() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} encType="multipart/form-data">
-                <input
-                  type="text"
-                  name="hpcheck"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  className="contact-form__honeypot"
-                  aria-hidden="true"
-                />
+                {/* Campo anti-spam: type="hidden" non viene mai toccato
+                    dall'autocompilazione dei browser (a differenza di un
+                    campo di testo nascosto via CSS). */}
+                <input type="hidden" name="hpcheck" value="" />
 
                 <fieldset>
                   <legend>

@@ -368,14 +368,10 @@ export default function ChiSiamo() {
               ) : (
                 <form onSubmit={handleSubmit}>
                   {/* Honeypot anti-spam: campo nascosto, invisibile e ignorato dagli utenti reali */}
-                  <input
-                    type="text"
-                    name="hpcheck"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    className="contact-form__honeypot"
-                    aria-hidden="true"
-                  />
+                  {/* Campo anti-spam: type="hidden" non viene mai toccato
+                      dall'autocompilazione dei browser (a differenza di un
+                      campo di testo nascosto via CSS). */}
+                  <input type="hidden" name="hpcheck" value="" />
                   <div className="contact-form__row">
                     <label>
                       {t.nameLabel}

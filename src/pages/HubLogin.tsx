@@ -71,14 +71,10 @@ export default function HubLogin() {
             </p>
 
             <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="hpcheck"
-                tabIndex={-1}
-                autoComplete="off"
-                className="contact-form__honeypot"
-                aria-hidden="true"
-              />
+              {/* Campo anti-spam: type="hidden" non viene mai toccato
+                  dall'autocompilazione dei browser (a differenza di un campo
+                  di testo nascosto via CSS). */}
+              <input type="hidden" name="hpcheck" value="" />
               <label>
                 Nome e cognome
                 <input type="text" name="name" required placeholder="Mario Rossi" />
