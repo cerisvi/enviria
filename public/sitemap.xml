@@ -1,69 +1,291 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://enviriahub.it/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/progetto</loc>
-    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/progetto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/progetto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/progetto" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/progetto</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/progetto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/progetto" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/progetto" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/ai-data-center</loc>
-    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/ai-data-center" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/ai-data-center" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/ai-data-center" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/ai-data-center</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/ai-data-center" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/ai-data-center" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/ai-data-center" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/filiera-del-dato</loc>
-    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/filiera-del-dato" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/filiera-del-dato" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/filiera-del-dato" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/filiera-del-dato</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/filiera-del-dato" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/filiera-del-dato" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/filiera-del-dato" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/partner</loc>
-    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/partner" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/partner" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/partner" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/partner</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/partner" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/partner" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/partner" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/news</loc>
-    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/news" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/news" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/news</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/news" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/news" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/chi-siamo</loc>
-    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo" />
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://enviriahub.it/en/chi-siamo</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/chi-siamo/governance/responsabile-scientifico</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo/governance/responsabile-scientifico" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo/governance/responsabile-scientifico" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo/governance/responsabile-scientifico" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/chi-siamo/governance/responsabile-scientifico</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo/governance/responsabile-scientifico" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo/governance/responsabile-scientifico" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo/governance/responsabile-scientifico" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/chi-siamo/governance/responsabile-amministrativo</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo/governance/responsabile-amministrativo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo/governance/responsabile-amministrativo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo/governance/responsabile-amministrativo" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/chi-siamo/governance/responsabile-amministrativo</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo/governance/responsabile-amministrativo" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo/governance/responsabile-amministrativo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo/governance/responsabile-amministrativo" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/chi-siamo/governance/comitato-tecnico-scientifico</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo/governance/comitato-tecnico-scientifico" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo/governance/comitato-tecnico-scientifico" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo/governance/comitato-tecnico-scientifico" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/chi-siamo/governance/comitato-tecnico-scientifico</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/chi-siamo/governance/comitato-tecnico-scientifico" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/chi-siamo/governance/comitato-tecnico-scientifico" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/chi-siamo/governance/comitato-tecnico-scientifico" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://enviriahub.it/trasparenza</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/trasparenza" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/trasparenza" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/trasparenza" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/trasparenza</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/trasparenza" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/trasparenza" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/trasparenza" />
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/avvisi-pubblici</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/avvisi-pubblici" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/avvisi-pubblici" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/avvisi-pubblici" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/avvisi-pubblici</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/avvisi-pubblici" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/avvisi-pubblici" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/avvisi-pubblici" />
     <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/avvisi-pubblici/albo-fornitori</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/avvisi-pubblici/albo-fornitori" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/avvisi-pubblici/albo-fornitori" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/avvisi-pubblici/albo-fornitori" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/avvisi-pubblici/albo-fornitori</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/avvisi-pubblici/albo-fornitori" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/avvisi-pubblici/albo-fornitori" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/avvisi-pubblici/albo-fornitori" />
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://enviriahub.it/avvisi-pubblici/long-list-professionisti</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/avvisi-pubblici/long-list-professionisti" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/avvisi-pubblici/long-list-professionisti" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/avvisi-pubblici/long-list-professionisti" />
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/avvisi-pubblici/long-list-professionisti</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/avvisi-pubblici/long-list-professionisti" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/avvisi-pubblici/long-list-professionisti" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/avvisi-pubblici/long-list-professionisti" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/privacy-policy" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/privacy-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/privacy-policy" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/cookie-policy</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/cookie-policy" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://enviriahub.it/en/cookie-policy</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://enviriahub.it/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://enviriahub.it/en/cookie-policy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://enviriahub.it/cookie-policy" />
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

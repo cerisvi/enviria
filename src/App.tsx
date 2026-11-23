@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, type ReactElement } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -30,6 +30,27 @@ function ScrollToTop() {
   return null
 }
 
+// Ogni pagina pubblica è disponibile sia in italiano (percorso base) sia in
+// inglese (stesso percorso prefissato da /en) — la pagina stessa decide cosa
+// mostrare in base al prefisso tramite useLang(). /hub e /admin restano solo
+// in italiano: sono strumenti interni, non contenuto pubblico da tradurre.
+const publicRoutes: { path: string; element: ReactElement }[] = [
+  { path: '/', element: <Home /> },
+  { path: '/progetto', element: <Progetto /> },
+  { path: '/ai-data-center', element: <AiDataCenter /> },
+  { path: '/filiera-del-dato', element: <FilieraDelDato /> },
+  { path: '/partner', element: <Partner /> },
+  { path: '/news', element: <News /> },
+  { path: '/chi-siamo', element: <ChiSiamo /> },
+  { path: '/chi-siamo/governance/:slug', element: <GovernanceDetail /> },
+  { path: '/trasparenza', element: <Trasparenza /> },
+  { path: '/avvisi-pubblici', element: <AvvisiPubblici /> },
+  { path: '/avvisi-pubblici/albo-fornitori', element: <AlboFornitori /> },
+  { path: '/avvisi-pubblici/long-list-professionisti', element: <LongListProfessionisti /> },
+  { path: '/privacy-policy', element: <PrivacyPolicy /> },
+  { path: '/cookie-policy', element: <CookiePolicy /> },
+]
+
 export default function App() {
   const location = useLocation()
   const { pathname } = location
@@ -50,23 +71,16 @@ export default function App() {
             transition={{ duration: 0.22, ease: 'easeInOut' }}
           >
             <Routes location={location}>
-              <Route path="/" element={<Home />} />
-              <Route path="/progetto" element={<Progetto />} />
-              <Route path="/ai-data-center" element={<AiDataCenter />} />
-              <Route path="/filiera-del-dato" element={<FilieraDelDato />} />
-              <Route path="/partner" element={<Partner />} />
-              <Route path="/news" element={<News />} />
-              <Route path="/chi-siamo" element={<ChiSiamo />} />
-              <Route path="/chi-siamo/governance/:slug" element={<GovernanceDetail />} />
-              <Route path="/trasparenza" element={<Trasparenza />} />
-              <Route path="/avvisi-pubblici" element={<AvvisiPubblici />} />
-              <Route path="/avvisi-pubblici/albo-fornitori" element={<AlboFornitori />} />
-              <Route
-                path="/avvisi-pubblici/long-list-professionisti"
-                element={<LongListProfessionisti />}
-              />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/cookie-policy" element={<CookiePolicy />} />
+              {publicRoutes.map(({ path, element }) => (
+                <Route key={`it${path}`} path={path} element={element} />
+              ))}
+              {publicRoutes.map(({ path, element }) => (
+                <Route
+                  key={`en${path}`}
+                  path={path === '/' ? '/en' : `/en${path}`}
+                  element={element}
+                />
+              ))}
               <Route path="/hub" element={<HubLogin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

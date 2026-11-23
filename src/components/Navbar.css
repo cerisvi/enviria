@@ -65,6 +65,26 @@
   padding: 10px 18px;
 }
 
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  padding: 5px 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-forest-deep);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-switcher:hover {
+  background: var(--color-tint);
+  border-color: var(--color-nature);
+}
+
 .navbar__toggle {
   display: none;
   background: none;
@@ -104,5 +124,9 @@
   .navbar__cta {
     margin-top: 14px;
     justify-content: center;
+  }
+
+  .lang-switcher {
+    margin: 10px auto 0;
   }
 }

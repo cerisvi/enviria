@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distDir = path.join(__dirname, '..', 'dist')
 
-const routes = [
+const baseRoutes = [
   '/',
   '/progetto',
   '/ai-data-center',
@@ -29,6 +29,13 @@ const routes = [
   '/avvisi-pubblici/long-list-professionisti',
   '/privacy-policy',
   '/cookie-policy',
+]
+
+// Ogni pagina pubblica esiste anche in inglese sotto /en (vedi App.tsx);
+// /hub e /admin restano solo in italiano, quindi non vengono duplicati qui.
+const routes = [
+  ...baseRoutes,
+  ...baseRoutes.map((route) => (route === '/' ? '/en' : `/en${route}`)),
 ]
 
 const mimeTypes = {

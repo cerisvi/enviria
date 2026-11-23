@@ -5,11 +5,43 @@ import riverCanyon from '../assets/photos/river-canyon.webp'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
 import { newsItems as fallbackNewsItems, type NewsItem } from '../data/news'
+import { useLang, useLocalizedPath } from '../i18n/useLang'
 import './InnerPage.css'
 import './News.css'
 
-function formatDate(iso: string) {
-  return new Date(`${iso}T00:00:00`).toLocaleDateString('it-IT', {
+const content = {
+  it: {
+    seoTitle: 'News & Eventi',
+    seoDescription:
+      "Novità, eventi e aggiornamenti sul progetto G.R.E.E.N – E.R.I. e sull'infrastruttura di ricerca ambientale ENVIRIA in Sicilia.",
+    kicker: 'Aggiornamenti',
+    title: 'News & Eventi',
+    lead: 'Le novità, gli appuntamenti e i traguardi del progetto G.R.E.E.N – E.R.I. e dell’infrastruttura di ricerca ENVIRIA.',
+    readMore: 'Leggi tutto',
+    showLess: 'Mostra meno',
+    ctaTitle: 'Vuoi restare aggiornato su ENVIRIA?',
+    ctaText: 'Scrivici per ricevere aggiornamenti su eventi, bandi e novità del progetto.',
+    ctaContact: 'Contattaci',
+    locale: 'it-IT',
+  },
+  en: {
+    seoTitle: 'News & Events',
+    seoDescription:
+      'News, events and updates on the G.R.E.E.N – E.R.I. project and the ENVIRIA environmental research infrastructure in Sicily.',
+    kicker: 'Updates',
+    title: 'News & Events',
+    lead: 'The news, events and milestones of the G.R.E.E.N – E.R.I. project and the ENVIRIA research infrastructure.',
+    readMore: 'Read more',
+    showLess: 'Show less',
+    ctaTitle: 'Want to stay up to date on ENVIRIA?',
+    ctaText: 'Write to us to receive updates on events, calls and project news.',
+    ctaContact: 'Contact us',
+    locale: 'en-GB',
+  },
+}
+
+function formatDate(iso: string, locale: string) {
+  return new Date(`${iso}T00:00:00`).toLocaleDateString(locale, {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -56,11 +88,16 @@ function NewsBody({ body }: { body: string[] }) {
 }
 
 export default function News() {
+  const lang = useLang()
+  const t = content[lang]
+  const path = useLocalizedPath('/news')
+  const chiSiamoPath = useLocalizedPath('/chi-siamo')
   const [openSlug, setOpenSlug] = useState<string | null>(null)
   // Contenuto di base (quello incluso nell'ultima build del sito): garantisce
   // che la pagina non sia mai vuota per i crawler o se il database del
   // pannello di gestione non è ancora configurato. Appena la fetch verso il
-  // pannello va a buon fine, i dati live la sostituiscono.
+  // pannello va a buon fine, i dati live la sostituiscono. Le news restano in
+  // italiano anche sulla versione inglese (contenuto gestito dall'admin).
   const [newsItems, setNewsItems] = useState<NewsItem[]>(fallbackNewsItems)
 
   useEffect(() => {
@@ -81,19 +118,12 @@ export default function News() {
 
   return (
     <div className="inner-page">
-      <Seo
-        title="News & Eventi"
-        description="Novità, eventi e aggiornamenti sul progetto G.R.E.E.N – E.R.I. e sull'infrastruttura di ricerca ambientale ENVIRIA in Sicilia."
-        path="/news"
-      />
+      <Seo title={t.seoTitle} description={t.seoDescription} path={path} />
       <section className="inner-hero" style={{ backgroundImage: `url(${riverCanyon})` }}>
         <Reveal className="container inner-hero__inner">
-          <span className="kicker">Aggiornamenti</span>
-          <h1>News &amp; Eventi</h1>
-          <p className="inner-hero__lead">
-            Le novità, gli appuntamenti e i traguardi del progetto G.R.E.E.N – E.R.I. e
-            dell’infrastruttura di ricerca ENVIRIA.
-          </p>
+          <span className="kicker">{t.kicker}</span>
+          <h1>{t.title}</h1>
+          <p className="inner-hero__lead">{t.lead}</p>
         </Reveal>
       </section>
 
@@ -111,7 +141,7 @@ export default function News() {
                     </div>
                     <div className="news-card__body">
                       <span className="news-card__date">
-                        <Calendar size={14} /> {formatDate(item.date)}
+                        <Calendar size={14} /> {formatDate(item.date, t.locale)}
                       </span>
                       <h2>{item.title}</h2>
                       {item.subtitle && <p className="news-card__subtitle">{item.subtitle}</p>}
@@ -150,7 +180,7 @@ export default function News() {
                         onClick={() => setOpenSlug(isOpen ? null : slug)}
                         aria-expanded={isOpen}
                       >
-                        {isOpen ? 'Mostra meno' : 'Leggi tutto'}
+                        {isOpen ? t.showLess : t.readMore}
                         <ChevronDown size={16} className={isOpen ? 'is-open' : ''} />
                       </button>
                     </div>
@@ -166,12 +196,12 @@ export default function News() {
         <Reveal>
           <div className="container cta-banner card">
             <div className="cta-banner__copy">
-              <h2>Vuoi restare aggiornato su ENVIRIA?</h2>
-              <p>Scrivici per ricevere aggiornamenti su eventi, bandi e novità del progetto.</p>
+              <h2>{t.ctaTitle}</h2>
+              <p>{t.ctaText}</p>
             </div>
             <div className="cta-banner__actions">
-              <Link to="/chi-siamo" className="btn btn-primary">
-                Contattaci <ArrowRight size={16} />
+              <Link to={chiSiamoPath} className="btn btn-primary">
+                {t.ctaContact} <ArrowRight size={16} />
               </Link>
             </div>
           </div>

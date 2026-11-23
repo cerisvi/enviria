@@ -63,6 +63,58 @@ nella bento grid della Home, pulsanti pill-shaped (`.btn-primary`/`.btn-outline`
 - **Non cancellare mai** `google*.html` / `BingSiteAuth.xml` dalla root `www`
   durante un caricamento (verifica Search Console / Bing Webmaster Tools).
 
+## Sito bilingue (IT/EN) — `src/i18n/useLang.ts`
+
+Il sito è disponibile in italiano (percorsi base, es. `/chi-siamo`) e in
+inglese (stesso percorso prefissato da `/en`, es. `/en/chi-siamo`). Non è
+usata nessuna libreria i18n esterna: ogni pagina pubblica è registrata una
+sola volta in `publicRoutes` in `src/App.tsx` e viene automaticamente
+duplicata sotto `/en` da quell'array; `/hub` e `/admin` restano **solo in
+italiano** (strumenti interni, non contenuto pubblico).
+
+- `useLang()`: deriva la lingua corrente dal prefisso `/en` nell'URL (nessuno
+  stato separato da sincronizzare — la fonte di verità è sempre la URL).
+- `useLocalizedPath(base)` / `localizePath(base, lang)`: costruiscono il
+  percorso localizzato di un link a partire dal percorso italiano "base".
+  Usa `useLocalizedPath` per singoli link nel corpo del componente, e
+  `localizePath` (funzione pura, non hook) dentro i `.map()` per rispettare
+  le Rules of Hooks.
+- `<LanguageSwitcher />` (in `Navbar.tsx`): calcola il percorso equivalente
+  nell'altra lingua con `otherLangPath()` e naviga lì, preservando la pagina
+  corrente (es. da `/en/chi-siamo/governance/x` torna a
+  `/chi-siamo/governance/x`, non alla home).
+- **Pattern per tradurre ogni pagina**: in cima al file, un oggetto
+  `const content = { it: {...}, en: {...} }` con tutte le stringhe della
+  pagina; nel componente, `const t = content[useLang()]` e si usa `t.xxx`
+  nel JSX. Per pagine con corpo HTML ricco (liste, tabelle, link inline —
+  es. `Trasparenza.tsx`, `PrivacyPolicy.tsx`, `CookiePolicy.tsx`) si usa
+  invece `const bodyByLang = { it: <>...</>, en: <>...</> }` fuori dal
+  componente.
+- `<Seo>` imposta automaticamente `<html lang="it|en">`, i tag
+  `hreflang="it"/"en"/"x-default"` e l'`og:locale` corretto a partire dal
+  `path` passato (che deve già includere l'eventuale prefisso `/en`).
+- **Contenuto gestito dal pannello admin (News, Avvisi, bio Governance,
+  nomi/categorie Partner) resta in italiano anche sulla versione inglese**
+  (decisione esplicita: evita la gestione di doppie traduzioni nel pannello
+  a ogni nuovo inserimento). Solo l'interfaccia fissa della pagina
+  (titoli di sezione, etichette, pulsanti, messaggi) è tradotta.
+- Le risposte di errore dei form PHP pubblici (`albo-fornitori.php`,
+  `long-list-professionisti.php`, `contact.php`) sono in italiano lato
+  server. Sulla versione inglese dei form, in caso di errore si mostra un
+  messaggio generico inglese pre-tradotto invece del messaggio del server
+  (vedi `lang === 'it' ? data.message || t.errorFallback : t.errorFallback`
+  in `AlboFornitori.tsx`/`LongListProfessionisti.tsx`/`ChiSiamo.tsx`), così
+  l'utente non vede mai un errore in italiano su una pagina inglese.
+- `scripts/prerender.mjs` pre-renderizza automaticamente ogni rotta sia in
+  italiano sia in inglese (`baseRoutes` + `baseRoutes` con prefisso `/en`).
+  `public/sitemap.xml` include entrambe le versioni di ogni pagina con tag
+  `xhtml:link rel="alternate" hreflang="..."` incrociati.
+- Per aggiungere una nuova pagina pubblica: aggiungila una sola volta a
+  `publicRoutes` in `App.tsx` (diventa disponibile in entrambe le lingue
+  automaticamente), traducila con il pattern `content.it`/`content.en`,
+  aggiungila a `baseRoutes` in `scripts/prerender.mjs` e aggiungi le due
+  righe corrispondenti (IT/EN) in `public/sitemap.xml`.
+
 ## Pannello di gestione (PHP + MySQL) — `public/admin/` e `public/api/`
 
 Il sito è un'SPA statica, ma **News & Eventi, Partner, Governance (le

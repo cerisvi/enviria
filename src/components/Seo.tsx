@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { langFromPathname, localizePath, stripLangPrefix } from '../i18n/useLang'
 
 const SITE_NAME = 'ENVIRIA'
 const SITE_URL = 'https://enviriahub.it'
@@ -7,6 +8,7 @@ const DEFAULT_IMAGE = `${SITE_URL}/social-preview.jpg`
 interface SeoProps {
   title: string
   description: string
+  /** Percorso localizzato corrente (es. "/chi-siamo" oppure "/en/chi-siamo"). */
   path: string
   image?: string
 }
@@ -21,11 +23,15 @@ function setMeta(attr: 'name' | 'property', key: string, content: string) {
   el.setAttribute('content', content)
 }
 
-function setCanonical(href: string) {
-  let el = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+function setLink(rel: string, href: string, hreflang?: string) {
+  const selector = hreflang
+    ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+    : `link[rel="${rel}"]:not([hreflang])`
+  let el = document.head.querySelector<HTMLLinkElement>(selector)
   if (!el) {
     el = document.createElement('link')
-    el.setAttribute('rel', 'canonical')
+    el.setAttribute('rel', rel)
+    if (hreflang) el.setAttribute('hreflang', hreflang)
     document.head.appendChild(el)
   }
   el.setAttribute('href', href)
@@ -33,13 +39,19 @@ function setCanonical(href: string) {
 
 export default function Seo({ title, description, path, image }: SeoProps) {
   useEffect(() => {
-    const fullTitle = path === '/' ? title : `${title} — ${SITE_NAME}`
+    const lang = langFromPathname(path)
+    const fullTitle = path === '/' || path === '/en' ? title : `${title} — ${SITE_NAME}`
     const url = `${SITE_URL}${path}`
     const ogImage = image ?? DEFAULT_IMAGE
+    const basePath = stripLangPrefix(path)
 
+    document.documentElement.lang = lang
     document.title = fullTitle
     setMeta('name', 'description', description)
-    setCanonical(url)
+    setLink('canonical', url)
+    setLink('alternate', `${SITE_URL}${localizePath(basePath, 'it')}`, 'it')
+    setLink('alternate', `${SITE_URL}${localizePath(basePath, 'en')}`, 'en')
+    setLink('alternate', `${SITE_URL}${localizePath(basePath, 'it')}`, 'x-default')
 
     setMeta('property', 'og:title', fullTitle)
     setMeta('property', 'og:description', description)
@@ -47,7 +59,7 @@ export default function Seo({ title, description, path, image }: SeoProps) {
     setMeta('property', 'og:image', ogImage)
     setMeta('property', 'og:type', 'website')
     setMeta('property', 'og:site_name', SITE_NAME)
-    setMeta('property', 'og:locale', 'it_IT')
+    setMeta('property', 'og:locale', lang === 'en' ? 'en_US' : 'it_IT')
 
     setMeta('name', 'twitter:card', 'summary_large_image')
     setMeta('name', 'twitter:title', fullTitle)

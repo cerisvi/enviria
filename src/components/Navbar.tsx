@@ -3,28 +3,32 @@ import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { motion, useReducedMotion } from 'motion/react'
 import logo from '../assets/brand/logo-orizzontale-colore.svg'
+import LanguageSwitcher from './LanguageSwitcher'
+import { localizePath, useLang } from '../i18n/useLang'
 import './Navbar.css'
 
 const links = [
-  { to: '/', label: 'Home' },
-  { to: '/chi-siamo', label: 'Chi siamo' },
-  { to: '/progetto', label: 'Il Progetto' },
-  { to: '/ai-data-center', label: 'AI Data Center' },
-  { to: '/filiera-del-dato', label: 'Filiera del Dato' },
-  { to: '/partner', label: 'Partner' },
-  { to: '/news', label: 'News' },
-  { to: '/trasparenza', label: 'Trasparenza' },
-  { to: '/avvisi-pubblici', label: 'Avvisi Pubblici' },
+  { to: '/', label: { it: 'Home', en: 'Home' } },
+  { to: '/chi-siamo', label: { it: 'Chi siamo', en: 'About Us' } },
+  { to: '/progetto', label: { it: 'Il Progetto', en: 'The Project' } },
+  { to: '/ai-data-center', label: { it: 'AI Data Center', en: 'AI Data Center' } },
+  { to: '/filiera-del-dato', label: { it: 'Filiera del Dato', en: 'Data Pipeline' } },
+  { to: '/partner', label: { it: 'Partner', en: 'Partners' } },
+  { to: '/news', label: { it: 'News', en: 'News' } },
+  { to: '/trasparenza', label: { it: 'Trasparenza', en: 'Transparency' } },
+  { to: '/avvisi-pubblici', label: { it: 'Avvisi Pubblici', en: 'Public Notices' } },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const reduceMotion = useReducedMotion()
+  const lang = useLang()
+  const homeHref = localizePath('/', lang)
 
   return (
     <header className="navbar">
       <div className="container navbar__inner">
-        <Link to="/" className="navbar__brand" onClick={() => setOpen(false)}>
+        <Link to={homeHref} className="navbar__brand" onClick={() => setOpen(false)}>
           <img src={logo} alt="ENVIRIA — Infrastruttura di Ricerca Green ERI" className="navbar__logo" />
         </Link>
 
@@ -32,14 +36,14 @@ export default function Navbar() {
           {links.map((link) => (
             <NavLink
               key={link.to}
-              to={link.to}
+              to={localizePath(link.to, lang)}
               end={link.to === '/'}
               className={({ isActive }) => `navbar__link ${isActive ? 'is-active' : ''}`}
               onClick={() => setOpen(false)}
             >
               {({ isActive }) => (
                 <>
-                  {link.label}
+                  {link.label[lang]}
                   {isActive && (
                     <motion.span
                       className="navbar__indicator"
@@ -54,8 +58,9 @@ export default function Navbar() {
             </NavLink>
           ))}
           <Link to="/hub" className="btn btn-primary navbar__cta" onClick={() => setOpen(false)}>
-            Accedi al Hub
+            {lang === 'it' ? 'Accedi al Hub' : 'Access the Hub'}
           </Link>
+          <LanguageSwitcher onNavigate={() => setOpen(false)} />
         </nav>
 
         <button
