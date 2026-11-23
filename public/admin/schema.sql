@@ -70,6 +70,7 @@ CREATE TABLE IF NOT EXISTS albo_fornitori_submissions (
   categoria VARCHAR(255) NOT NULL,
   descrizione TEXT NULL,
   documento_path VARCHAR(255) NULL,
+  company_profile_path VARCHAR(255) NULL,
   status VARCHAR(20) NOT NULL DEFAULT 'nuovo',
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

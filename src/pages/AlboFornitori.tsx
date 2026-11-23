@@ -189,17 +189,30 @@ export default function AlboFornitori() {
                   />
                 </label>
 
-                <label>
-                  <Paperclip size={14} style={{ verticalAlign: '-2px', marginRight: 6 }} />
-                  Visura camerale (o documento equivalente)
-                  <input
-                    type="file"
-                    name="documento"
-                    required
-                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                  />
-                  <span className="contact-form__file-hint">Formati accettati: PDF, DOC, DOCX — max 8 MB</span>
-                </label>
+                <div className="contact-form__row">
+                  <label>
+                    <Paperclip size={14} style={{ verticalAlign: '-2px', marginRight: 6 }} />
+                    Visura camerale
+                    <input
+                      type="file"
+                      name="documento"
+                      required
+                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    />
+                    <span className="contact-form__file-hint">PDF, DOC, DOCX — max 8 MB</span>
+                  </label>
+                  <label>
+                    <Paperclip size={14} style={{ verticalAlign: '-2px', marginRight: 6 }} />
+                    Company Profile
+                    <input
+                      type="file"
+                      name="companyProfile"
+                      required
+                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    />
+                    <span className="contact-form__file-hint">PDF, DOC, DOCX — max 8 MB</span>
+                  </label>
+                </div>
 
                 <div className="contact-form__checkbox-group">
                   <label className="contact-form__checkbox">

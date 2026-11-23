@@ -40,7 +40,12 @@ if (!$dichiarazione || !$privacy) {
 
 $upload = handleDocumentUpload('documento', 'albo-fornitori');
 if ($upload['error'] !== null) {
-    respond(false, $upload['error'], 422);
+    respond(false, 'Visura camerale: ' . $upload['error'], 422);
+}
+
+$profileUpload = handleDocumentUpload('companyProfile', 'albo-fornitori-profile');
+if ($profileUpload['error'] !== null) {
+    respond(false, 'Company Profile: ' . $profileUpload['error'], 422);
 }
 
 tryInsertSubmission('albo_fornitori_submissions', [
@@ -55,6 +60,7 @@ tryInsertSubmission('albo_fornitori_submissions', [
     'categoria' => $categoria,
     'descrizione' => $descrizione !== '' ? $descrizione : null,
     'documento_path' => $upload['path'],
+    'company_profile_path' => $profileUpload['path'],
 ]);
 
 $sent = sendNotificationMail(
@@ -70,6 +76,7 @@ $sent = sendNotificationMail(
         'Referente / Legale rappresentante' => $referente,
         'Categoria merceologica' => $categoria,
         'Visura camerale' => 'https://enviriahub.it' . $upload['path'],
+        'Company Profile' => 'https://enviriahub.it' . $profileUpload['path'],
         "\nDescrizione attività" => "\n" . ($descrizione !== '' ? $descrizione : '(non indicata)'),
     ],
     $ragioneSociale,

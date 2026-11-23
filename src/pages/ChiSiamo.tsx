@@ -1,5 +1,16 @@
 import { type FormEvent, useState } from 'react'
-import { ArrowRight, Building2, Mail, MapPin, Send, Target, Users } from 'lucide-react'
+import {
+  ArrowRight,
+  Building2,
+  Calculator,
+  FlaskConical,
+  Mail,
+  MapPin,
+  Send,
+  Target,
+  UsersRound,
+  Users,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
 import coastlineAerial from '../assets/photos/coastline-aerial.webp'
 import networkSphere from '../assets/photos/network-sphere.webp'
@@ -11,6 +22,24 @@ import './InnerPage.css'
 import './ChiSiamo.css'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
+
+const governanceRoles = [
+  {
+    icon: FlaskConical,
+    title: 'Responsabile Scientifico',
+    status: 'In aggiornamento',
+  },
+  {
+    icon: Calculator,
+    title: 'Responsabile Amministrativo',
+    status: 'In aggiornamento',
+  },
+  {
+    icon: UsersRound,
+    title: 'Comitato Tecnico Scientifico',
+    status: 'In aggiornamento',
+  },
+]
 
 export default function ChiSiamo() {
   const [status, setStatus] = useState<FormStatus>('idle')
@@ -109,6 +138,44 @@ export default function ChiSiamo() {
       </section>
 
       <section className="section section--tint">
+        <div className="container">
+          <Reveal className="section-head section-head--center">
+            <span className="kicker">Governance</span>
+            <h2>Governance e figure chiave</h2>
+            <p className="section-head__lead">
+              La struttura di governo di ENVIRIA S.C.A.R.L. e i referenti chiave
+              dell’infrastruttura di ricerca Green ERI.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="orgchart">
+              <div className="orgchart__node orgchart__node--root">
+                <span className="orgchart__icon">
+                  <Building2 size={20} />
+                </span>
+                ENVIRIA S.C.A.R.L.
+              </div>
+              <div className="orgchart__trunk" aria-hidden="true" />
+              <div className="orgchart__row">
+                {governanceRoles.map(({ icon: Icon, title, status }) => (
+                  <div className="orgchart__branch" key={title}>
+                    <div className="orgchart__node card">
+                      <span className="orgchart__icon">
+                        <Icon size={20} />
+                      </span>
+                      <h4>{title}</h4>
+                      <span className="orgchart__status">{status}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container">
           <Reveal className="section-head">
             <span className="kicker">Network</span>

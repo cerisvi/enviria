@@ -1,3 +1,129 @@
+/* Organigramma: un nodo radice collegato a 3 rami tramite linee CSS */
+.orgchart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.orgchart__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.orgchart__node--root {
+  background: var(--color-forest);
+  color: #fff;
+  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  box-shadow: var(--shadow-card);
+}
+
+.orgchart__node.card h4 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.orgchart__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.orgchart__node.card .orgchart__icon {
+  background: var(--color-tint);
+  color: var(--color-forest);
+}
+
+.orgchart__status {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-data-blue);
+  background: rgba(29, 78, 137, 0.1);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.orgchart__trunk {
+  width: 2px;
+  height: 32px;
+  background: var(--color-border);
+}
+
+.orgchart__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  padding-top: 32px;
+}
+
+.orgchart__row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: calc(100% / 6);
+  right: calc(100% / 6);
+  height: 2px;
+  background: var(--color-border);
+}
+
+.orgchart__branch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.orgchart__branch::before {
+  content: '';
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  width: 2px;
+  height: 32px;
+  background: var(--color-border);
+}
+
+@media (max-width: 760px) {
+  .orgchart__row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 0;
+  }
+
+  .orgchart__row::before {
+    display: none;
+  }
+
+  .orgchart__branch::before {
+    top: -16px;
+    height: 16px;
+  }
+
+  .orgchart__branch {
+    padding-top: 16px;
+  }
+
+  .orgchart__trunk {
+    height: 16px;
+  }
+}
+
 .partner-list__categories {
   margin: 16px 0 0;
   font-size: 0.92rem;

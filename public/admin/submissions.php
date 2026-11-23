@@ -57,7 +57,7 @@ adminHeader('Richieste ricevute', 'submissions');
       <tr>
         <th>Data</th>
         <?php if ($activeTab === 'albo'): ?>
-          <th>Ragione sociale</th><th>Categoria</th><th>Contatti</th><th>Documento</th>
+          <th>Ragione sociale</th><th>Categoria</th><th>Contatti</th><th>Visura</th><th>Company Profile</th>
         <?php elseif ($activeTab === 'long_list'): ?>
           <th>Nome</th><th>Area</th><th>Contatti</th><th>CV</th>
         <?php else: ?>
@@ -78,6 +78,13 @@ adminHeader('Richieste ricevute', 'submissions');
             <td>
               <?php if (!empty($r['documento_path'])): ?>
                 <a href="<?= htmlspecialchars($r['documento_path']) ?>" target="_blank" class="admin-btn admin-btn--outline">Apri</a>
+              <?php else: ?>
+                <em>—</em>
+              <?php endif; ?>
+            </td>
+            <td>
+              <?php if (!empty($r['company_profile_path'])): ?>
+                <a href="<?= htmlspecialchars($r['company_profile_path']) ?>" target="_blank" class="admin-btn admin-btn--outline">Apri</a>
               <?php else: ?>
                 <em>—</em>
               <?php endif; ?>
@@ -124,7 +131,7 @@ adminHeader('Richieste ricevute', 'submissions');
         </tr>
       <?php endforeach; ?>
       <?php if (empty($rows)): ?>
-        <tr><td colspan="6"><em>Nessuna richiesta ricevuta in questa categoria.</em></td></tr>
+        <tr><td colspan="8"><em>Nessuna richiesta ricevuta in questa categoria.</em></td></tr>
       <?php endif; ?>
     </tbody>
   </table>
