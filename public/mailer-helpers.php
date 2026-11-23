@@ -21,7 +21,7 @@ function requirePost(): void
 }
 
 // Honeypot: campo nascosto che un utente umano non compila mai.
-function checkHoneypot(string $field = 'website'): void
+function checkHoneypot(string $field = 'hpcheck'): void
 {
     if (!empty($_POST[$field] ?? '')) {
         respond(true, 'Richiesta ricevuta.');

@@ -196,7 +196,7 @@ export default function AlboFornitori() {
               <form onSubmit={handleSubmit} encType="multipart/form-data">
                 <input
                   type="text"
-                  name="website"
+                  name="hpcheck"
                   tabIndex={-1}
                   autoComplete="off"
                   className="contact-form__honeypot"

@@ -370,7 +370,7 @@ export default function ChiSiamo() {
                   {/* Honeypot anti-spam: campo nascosto, invisibile e ignorato dagli utenti reali */}
                   <input
                     type="text"
-                    name="website"
+                    name="hpcheck"
                     tabIndex={-1}
                     autoComplete="off"
                     className="contact-form__honeypot"
