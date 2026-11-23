@@ -10,6 +10,7 @@ import FilieraDelDato from './pages/FilieraDelDato'
 import Partner from './pages/Partner'
 import News from './pages/News'
 import ChiSiamo from './pages/ChiSiamo'
+import GovernanceDetail from './pages/GovernanceDetail'
 import Trasparenza from './pages/Trasparenza'
 import AvvisiPubblici from './pages/AvvisiPubblici'
 import AlboFornitori from './pages/AlboFornitori'
@@ -56,6 +57,7 @@ export default function App() {
               <Route path="/partner" element={<Partner />} />
               <Route path="/news" element={<News />} />
               <Route path="/chi-siamo" element={<ChiSiamo />} />
+              <Route path="/chi-siamo/governance/:slug" element={<GovernanceDetail />} />
               <Route path="/trasparenza" element={<Trasparenza />} />
               <Route path="/avvisi-pubblici" element={<AvvisiPubblici />} />
               <Route path="/avvisi-pubblici/albo-fornitori" element={<AlboFornitori />} />

@@ -31,6 +31,37 @@
   font-size: 0.98rem;
 }
 
+.orgchart__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.orgchart__link:hover,
+.orgchart__link:focus-visible {
+  transform: translateY(-3px);
+}
+
+.orgchart__link:hover .orgchart__node.card,
+.orgchart__link:focus-visible .orgchart__node.card {
+  box-shadow: var(--shadow-card);
+}
+
+.orgchart__hint {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.74rem;
+  color: var(--color-ink-soft);
+}
+
+.orgchart__photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .orgchart__icon {
   display: inline-flex;
   align-items: center;

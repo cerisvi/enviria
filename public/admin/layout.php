@@ -7,6 +7,7 @@ function adminHeader(string $title, string $active = ''): void
         'dashboard' => ['href' => '/admin/index.php', 'label' => 'Dashboard'],
         'news' => ['href' => '/admin/news.php', 'label' => 'News & Eventi'],
         'partners' => ['href' => '/admin/partners.php', 'label' => 'Partner'],
+        'governance' => ['href' => '/admin/governance.php', 'label' => 'Governance'],
         'avvisi' => ['href' => '/admin/avvisi.php', 'label' => 'Avvisi per il personale'],
         'submissions' => ['href' => '/admin/submissions.php', 'label' => 'Richieste ricevute'],
     ];

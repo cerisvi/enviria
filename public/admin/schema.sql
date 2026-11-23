@@ -103,6 +103,18 @@ CREATE TABLE IF NOT EXISTS hub_requests (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE IF NOT EXISTS governance_members (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  slug VARCHAR(100) NOT NULL UNIQUE,
+  role VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NULL,
+  photo_path VARCHAR(255) NULL,
+  bio TEXT NULL,
+  cv_path VARCHAR(255) NULL,
+  sort_order INT NOT NULL DEFAULT 0,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- ============================================================
 -- DATI INIZIALI (quelli già pubblicati sul sito oggi)
 -- ============================================================
@@ -159,3 +171,8 @@ INSERT INTO news (news_date, title, subtitle, excerpt, body, image_path, image_a
   NULL,
   '[{"label":"Graduatoria definitiva — Regione Siciliana","url":"https://www.regione.sicilia.it/la-regione-informa/graduatoria-definitiva-merito-istanze-ammissibili-relative-all-avviso-sori"},{"label":"Approfondimento — CERISVI","url":"https://cerisvi.it/it/2026/05/14/s3-campus-2-3-2/"}]'
 );
+
+INSERT INTO governance_members (slug, role, name, photo_path, bio, cv_path, sort_order) VALUES
+  ('responsabile-scientifico', 'Responsabile Scientifico', NULL, NULL, NULL, NULL, 1),
+  ('responsabile-amministrativo', 'Responsabile Amministrativo', NULL, NULL, NULL, NULL, 2),
+  ('comitato-tecnico-scientifico', 'Comitato Tecnico Scientifico', NULL, NULL, NULL, NULL, 3);

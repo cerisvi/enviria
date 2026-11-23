@@ -65,7 +65,8 @@ nella bento grid della Home, pulsanti pill-shaped (`.btn-primary`/`.btn-outline`
 
 ## Pannello di gestione (PHP + MySQL) — `public/admin/` e `public/api/`
 
-Il sito è un'SPA statica, ma **News & Eventi, Partner, Avvisi per il
+Il sito è un'SPA statica, ma **News & Eventi, Partner, Governance (le
+figure chiave cliccabili nell'organigramma di Chi Siamo), Avvisi per il
 personale e le richieste ricevute dai moduli** (Albo Fornitori, Long List
 Professionisti, richiesta Hub) sono gestiti da un pannello admin
 PHP + MySQL, non più da file statici in `src/data/`.
@@ -77,17 +78,27 @@ PHP + MySQL, non più da file statici in `src/data/`.
 - `public/admin/*.php`: pannello riservato (login, CRUD per ciascuna
   sezione, upload immagini in `public/admin/uploads/`). Protetto da
   login + CSRF token; `robots.txt` esclude `/admin/` e `/api/`.
-- `public/api/{news,partners,avvisi}.php`: endpoint pubblici di sola
-  lettura in JSON, consumati dal frontend React.
-- `src/pages/News.tsx`, `Partner.tsx`, `AvvisiPubblici.tsx`: al mount
-  fanno `fetch()` verso questi endpoint e sostituiscono il contenuto
-  mostrato. **Il contenuto di partenza resta quello statico** importato da
-  `src/data/news.ts` / `src/data/partners.ts` (fallback): garantisce che la
-  pagina non sia mai vuota per i crawler o se il DB non è ancora
-  configurato. Quando si aggiungono/rimuovono news o partner dal pannello,
+- `public/api/{news,partners,avvisi,governance}.php`: endpoint pubblici di
+  sola lettura in JSON, consumati dal frontend React.
+- `src/pages/News.tsx`, `Partner.tsx`, `AvvisiPubblici.tsx`, `ChiSiamo.tsx`
+  (organigramma) e `GovernanceDetail.tsx`: al mount fanno `fetch()` verso
+  questi endpoint e sostituiscono il contenuto mostrato. **Il contenuto di
+  partenza resta quello statico** importato da `src/data/news.ts` /
+  `partners.ts` / `governance.ts` (fallback): garantisce che la pagina non
+  sia mai vuota per i crawler o se il DB non è ancora configurato. Quando si
+  aggiungono/rimuovono news, partner o figure di governance dal pannello,
   questi file statici NON si aggiornano da soli — sono solo lo stato
   "congelato" dell'ultima build e serviranno da sfondo di sicurezza finché
   non vengono rigenerati o sostituiti in un prossimo giro di lavoro.
+- **Governance** (`public/admin/governance.php`, tabella
+  `governance_members`): ogni figura ha uno `slug` univoco che genera la
+  pagina di dettaglio `/chi-siamo/governance/:slug` (foto, descrizione
+  sintetica delle competenze, CV scaricabile — come gli "organi di governo"
+  di un ateneo). I tre box dell'organigramma in Chi Siamo sono link a
+  queste pagine. Nome, foto, bio e CV sono opzionali: se assenti la pagina
+  mostra "In aggiornamento" / "Documento in pubblicazione" invece di un
+  campo vuoto. Nuove figure aggiunte dal pannello generano uno slug
+  automaticamente dal nome o dal ruolo.
 - `public/{contact,hub-request,albo-fornitori,long-list-professionisti}.php`
   + `public/mailer-helpers.php`: inviano sempre l'email a
   direzione@enviriahub.it e, se il DB è configurato, salvano **anche** la

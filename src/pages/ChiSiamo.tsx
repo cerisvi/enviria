@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react'
+import { type FormEvent, useEffect, useState } from 'react'
 import {
   ArrowRight,
   Building2,
@@ -18,32 +18,41 @@ import laptopRender from '../assets/photos/laptop-3d-render.webp'
 import PhotoBand from '../components/PhotoBand'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
+import { governanceMembers as fallbackGovernanceMembers, type GovernanceMember } from '../data/governance'
 import './InnerPage.css'
 import './ChiSiamo.css'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
-const governanceRoles = [
-  {
-    icon: FlaskConical,
-    title: 'Responsabile Scientifico',
-    status: 'In aggiornamento',
-  },
-  {
-    icon: Calculator,
-    title: 'Responsabile Amministrativo',
-    status: 'In aggiornamento',
-  },
-  {
-    icon: UsersRound,
-    title: 'Comitato Tecnico Scientifico',
-    status: 'In aggiornamento',
-  },
-]
+const roleIcons: Record<string, typeof FlaskConical> = {
+  'responsabile-scientifico': FlaskConical,
+  'responsabile-amministrativo': Calculator,
+  'comitato-tecnico-scientifico': UsersRound,
+}
 
 export default function ChiSiamo() {
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  // Contenuto di base (quello incluso nell'ultima build del sito): garantisce
+  // che l'organigramma non sia mai vuoto per i crawler o se il database del
+  // pannello di gestione non è ancora configurato.
+  const [governanceMembers, setGovernanceMembers] = useState<GovernanceMember[]>(
+    fallbackGovernanceMembers,
+  )
+
+  useEffect(() => {
+    fetch('/api/governance.php')
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data: GovernanceMember[]) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setGovernanceMembers(data)
+        }
+      })
+      .catch(() => {
+        // Database non ancora configurato o non raggiungibile: resta il
+        // contenuto di base già mostrato.
+      })
+  }, [])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -158,17 +167,29 @@ export default function ChiSiamo() {
               </div>
               <div className="orgchart__trunk" aria-hidden="true" />
               <div className="orgchart__row">
-                {governanceRoles.map(({ icon: Icon, title, status }) => (
-                  <div className="orgchart__branch" key={title}>
-                    <div className="orgchart__node card">
-                      <span className="orgchart__icon">
-                        <Icon size={20} />
-                      </span>
-                      <h4>{title}</h4>
-                      <span className="orgchart__status">{status}</span>
+                {governanceMembers.map((member) => {
+                  const Icon = roleIcons[member.slug] ?? UsersRound
+                  return (
+                    <div className="orgchart__branch" key={member.slug}>
+                      <Link to={`/chi-siamo/governance/${member.slug}`} className="orgchart__link">
+                        <div className="orgchart__node card">
+                          {member.photo ? (
+                            <img src={member.photo} alt="" className="orgchart__photo" />
+                          ) : (
+                            <span className="orgchart__icon">
+                              <Icon size={20} />
+                            </span>
+                          )}
+                          <h4>{member.role}</h4>
+                          <span className="orgchart__status">
+                            {member.name ?? 'In aggiornamento'}
+                          </span>
+                          <span className="orgchart__hint">Scopri di più →</span>
+                        </div>
+                      </Link>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </Reveal>
