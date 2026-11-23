@@ -24,11 +24,24 @@ import './ChiSiamo.css'
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error'
 
-const roleIcons: Record<string, typeof FlaskConical> = {
-  'responsabile-scientifico': FlaskConical,
-  'responsabile-amministrativo': Calculator,
-  'comitato-tecnico-scientifico': UsersRound,
+const roleMeta: Record<string, { icon: typeof FlaskConical; intl: string; accent: string }> = {
+  'responsabile-scientifico': {
+    icon: FlaskConical,
+    intl: 'Scientific Director',
+    accent: 'var(--color-forest)',
+  },
+  'responsabile-amministrativo': {
+    icon: Calculator,
+    intl: 'Administrative Director',
+    accent: 'var(--color-data-blue)',
+  },
+  'comitato-tecnico-scientifico': {
+    icon: UsersRound,
+    intl: 'Scientific-Technical Committee',
+    accent: 'var(--color-nature)',
+  },
 }
+const defaultRoleMeta = { icon: UsersRound, intl: '', accent: 'var(--color-forest)' }
 
 export default function ChiSiamo() {
   const [status, setStatus] = useState<FormStatus>('idle')
@@ -153,43 +166,57 @@ export default function ChiSiamo() {
             <h2>Governance e figure chiave</h2>
             <p className="section-head__lead">
               La struttura di governo di ENVIRIA S.C.A.R.L. e i referenti chiave
-              dell’infrastruttura di ricerca Green ERI.
+              dell’infrastruttura di ricerca Green ERI, secondo il modello di
+              governance — direzione scientifica, direzione amministrativa e
+              organo tecnico-scientifico consultivo — adottato dalle principali
+              infrastrutture di ricerca nazionali ed europee.
             </p>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="orgchart">
-              <div className="orgchart__node orgchart__node--root">
-                <span className="orgchart__icon">
-                  <Building2 size={20} />
-                </span>
-                ENVIRIA S.C.A.R.L.
-              </div>
-              <div className="orgchart__trunk" aria-hidden="true" />
-              <div className="orgchart__row">
-                {governanceMembers.map((member) => {
-                  const Icon = roleIcons[member.slug] ?? UsersRound
-                  return (
-                    <div className="orgchart__branch" key={member.slug}>
-                      <Link to={`/chi-siamo/governance/${member.slug}`} className="orgchart__link">
-                        <div className="orgchart__node card">
-                          {member.photo ? (
-                            <img src={member.photo} alt="" className="orgchart__photo" />
-                          ) : (
-                            <span className="orgchart__icon">
-                              <Icon size={20} />
+            <div className="orgchart-panel">
+              <div className="orgchart">
+                <div className="orgchart__node orgchart__node--root">
+                  <span className="orgchart__icon orgchart__icon--root">
+                    <Building2 size={22} />
+                  </span>
+                  <strong>ENVIRIA S.C.A.R.L.</strong>
+                  <span className="orgchart__root-subtitle">
+                    Organismo di Ricerca — Infrastruttura Green ERI
+                  </span>
+                </div>
+                <div className="orgchart__trunk" aria-hidden="true" />
+                <div className="orgchart__row">
+                  {governanceMembers.map((member) => {
+                    const meta = roleMeta[member.slug] ?? defaultRoleMeta
+                    const Icon = meta.icon
+                    return (
+                      <div className="orgchart__branch" key={member.slug}>
+                        <Link
+                          to={`/chi-siamo/governance/${member.slug}`}
+                          className="orgchart__link"
+                          style={{ ['--orgchart-accent' as string]: meta.accent }}
+                        >
+                          <div className="orgchart__node card">
+                            {member.photo ? (
+                              <img src={member.photo} alt="" className="orgchart__photo" />
+                            ) : (
+                              <span className="orgchart__icon">
+                                <Icon size={20} />
+                              </span>
+                            )}
+                            {meta.intl && <span className="orgchart__intl">{meta.intl}</span>}
+                            <h4>{member.role}</h4>
+                            <span className="orgchart__status">
+                              {member.name ?? 'In aggiornamento'}
                             </span>
-                          )}
-                          <h4>{member.role}</h4>
-                          <span className="orgchart__status">
-                            {member.name ?? 'In aggiornamento'}
-                          </span>
-                          <span className="orgchart__hint">Scopri di più →</span>
-                        </div>
-                      </Link>
-                    </div>
-                  )
-                })}
+                            <span className="orgchart__hint">Scopri di più →</span>
+                          </div>
+                        </Link>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </Reveal>

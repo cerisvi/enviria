@@ -1,4 +1,20 @@
-/* Organigramma: un nodo radice collegato a 3 rami tramite linee CSS */
+/* Organigramma: nodo radice collegato a 3 rami, in stile infografico
+   istituzionale (direzione scientifica / amministrativa / organo
+   tecnico-scientifico), coerente con il modello di governance delle
+   infrastrutture di ricerca nazionali ed europee. */
+.orgchart-panel {
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg, 20px);
+  box-shadow: var(--shadow-card);
+  padding: 48px 36px 36px;
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: center top;
+}
+
 .orgchart {
   display: flex;
   flex-direction: column;
@@ -18,12 +34,40 @@
 }
 
 .orgchart__node--root {
-  background: var(--color-forest);
+  background: linear-gradient(135deg, var(--color-forest), var(--color-forest-deep));
   color: #fff;
-  font-weight: 700;
   font-family: var(--font-serif);
-  font-size: 1.05rem;
-  box-shadow: var(--shadow-card);
+  font-size: 1.1rem;
+  padding: 22px 32px;
+  box-shadow: 0 10px 30px -10px rgba(15, 59, 48, 0.55);
+  gap: 6px;
+}
+
+.orgchart__root-subtitle {
+  font-family: var(--font-sans, inherit);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.orgchart__node.card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  padding-top: 24px;
+}
+
+.orgchart__node.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--orgchart-accent, var(--color-forest));
 }
 
 .orgchart__node.card h4 {
@@ -31,28 +75,45 @@
   font-size: 0.98rem;
 }
 
+.orgchart__intl {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--orgchart-accent, var(--color-data-blue));
+}
+
 .orgchart__link {
-  display: block;
+  display: flex;
+  height: 100%;
   text-decoration: none;
   color: inherit;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
+.orgchart__link .orgchart__node.card {
+  flex: 1;
+  width: 100%;
+}
+
 .orgchart__link:hover,
 .orgchart__link:focus-visible {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .orgchart__link:hover .orgchart__node.card,
 .orgchart__link:focus-visible .orgchart__node.card {
   box-shadow: var(--shadow-card);
+  border-color: var(--orgchart-accent, var(--color-border));
 }
 
 .orgchart__hint {
   display: block;
-  margin-top: 2px;
+  margin-top: auto;
+  padding-top: 6px;
   font-size: 0.74rem;
-  color: var(--color-ink-soft);
+  font-weight: 600;
+  color: var(--orgchart-accent, var(--color-ink-soft));
 }
 
 .orgchart__photo {
@@ -72,9 +133,16 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
+.orgchart__icon--root {
+  width: 46px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
 .orgchart__node.card .orgchart__icon {
   background: var(--color-tint);
-  color: var(--color-forest);
+  color: var(--orgchart-accent, var(--color-forest));
 }
 
 .orgchart__status {
@@ -90,9 +158,22 @@
 }
 
 .orgchart__trunk {
+  position: relative;
   width: 2px;
-  height: 32px;
+  height: 36px;
   background: var(--color-border);
+}
+
+.orgchart__trunk::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--color-forest);
 }
 
 .orgchart__row {
@@ -130,7 +211,24 @@
   background: var(--color-border);
 }
 
+.orgchart__branch::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: var(--color-border);
+  border: 2px solid var(--color-surface);
+}
+
 @media (max-width: 760px) {
+  .orgchart-panel {
+    padding: 32px 18px 24px;
+  }
+
   .orgchart__row {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -144,6 +242,10 @@
   .orgchart__branch::before {
     top: -16px;
     height: 16px;
+  }
+
+  .orgchart__branch::after {
+    top: -2px;
   }
 
   .orgchart__branch {
