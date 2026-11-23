@@ -13,6 +13,9 @@ export default function LanguageSwitcher({ onNavigate }: { onNavigate?: () => vo
       className="lang-switcher"
       aria-label={lang === 'it' ? 'Switch to English' : 'Passa all’italiano'}
     >
+      <span className="lang-switcher__flag" aria-hidden="true">
+        {lang === 'it' ? '🇬🇧' : '🇮🇹'}
+      </span>
       {lang === 'it' ? 'EN' : 'IT'}
     </Link>
   )
