@@ -7,6 +7,7 @@ import './Navbar.css'
 
 const links = [
   { to: '/', label: 'Home' },
+  { to: '/chi-siamo', label: 'Chi siamo' },
   { to: '/progetto', label: 'Il Progetto' },
   { to: '/ai-data-center', label: 'AI Data Center' },
   { to: '/filiera-del-dato', label: 'Filiera del Dato' },
@@ -14,7 +15,6 @@ const links = [
   { to: '/news', label: 'News' },
   { to: '/trasparenza', label: 'Trasparenza' },
   { to: '/avvisi-pubblici', label: 'Avvisi Pubblici' },
-  { to: '/chi-siamo', label: 'Chi siamo' },
 ]
 
 export default function Navbar() {
