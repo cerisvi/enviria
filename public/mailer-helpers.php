@@ -35,6 +35,111 @@ function cleanField(string $value): string
     return preg_replace('/[\r\n]+/', ' ', $value);
 }
 
+function mimeEncodeHeader(string $text): string
+{
+    return '=?UTF-8?B?' . base64_encode($text) . '?=';
+}
+
+/**
+ * Invia una email tramite connessione SMTP autenticata (porta 465,
+ * SSL/TLS), usando le credenziali in public/admin/config.php.
+ *
+ * Usiamo una connessione SMTP autenticata, anziché la funzione PHP
+ * mail(), perché su molti hosting condivisi mail() restituisce "successo"
+ * anche quando il messaggio non viene mai consegnato (nessun errore
+ * visibile, nessuna email nello spam): è un fallimento silenzioso che
+ * mail() non permette di diagnosticare né evitare. Una connessione SMTP
+ * autenticata con una casella realmente esistente del dominio è il
+ * metodo più affidabile sugli hosting condivisi.
+ */
+function smtpSend(string $to, string $subject, string $body, string $fromName, string $replyToName, string $replyToEmail): bool
+{
+    $configFile = __DIR__ . '/admin/config.php';
+    if (!file_exists($configFile)) {
+        return false;
+    }
+
+    $config = require $configFile;
+    $host = $config['smtp_host'] ?? '';
+    $port = (int) ($config['smtp_port'] ?? 465);
+    $user = $config['smtp_user'] ?? '';
+    $pass = $config['smtp_pass'] ?? '';
+
+    if ($host === '' || $user === '' || $pass === '') {
+        return false;
+    }
+
+    $socket = @stream_socket_client(
+        'ssl://' . $host . ':' . $port,
+        $errno,
+        $errstr,
+        10,
+        STREAM_CLIENT_CONNECT,
+    );
+    if ($socket === false) {
+        return false;
+    }
+    stream_set_timeout($socket, 10);
+
+    $expect = function (string $expectedCode) use ($socket): bool {
+        $line = '';
+        do {
+            $line = fgets($socket, 515);
+            if ($line === false) {
+                return false;
+            }
+        } while (isset($line[3]) && $line[3] === '-');
+        return str_starts_with($line, $expectedCode);
+    };
+    $send = function (string $line) use ($socket): void {
+        fwrite($socket, $line . "\r\n");
+    };
+
+    $steps = [
+        [null, '220'],
+        ['EHLO ' . (parse_url('http://' . $host, PHP_URL_HOST) ?: $host), '250'],
+        ['AUTH LOGIN', '334'],
+        [base64_encode($user), '334'],
+        [base64_encode($pass), '235'],
+        ['MAIL FROM:<' . $user . '>', '250'],
+        ['RCPT TO:<' . $to . '>', '250'],
+        ['DATA', '354'],
+    ];
+
+    $ok = true;
+    foreach ($steps as [$line, $expectedCode]) {
+        if ($line !== null) {
+            $send($line);
+        }
+        if (!$expect($expectedCode)) {
+            $ok = false;
+            break;
+        }
+    }
+
+    if ($ok) {
+        $headers = [
+            'From: ' . mimeEncodeHeader($fromName) . ' <' . $user . '>',
+            'Reply-To: ' . mimeEncodeHeader($replyToName) . ' <' . $replyToEmail . '>',
+            'To: <' . $to . '>',
+            'Subject: ' . mimeEncodeHeader($subject),
+            'Date: ' . date('r'),
+            'MIME-Version: 1.0',
+            'Content-Type: text/plain; charset=UTF-8',
+        ];
+        // Dot-stuffing: una riga che inizia con "." va raddoppiata, altrimenti
+        // il server SMTP la interpreterebbe come terminatore del messaggio.
+        $escapedBody = preg_replace('/^\./m', '..', $body);
+        $send(implode("\r\n", $headers) . "\r\n\r\n" . $escapedBody . "\r\n.");
+        $ok = $expect('250');
+    }
+
+    $send('QUIT');
+    fclose($socket);
+
+    return $ok;
+}
+
 /**
  * @param array<string, string> $fields Coppie etichetta => valore da elencare nel corpo email.
  */
@@ -48,19 +153,7 @@ function sendNotificationMail(string $subject, array $fields, string $replyToNam
     }
     $body = implode("\n", $bodyLines);
 
-    // Il mittente deve essere una casella realmente esistente sul dominio:
-    // molti server di posta scartano in silenzio i messaggi che dichiarano
-    // un mittente inesistente sullo stesso dominio (anti-spoofing), anche
-    // per consegne verso lo stesso account. Usiamo quindi la casella reale
-    // invece di un "noreply@" mai configurato.
-    $headers = [
-        'From: ENVIRIA Website <' . $to . '>',
-        'Reply-To: ' . $replyToName . ' <' . $replyToEmail . '>',
-        'MIME-Version: 1.0',
-        'Content-Type: text/plain; charset=UTF-8',
-    ];
-
-    return mail($to, $subject, $body, implode("\r\n", $headers));
+    return smtpSend($to, $subject, $body, 'ENVIRIA Website', $replyToName, $replyToEmail);
 }
 
 /**
