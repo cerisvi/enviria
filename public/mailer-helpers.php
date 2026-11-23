@@ -41,7 +41,6 @@ function cleanField(string $value): string
 function sendNotificationMail(string $subject, array $fields, string $replyToName, string $replyToEmail): bool
 {
     $to = 'direzione@enviriahub.it';
-    $fromDomain = 'enviriahub.it';
 
     $bodyLines = [];
     foreach ($fields as $label => $value) {
@@ -49,8 +48,13 @@ function sendNotificationMail(string $subject, array $fields, string $replyToNam
     }
     $body = implode("\n", $bodyLines);
 
+    // Il mittente deve essere una casella realmente esistente sul dominio:
+    // molti server di posta scartano in silenzio i messaggi che dichiarano
+    // un mittente inesistente sullo stesso dominio (anti-spoofing), anche
+    // per consegne verso lo stesso account. Usiamo quindi la casella reale
+    // invece di un "noreply@" mai configurato.
     $headers = [
-        'From: ENVIRIA Website <noreply@' . $fromDomain . '>',
+        'From: ENVIRIA Website <' . $to . '>',
         'Reply-To: ' . $replyToName . ' <' . $replyToEmail . '>',
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
