@@ -1,13 +1,34 @@
+import { useEffect, useState } from 'react'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import earthSpace from '../assets/photos/earth-space.webp'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
-import { partnerCategories } from '../data/partners'
+import { partnerCategories as fallbackPartnerCategories, type PartnerCategory } from '../data/partners'
 import './InnerPage.css'
 import './Partner.css'
 
 export default function Partner() {
+  // Contenuto di base (incluso nell'ultima build): mai vuoto per i crawler o
+  // se il database del pannello di gestione non è ancora configurato.
+  const [partnerCategories, setPartnerCategories] = useState<PartnerCategory[]>(
+    fallbackPartnerCategories,
+  )
+
+  useEffect(() => {
+    fetch('/api/partners.php')
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data: PartnerCategory[]) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setPartnerCategories(data)
+        }
+      })
+      .catch(() => {
+        // Database non ancora configurato o non raggiungibile: resta il
+        // contenuto di base già mostrato.
+      })
+  }, [])
+
   return (
     <div className="inner-page">
       <Seo

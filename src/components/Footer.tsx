@@ -48,6 +48,8 @@ export default function Footer() {
           <h4>Risorse</h4>
           <Link to="/partner">Partner</Link>
           <Link to="/news">News &amp; Eventi</Link>
+          <Link to="/avvisi-pubblici">Avvisi Pubblici</Link>
+          <Link to="/trasparenza">Società Trasparente</Link>
           <Link to="/hub">Accedi al Hub</Link>
         </div>
 
@@ -105,6 +107,10 @@ export default function Footer() {
 
       <div className="container footer__bottom">
         <span>&copy; {new Date().getFullYear()} Enviria S.C.A.R.L. Tutti i diritti riservati.</span>
+        <span className="footer__legal-links">
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/cookie-policy">Cookie Policy</Link>
+        </span>
         <span>enviriahub.it</span>
       </div>
     </footer>

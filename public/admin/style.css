@@ -1,0 +1,270 @@
+:root {
+  --forest: #0f3b30;
+  --forest-deep: #0a2b22;
+  --nature: #3a9d5d;
+  --blue: #1d4e89;
+  --tint: #e2efe5;
+  --border: #dfe7e2;
+  --ink: #122821;
+  --ink-soft: #4a5553;
+  --danger: #b3261e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
+  background: #f7faf8;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+}
+
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  width: 230px;
+  flex-shrink: 0;
+  background: var(--forest-deep);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+}
+
+.admin-sidebar__brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 12px;
+}
+
+.admin-sidebar__brand span {
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.admin-sidebar nav a,
+.admin-sidebar__logout,
+.admin-sidebar__back {
+  padding: 12px 20px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.92rem;
+}
+
+.admin-sidebar nav a:hover,
+.admin-sidebar__logout:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.admin-sidebar nav a.is-active {
+  background: var(--nature);
+  color: #06210f;
+  font-weight: 600;
+}
+
+.admin-sidebar__logout {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: auto;
+}
+
+.admin-sidebar__back {
+  font-size: 0.82rem;
+  opacity: 0.6;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 1100px;
+}
+
+.admin-main h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--forest-deep);
+}
+
+.admin-flash {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.92rem;
+}
+
+.admin-flash--success {
+  background: var(--tint);
+  color: var(--forest-deep);
+}
+
+.admin-flash--error {
+  background: #fbe9e7;
+  color: var(--danger);
+}
+
+.admin-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.admin-table th {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-table img {
+  max-width: 60px;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--forest-deep);
+  margin-bottom: 14px;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+  font: inherit;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fbfdfb;
+}
+
+.admin-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: none;
+  background: var(--nature);
+  color: #06210f;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.admin-btn--danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.admin-btn--outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+
+.admin-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: var(--tint);
+  color: var(--forest-deep);
+}
+
+.admin-badge--new {
+  background: #fde9d0;
+  color: #92400e;
+}
+
+.admin-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--forest-deep);
+}
+
+.admin-login__card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.admin-login__card h1 {
+  font-size: 1.3rem;
+  margin-top: 0;
+}
+
+.admin-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.admin-dashboard-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.admin-dashboard-card strong {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--forest);
+}

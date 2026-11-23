@@ -91,6 +91,16 @@
   margin: 0;
 }
 
+.footer__legal-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer__legal-links a:hover {
+  color: var(--color-forest);
+  text-decoration: underline;
+}
+
 .footer__funding {
   border-top: 1px solid var(--color-border);
   padding: 18px 0;
@@ -107,6 +117,8 @@
 .footer__bottom {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
   padding: 16px 24px;
   border-top: 1px solid var(--color-border);
   font-size: 0.8rem;

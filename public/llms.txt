@@ -11,6 +11,8 @@
 - [Partner](https://enviriahub.it/partner): la rete di partner interni, istituzionali, di ricerca e imprese che collaborano al progetto G.R.E.E.N – E.R.I.
 - [News & Eventi](https://enviriahub.it/news): novità, eventi e aggiornamenti sul progetto G.R.E.E.N – E.R.I. e sull'infrastruttura di ricerca ENVIRIA
 - [Chi Siamo](https://enviriahub.it/chi-siamo): ENVIRIA, Organismo di Ricerca e società consortile, la rete di partner ed enti di ricerca, i contatti
+- [Società Trasparente](https://enviriahub.it/trasparenza): accesso civico, informazioni ambientali e principio DNSH relativi al progetto G.R.E.E.N – E.R.I.
+- [Avvisi Pubblici](https://enviriahub.it/avvisi-pubblici): avvisi per il personale, Albo dei Fornitori e Long List Professionisti
 
 ## Contatti
 

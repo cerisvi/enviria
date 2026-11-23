@@ -1,60 +1,130 @@
 import { type FormEvent, useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
-import { LogIn } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Send } from 'lucide-react'
 import Mark from '../components/Mark'
-import { useHubAuth } from '../hub/useHubAuth'
+import './InnerPage.css'
 import './Hub.css'
 
+type FormStatus = 'idle' | 'sending' | 'success' | 'error'
+
+const requestTypes = [
+  'Collaborazione scientifica',
+  'Accesso ai dati dell’infrastruttura',
+  'Partnership progettuale',
+  'Altro',
+]
+
 export default function HubLogin() {
-  const { isAuthenticated, login } = useHubAuth()
-  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
-  if (isAuthenticated) {
-    return <Navigate to="/hub/dashboard" replace />
-  }
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    login(email || 'demo@enviriahub.it')
+    setStatus('sending')
+    setErrorMessage('')
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch('/hub-request.php', { method: 'POST', body: formData })
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+        setErrorMessage(data.message || 'Invio non riuscito. Riprova più tardi.')
+      }
+    } catch {
+      setStatus('error')
+      setErrorMessage(
+        'Impossibile contattare il server. Riprova più tardi o scrivi a direzione@enviriahub.it.',
+      )
+    }
   }
 
   return (
     <div className="hub-auth">
-      <div className="hub-auth__card card">
+      <div className="card hub-auth__card hub-auth__card--wide">
         <Link to="/" className="hub-auth__brand">
           <Mark size={30} />
           ENVIRIA <span>Hub</span>
         </Link>
 
-        <h1>Accedi al Hub</h1>
-        <p className="hub-auth__lead">
-          Area riservata a partner, enti di ricerca e collaboratori del progetto Green ERI.
-        </p>
+        {status === 'success' ? (
+          <>
+            <h1>Richiesta inviata!</h1>
+            <p className="hub-auth__lead">
+              Grazie per il tuo interesse. Il team ENVIRIA valuterà la tua richiesta e ti
+              risponderà via email per i passaggi successivi.
+            </p>
+          </>
+        ) : (
+          <>
+            <h1>Accedi al Hub</h1>
+            <p className="hub-auth__lead">
+              Area riservata a partner, enti di ricerca e collaboratori del progetto Green
+              ERI. L’accesso è su richiesta: compila il modulo e il team ENVIRIA ti
+              contatterà per attivarlo.
+            </p>
 
-        <form onSubmit={handleSubmit}>
-          <label>
-            Email
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder="nome@ente.it"
-            />
-          </label>
-          <label>
-            Password
-            <input type="password" required placeholder="••••••••" />
-          </label>
-          <button type="submit" className="btn btn-primary">
-            Accedi <LogIn size={16} />
-          </button>
-        </form>
-
-        <p className="hub-auth__disclaimer">
-          Accesso dimostrativo: qualsiasi credenziale valida come formato ti fa entrare
-          nell’anteprima del Hub. L’autenticazione reale sarà collegata in un secondo momento.
-        </p>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="contact-form__honeypot"
+                aria-hidden="true"
+              />
+              <label>
+                Nome e cognome
+                <input type="text" name="name" required placeholder="Mario Rossi" />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" required placeholder="nome@ente.it" />
+              </label>
+              <label>
+                Ente / organizzazione <span className="optional">(facoltativo)</span>
+                <input type="text" name="organization" placeholder="Università, azienda, ente..." />
+              </label>
+              <label>
+                Tipo di richiesta
+                <select name="requestType" required defaultValue="">
+                  <option value="" disabled>
+                    Seleziona…
+                  </option>
+                  {requestTypes.map((type) => (
+                    <option key={type} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Messaggio
+                <textarea
+                  name="message"
+                  rows={4}
+                  required
+                  placeholder="Descrivi brevemente la collaborazione o l’accesso richiesto..."
+                />
+              </label>
+              <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
+                {status === 'sending' ? 'Invio in corso…' : 'Invia richiesta'}
+                {status !== 'sending' && <Send size={16} />}
+              </button>
+              {status === 'error' && (
+                <p className="contact-form__error" role="alert">
+                  {errorMessage}
+                </p>
+              )}
+            </form>
+          </>
+        )}
 
         <Link to="/" className="hub-auth__back">
           ← Torna al sito

@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import Progetto from './pages/Progetto'
 import AiDataCenter from './pages/AiDataCenter'
@@ -11,8 +10,13 @@ import FilieraDelDato from './pages/FilieraDelDato'
 import Partner from './pages/Partner'
 import News from './pages/News'
 import ChiSiamo from './pages/ChiSiamo'
+import Trasparenza from './pages/Trasparenza'
+import AvvisiPubblici from './pages/AvvisiPubblici'
+import AlboFornitori from './pages/AlboFornitori'
+import LongListProfessionisti from './pages/LongListProfessionisti'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import CookiePolicy from './pages/CookiePolicy'
 import HubLogin from './pages/HubLogin'
-import HubDashboard from './pages/HubDashboard'
 import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
@@ -28,7 +32,7 @@ function ScrollToTop() {
 export default function App() {
   const location = useLocation()
   const { pathname } = location
-  const isHubStandalone = pathname === '/hub' || pathname.startsWith('/hub/dashboard')
+  const isHubStandalone = pathname === '/hub'
   const reduceMotion = useReducedMotion()
 
   return (
@@ -52,15 +56,16 @@ export default function App() {
               <Route path="/partner" element={<Partner />} />
               <Route path="/news" element={<News />} />
               <Route path="/chi-siamo" element={<ChiSiamo />} />
-              <Route path="/hub" element={<HubLogin />} />
+              <Route path="/trasparenza" element={<Trasparenza />} />
+              <Route path="/avvisi-pubblici" element={<AvvisiPubblici />} />
+              <Route path="/avvisi-pubblici/albo-fornitori" element={<AlboFornitori />} />
               <Route
-                path="/hub/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <HubDashboard />
-                  </ProtectedRoute>
-                }
+                path="/avvisi-pubblici/long-list-professionisti"
+                element={<LongListProfessionisti />}
               />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
+              <Route path="/hub" element={<HubLogin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </motion.div>

@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowRight, ArrowUpRight, Calendar, ChevronDown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import riverCanyon from '../assets/photos/river-canyon.webp'
 import Reveal from '../components/Reveal'
 import Seo from '../components/Seo'
-import { newsItems } from '../data/news'
+import { newsItems as fallbackNewsItems, type NewsItem } from '../data/news'
 import './InnerPage.css'
 import './News.css'
 
@@ -57,6 +57,26 @@ function NewsBody({ body }: { body: string[] }) {
 
 export default function News() {
   const [openSlug, setOpenSlug] = useState<string | null>(null)
+  // Contenuto di base (quello incluso nell'ultima build del sito): garantisce
+  // che la pagina non sia mai vuota per i crawler o se il database del
+  // pannello di gestione non è ancora configurato. Appena la fetch verso il
+  // pannello va a buon fine, i dati live la sostituiscono.
+  const [newsItems, setNewsItems] = useState<NewsItem[]>(fallbackNewsItems)
+
+  useEffect(() => {
+    fetch('/api/news.php')
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
+      .then((data: NewsItem[]) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setNewsItems(data)
+        }
+      })
+      .catch(() => {
+        // Database non ancora configurato o non raggiungibile: resta il
+        // contenuto di base già mostrato.
+      })
+  }, [])
+
   const sorted = [...newsItems].sort((a, b) => (a.date < b.date ? 1 : -1))
 
   return (

@@ -60,3 +60,43 @@ nella bento grid della Home, pulsanti pill-shaped (`.btn-primary`/`.btn-outline`
   (`.htaccess`) — attenzione a non escluderli con `zip -x ".*"`.
 - Anteprima disponibile anche su GitHub Pages (workflow
   `.github/workflows/deploy-pages.yml`), base path `/enviria/`.
+- **Non cancellare mai** `google*.html` / `BingSiteAuth.xml` dalla root `www`
+  durante un caricamento (verifica Search Console / Bing Webmaster Tools).
+
+## Pannello di gestione (PHP + MySQL) — `public/admin/` e `public/api/`
+
+Il sito è un'SPA statica, ma **News & Eventi, Partner, Avvisi per il
+personale e le richieste ricevute dai moduli** (Albo Fornitori, Long List
+Professionisti, richiesta Hub) sono gestiti da un pannello admin
+PHP + MySQL, non più da file statici in `src/data/`.
+
+- `public/admin/schema.sql`: schema completo + dati di partenza (da
+  importare una sola volta nel DB MySQL di Shellrent).
+- `public/admin/config.php`: credenziali DB (host/nome/utente/password) —
+  **mai committare credenziali reali**, solo i placeholder.
+- `public/admin/*.php`: pannello riservato (login, CRUD per ciascuna
+  sezione, upload immagini in `public/admin/uploads/`). Protetto da
+  login + CSRF token; `robots.txt` esclude `/admin/` e `/api/`.
+- `public/api/{news,partners,avvisi}.php`: endpoint pubblici di sola
+  lettura in JSON, consumati dal frontend React.
+- `src/pages/News.tsx`, `Partner.tsx`, `AvvisiPubblici.tsx`: al mount
+  fanno `fetch()` verso questi endpoint e sostituiscono il contenuto
+  mostrato. **Il contenuto di partenza resta quello statico** importato da
+  `src/data/news.ts` / `src/data/partners.ts` (fallback): garantisce che la
+  pagina non sia mai vuota per i crawler o se il DB non è ancora
+  configurato. Quando si aggiungono/rimuovono news o partner dal pannello,
+  questi file statici NON si aggiornano da soli — sono solo lo stato
+  "congelato" dell'ultima build e serviranno da sfondo di sicurezza finché
+  non vengono rigenerati o sostituiti in un prossimo giro di lavoro.
+- `public/{contact,hub-request,albo-fornitori,long-list-professionisti}.php`
+  + `public/mailer-helpers.php`: inviano sempre l'email a
+  direzione@enviriahub.it e, se il DB è configurato, salvano **anche** la
+  richiesta nel pannello (`tryInsertSubmission`, fallisce in silenzio se il
+  DB non è pronto — non deve mai bloccare l'invio email).
+- **Limite noto**: il pre-rendering (`npm run prerender`) gira in locale
+  senza PHP, quindi le pagine News/Partner/Avvisi pre-renderizzate per i
+  crawler mostrano il contenuto di fallback (statico), non quello live dal
+  DB. Per aggiornarle davvero serve una nuova build+deploy.
+- Dopo l'import di `schema.sql`, l'utente deve creare il primo
+  amministratore da `/admin/setup.php` (si disattiva da sola dopo il primo
+  utente) e poi eliminare quel file dal server per sicurezza.

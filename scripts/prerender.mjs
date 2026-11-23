@@ -20,6 +20,12 @@ const routes = [
   '/partner',
   '/news',
   '/chi-siamo',
+  '/trasparenza',
+  '/avvisi-pubblici',
+  '/avvisi-pubblici/albo-fornitori',
+  '/avvisi-pubblici/long-list-professionisti',
+  '/privacy-policy',
+  '/cookie-policy',
 ]
 
 const mimeTypes = {
