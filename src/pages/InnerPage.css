@@ -434,12 +434,12 @@
 }
 
 .contact-form__honeypot {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  /* display:none (anziché il solo "visually hidden") esclude il campo dal
+     motore di autocompilazione dei browser: con la sola tecnica "clip" il
+     campo restava "presente" e Chrome lo riempiva con dati salvati
+     (es. un indirizzo), facendo scattare per errore la protezione anti-spam
+     anche per invii reali da parte di persone. */
+  display: none;
 }
 
 .contact-form__error {
