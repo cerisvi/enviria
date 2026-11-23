@@ -12,6 +12,8 @@ const links = [
   { to: '/filiera-del-dato', label: 'Filiera del Dato' },
   { to: '/partner', label: 'Partner' },
   { to: '/news', label: 'News' },
+  { to: '/trasparenza', label: 'Trasparenza' },
+  { to: '/avvisi-pubblici', label: 'Avvisi Pubblici' },
   { to: '/chi-siamo', label: 'Chi siamo' },
 ]
 
